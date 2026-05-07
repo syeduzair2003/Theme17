@@ -11,7 +11,7 @@ const PromotionsPage = async ({ promotionSlug }: { promotionSlug: string }) => {
   const promotions = (await apiGetAllPromotion(companyDomain)).data;
 
   return (
-    <div className="bg-[#050505] min-h-screen text-white selection:bg-orange-500/30">
+    <div className="bg-[#110e0c] min-h-screen text-white selection:bg-orange-500/30">
       {/* Breadcrumb section is untouched as requested */}
       <BreadcrumbSection
         title={"Trending Promotions"}

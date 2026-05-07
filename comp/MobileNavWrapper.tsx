@@ -67,7 +67,7 @@ export default function MobileNavWrapper({
     sectionName: string,
     items: any[],
     renderLink: (item: any) => { href: string; label: string },
-    viewAllHref?: string
+    viewAllHref?: string,
   ) => {
     if (!items || !Array.isArray(items) || items.length === 0) return null;
     return (
@@ -77,17 +77,23 @@ export default function MobileNavWrapper({
           onClick={() => handleToggleSection(sectionName)}
         >
           <span className="text-[14px]">{title}</span>
-          <div className={`w-6 h-6 rounded-full flex items-center justify-center transition-colors ${openSection === sectionName ? 'bg-[#8bc94a] text-white' : 'bg-gray-100 text-gray-500'}`}>
+          <div
+            className={`w-6 h-6 rounded-full flex items-center justify-center transition-colors ${openSection === sectionName ? "bg-[#8bc94a] text-white" : "bg-gray-100 text-gray-500"}`}
+          >
             <FontAwesomeIcon
               icon={faChevronDown}
-              className={`w-3 h-3 transition-transform duration-300 ${openSection === sectionName ? "rotate-180" : ""
-                }`}
+              className={`w-3 h-3 transition-transform duration-300 ${
+                openSection === sectionName ? "rotate-180" : ""
+              }`}
             />
           </div>
         </div>
         <div
-          className={`overflow-hidden transition-all duration-300 ease-in-out bg-[#F4F7F6]/50 ${openSection === sectionName ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
-            }`}
+          className={`overflow-hidden transition-all duration-300 ease-in-out bg-[#F4F7F6]/50 ${
+            openSection === sectionName
+              ? "max-h-[500px] opacity-100"
+              : "max-h-0 opacity-0"
+          }`}
         >
           <ul className="py-2 px-6 flex flex-col gap-1">
             {items.slice(0, 10).map((item, i) => {
@@ -129,43 +135,62 @@ export default function MobileNavWrapper({
         aria-label="Toggle mobile menu"
         onClick={toggle}
         style={{
-          display: 'flex',
-          width: '44px',
-          height: '44px',
-          alignItems: 'center',
-          justifyContent: 'center',
-          background: '#f4f9f0',
-          border: '1px solid rgba(139,201,74,0.3)',
-          borderRadius: '12px',
-          color: '#8bc94a',
-          cursor: 'pointer',
+          display: "flex",
+          width: "44px",
+          height: "44px",
+          alignItems: "center",
+          justifyContent: "center",
+          background: "#f4f9f0",
+          border: "1px solid rgba(139,201,74,0.3)",
+          borderRadius: "12px",
+          color: "#8bc94a",
+          cursor: "pointer",
           flexShrink: 0,
-          marginLeft: '8px',
-          marginRight: '8px',
-          position: 'relative',
+          marginLeft: "8px",
+          marginRight: "8px",
+          position: "relative",
           zIndex: 20010,
         }}
       >
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" style={{ width: '24px', height: '24px' }}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16m-16 6h16" />
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth={2.5}
+          stroke="currentColor"
+          style={{ width: "24px", height: "24px" }}
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M4 6h16M4 12h16m-16 6h16"
+          />
         </svg>
       </button>
 
       {/* Overlay */}
       <div
-        className={`fixed inset-0 z-[1050] bg-[#111]/40 backdrop-blur-sm transition-all duration-400 ease-in-out ${isOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
-          }`}
+        className={`fixed inset-0 z-[1050] bg-[#111]/40 backdrop-blur-sm transition-all duration-400 ease-in-out ${
+          isOpen
+            ? "opacity-100 visible"
+            : "opacity-0 invisible pointer-events-none"
+        }`}
         onClick={closeMenu}
       />
 
       {/* Drawer */}
       <aside
-        className={`fixed top-0 left-0 h-full w-[82vw] max-w-[340px] z-[1100] flex flex-col bg-[#FAFBF9] shadow-2xl shadow-black/20 transition-transform duration-400 ease-in-out ${isOpen ? "translate-x-0" : "-translate-x-full"
-          }`}
+        className={`fixed top-0 left-0 h-full w-[82vw] max-w-[340px] z-[1100] flex flex-col bg-[#FAFBF9] shadow-2xl shadow-black/20 transition-transform duration-400 ease-in-out ${
+          isOpen ? "translate-x-0" : "-translate-x-full"
+        }`}
       >
         {/* Header */}
         <div className="flex items-center justify-between p-5 border-b border-gray-100 bg-white rounded-tr-2xl">
-          <Link href="/" onClick={closeMenu} className="block relative h-10 w-28">
+          <Link
+            href="/"
+            onClick={closeMenu}
+            className="block relative h-10 w-28"
+          >
             <Image
               src={companyLogo || "/themes/Theme_3/images/logo.png"}
               alt="Logo"
@@ -187,7 +212,11 @@ export default function MobileNavWrapper({
         {isOpen && (
           <div className="p-4 pb-3 bg-gray-50/50 border-b border-gray-100 relative z-[1200]">
             <div className="pointer-events-auto w-full relative">
-              <React.Suspense fallback={<div className="w-full h-10 bg-gray-100 animate-pulse rounded-xl"></div>}>
+              <React.Suspense
+                fallback={
+                  <div className="w-full h-10 bg-gray-100 animate-pulse rounded-xl"></div>
+                }
+              >
                 <LazyNavSearch
                   companyId={companyId}
                   mer_slug={mer_slug}
@@ -212,25 +241,49 @@ export default function MobileNavWrapper({
                 </Link>
               </li>
 
-              {renderSection("Stores", "stores", merchantData, (m) => ({
-                href: getMerchantHref(m, mer_slug, mer_slug_type),
-                label: m.merchant_name,
-              }), "/all-stores/A")}
+              {renderSection(
+                "Stores",
+                "stores",
+                merchantData,
+                (m) => ({
+                  href: getMerchantHref(m, mer_slug, mer_slug_type),
+                  label: m.merchant_name,
+                }),
+                "/all-stores/A",
+              )}
 
-              {renderSection("Categories", "categories", categories, (c) => ({
-                href: `/${c?.url || c?.category_slug}`,
-                label: c.name || c.category_name,
-              }), `/${cat_slug}`)}
+              {renderSection(
+                "Categories",
+                "categories",
+                categories,
+                (c) => ({
+                  href: `/${c?.url || c?.category_slug}`,
+                  label: c.name || c.category_name,
+                }),
+                `/${cat_slug}`,
+              )}
 
-              {renderSection("Events", "events", events, (e) => ({
-                href: getEventsHref(e, "slug"),
-                label: e.name,
-              }), "/events")}
+              {renderSection(
+                "Events",
+                "events",
+                events,
+                (e) => ({
+                  href: getEventsHref(e, "slug"),
+                  label: e.name,
+                }),
+                "/events",
+              )}
 
-              {renderSection("Promotions", "promotions", promotions, (p) => ({
-                href: getPromotionHref(p, promo_slug),
-                label: p.name,
-              }), `/${promo_slug}`)}
+              {renderSection(
+                "Promotions",
+                "promotions",
+                promotions,
+                (p) => ({
+                  href: getPromotionHref(p, promo_slug),
+                  label: p.name,
+                }),
+                `/${promo_slug}`,
+              )}
 
               <li className="border-b border-gray-100">
                 <div
@@ -238,17 +291,23 @@ export default function MobileNavWrapper({
                   onClick={() => handleToggleSection("products")}
                 >
                   <span className="text-[14px]">Products</span>
-                  <div className={`w-6 h-6 rounded-full flex items-center justify-center transition-colors ${openSection === "products" ? 'bg-[#8bc94a] text-white' : 'bg-gray-100 text-gray-500'}`}>
+                  <div
+                    className={`w-6 h-6 rounded-full flex items-center justify-center transition-colors ${openSection === "products" ? "bg-[#8bc94a] text-white" : "bg-gray-100 text-gray-500"}`}
+                  >
                     <FontAwesomeIcon
                       icon={faChevronDown}
-                      className={`w-3 h-3 transition-transform duration-300 ${openSection === "products" ? "rotate-180" : ""
-                        }`}
+                      className={`w-3 h-3 transition-transform duration-300 ${
+                        openSection === "products" ? "rotate-180" : ""
+                      }`}
                     />
                   </div>
                 </div>
                 <div
-                  className={`overflow-hidden transition-all duration-300 ease-in-out bg-[#F4F7F6]/50 ${openSection === "products" ? "max-h-[200px] opacity-100" : "max-h-0 opacity-0"
-                    }`}
+                  className={`overflow-hidden transition-all duration-300 ease-in-out bg-[#F4F7F6]/50 ${
+                    openSection === "products"
+                      ? "max-h-[200px] opacity-100"
+                      : "max-h-0 opacity-0"
+                  }`}
                 >
                   <ul className="py-2 px-6">
                     <li>
@@ -294,4 +353,4 @@ export default function MobileNavWrapper({
 }
 
 // Lazy load NavSearch to avoid useSearchParams crash
-const LazyNavSearch = React.lazy(() => import('./NavSearch'));
+const LazyNavSearch = React.lazy(() => import("./NavSearch"));

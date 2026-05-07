@@ -84,7 +84,7 @@ const CatPage = async ({ company_id }: Props) => {
     };
 
     return (
-        <section className="py-12 lg:py-20 bg-[#1a1612] min-h-screen relative overflow-hidden">
+        <section className="py-12 lg:py-20 bg-[#110e0c] min-h-screen relative overflow-hidden">
             {/* Background Accent Orbs for continuity */}
             <div className="absolute top-1/4 left-0 w-96 h-96 bg-[#FF5F1F]/[0.02] rounded-full blur-[100px] pointer-events-none"></div>
             <div className="absolute bottom-1/4 right-0 w-80 h-80 bg-[#FF5F1F]/[0.02] rounded-full blur-[100px] pointer-events-none"></div>

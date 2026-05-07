@@ -10,7 +10,7 @@ const page = async () => {
   const events = (await apiGetAllEvents(companyDomain)).data;
 
   return (
-    <div className="bg-[#0b0a09] min-h-screen text-white font-sans">
+    <div className="bg-[#110e0c] min-h-screen text-white font-sans">
       <BreadcrumbSection
         title="Events"
         breadcrumbs={[
