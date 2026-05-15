@@ -38,7 +38,7 @@ const PopularCoupons = async ({ companyId, mer_slug_type, mer_slug }: Props) => 
 
       <div className="container mx-auto px-4 relative z-10">
         
-        {/* ── Header Section (Styled from image_f18518.png) ── */}
+        {/* Header Section */}
         <div className="mb-10">
           {/* Badge and Decorative Line Row */}
           <div className="flex items-center gap-4 mb-5">

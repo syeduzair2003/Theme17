@@ -1,9 +1,9 @@
-import React from 'react';
-import Link from 'next/link';
-import { apiGetTopMerchants } from '@/apis/page_optimization';
-import { splitHeading } from '@/constants/hooks';
-import TopMerchants from './TopMerchants';
-import { ArrowRight, Zap } from 'lucide-react';
+import React from "react";
+import Link from "next/link";
+import { apiGetTopMerchants } from "@/apis/page_optimization";
+import { splitHeading } from "@/constants/hooks";
+import TopMerchants from "./TopMerchants";
+import { ArrowRight, Zap } from "lucide-react";
 
 interface Props {
   companyId: string;
@@ -11,7 +11,11 @@ interface Props {
   mer_slug_type: string;
 }
 
-const MerchantsCarousel = async ({ companyId, mer_slug, mer_slug_type }: Props) => {
+const MerchantsCarousel = async ({
+  companyId,
+  mer_slug,
+  mer_slug_type,
+}: Props) => {
   const merchants = await apiGetTopMerchants(companyId);
 
   const widget = merchants?.data?.top_merchants_widget;
@@ -19,8 +23,9 @@ const MerchantsCarousel = async ({ companyId, mer_slug, mer_slug_type }: Props) 
 
   if (!merchantList || merchantList.length === 0) return null;
 
-  const heading = widget?.widget_heading ?? 'Verified Stores & Brands';
-  const subText = widget?.widget_text ?? 'Curated coupon codes from your favourite retailers';
+  const heading = widget?.widget_heading ?? "Verified Stores & Brands";
+  const subText =
+    widget?.widget_text ?? "Curated coupon codes from your favourite retailers";
   const [firstWord, restWords] = splitHeading(heading);
 
   return (
@@ -29,10 +34,8 @@ const MerchantsCarousel = async ({ companyId, mer_slug, mer_slug_type }: Props) 
       className="relative w-full py-12 md:py-16 bg-[#F9F9F9] border-y border-black/[0.03]"
     >
       <div className="container relative z-10 mx-auto px-4 lg:px-6">
-        
         {/* ── Compact Header Row ── */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-10">
-          
           <div className="max-w-xl">
             {/* Minimal Eyebrow */}
             <div className="flex items-center gap-2 mb-2">
@@ -65,7 +68,10 @@ const MerchantsCarousel = async ({ companyId, mer_slug, mer_slug_type }: Props) 
               className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-wider px-6 py-2.5 rounded-lg border border-black/5 text-white bg-[#0D0D0D] hover:bg-[#FF5F1F] transition-all duration-300 group"
             >
               <span>View All</span>
-              <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+              <ArrowRight
+                size={14}
+                className="group-hover:translate-x-1 transition-transform"
+              />
             </Link>
           </div>
         </div>
@@ -78,7 +84,6 @@ const MerchantsCarousel = async ({ companyId, mer_slug, mer_slug_type }: Props) 
             mer_slug_type={mer_slug_type}
           />
         </div>
-
       </div>
     </section>
   );

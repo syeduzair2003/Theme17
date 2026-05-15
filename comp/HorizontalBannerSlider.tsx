@@ -31,7 +31,6 @@ const HorizontalBannerSlider = ({
   const latestRequest = useRef(0);
   const MAX_EMPTY_ATTEMPTS = 1;
   const emptyAttempts = useRef(0);
-  // 1. Ref and state for intersection observer
   const sliderSectionRef = useRef<HTMLElement | null>(null);
   const [sliderInView, setSliderInView] = useState(false);
   const [isSliderReady, setIsSliderReady] = useState(false);

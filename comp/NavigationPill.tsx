@@ -86,7 +86,7 @@ export default function NavigationPill({
           Categories
           <FontAwesomeIcon icon={faChevronDown} className="w-2.5 h-2.5 transition-transform duration-300 group-hover:rotate-180" />
         </Link>
-        {/* Dropdown Categories - Luxury Night UI */}
+        {/* Dropdown Categories */}
         <div className="absolute left-1/2 -translate-x-1/2 top-full pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 w-max z-[100]">
           <div className="bg-[#1A1A1A] rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.7)] border border-white/10 p-5 w-[480px] flex flex-wrap gap-2 backdrop-blur-2xl">
             {categories?.length > 0 ? (

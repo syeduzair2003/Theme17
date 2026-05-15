@@ -107,7 +107,7 @@ const Footer = async ({
   return (
     <footer className="w-full bg-[#0a0a0a] text-slate-300 py-16 md:py-24 relative mt-auto border-t border-white/5">
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
-        {/* ── Main Grid ── */}
+        {/* Main Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-y-12 gap-x-12 mb-16">
           {/* Brand Section */}
           <div className="lg:col-span-4 flex flex-col gap-6">

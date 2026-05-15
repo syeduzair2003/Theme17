@@ -46,7 +46,7 @@ const MerchantProductsPage = async ({
         ]}
       />
 
-      {/* ─── CATEGORY NAVIGATION (Seamless Top Bar) ─── */}
+      {/* CATEGORY NAVIGATION */}
       {cat?.length > 0 && (
         <div className="border-b border-gray-100 bg-white/80 backdrop-blur-md sticky top-0 z-40">
           <MerchantCategorySlider
@@ -109,7 +109,6 @@ const MerchantProductsPage = async ({
               ))}
             </EventsGrid>
           ) : (
-            /* Clean Minimalist Empty State */
             <div className="py-24 text-center bg-[#fcfcfc] rounded-[3rem] border border-gray-100">
               <div className="w-16 h-16 bg-white rounded-full shadow-sm flex items-center justify-center mx-auto mb-4 border border-gray-50">
                 <span className="text-2xl">🔍</span>

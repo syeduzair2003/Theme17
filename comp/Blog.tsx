@@ -12,7 +12,6 @@ interface Props {
 const BlogShow = ({ data }: { data: FooterResponse }) => {
   return (
     <div className="group relative flex flex-col h-full bg-white/[0.03] backdrop-blur-md rounded-3xl border border-white/5 transition-all duration-500 hover:border-orange-500/40 hover:shadow-[0_20px_50px_rgba(249,115,22,0.05)] overflow-hidden">
-      {/* Orange accent line on top hover */}
       <div className="absolute top-0 left-0 w-0 h-[2px] bg-orange-500 transition-all duration-500 group-hover:w-full" />
 
       <div className="p-6 md:p-8 flex flex-col h-full relative z-10">
@@ -25,7 +24,6 @@ const BlogShow = ({ data }: { data: FooterResponse }) => {
           </Link>
         </div>
 
-        {/* Excerpt */}
         <div className="text-[13px] md:text-[14px] text-slate-400 line-clamp-3 leading-relaxed flex-grow font-medium italic">
           {discardHTMLTags(data.text)}
         </div>
@@ -72,8 +70,6 @@ const Blog = async ({ companyId, blog_url }: Props) => {
       aria-label="Blog Section"
       className="relative w-full py-12 md:py-16 lg:py-24 bg-[#1a1612] overflow-hidden"
     >
-      {/* Orange Background Glow REMOVED as requested */}
-
       <div className="container mx-auto px-4 relative z-10">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
           <div className="flex-1 min-w-0">

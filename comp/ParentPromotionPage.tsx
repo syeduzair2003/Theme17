@@ -102,7 +102,6 @@ const ParentPromotionPage = async ({ params }: { params: string }) => {
                     href="/"
                     className="flex items-center text-gray-500 hover:text-[#ff912f] transition-all duration-300 no-underline group/home"
                   >
-                    {/* Icon logic: Only changes on Home hover */}
                     <svg
                       className="w-3.5 h-3.5 mr-1.5 mb-0.5 text-gray-600 transition-all duration-300 group-hover/home:text-[#ff912f] group-hover/home:scale-110"
                       fill="none"
@@ -218,7 +217,7 @@ const ParentPromotionPage = async ({ params }: { params: string }) => {
           </div>
         </section>
       )}
-      {/* ─── ULTRA-PREMIUM DARK OFFERS GRID ─── */}
+      {/* OFFERS GRID */}
       <section className={isLongDescription ? "pb-12 mt-12" : "pb-24 mt-20"}>
         <div className="container mx-auto px-4">
           <div className="flex flex-col gap-12">
@@ -237,14 +236,12 @@ const ParentPromotionPage = async ({ params }: { params: string }) => {
                   Featured <span className="text-[#ff912f]">Savings</span>
                 </h2>
 
-                {/* Modern Double Accent Line */}
                 <div className="flex items-center gap-2 mt-2">
                   <div className="w-12 h-1 bg-[#ff912f] rounded-full" />
                   <div className="w-2 h-1 bg-gray-200 rounded-full" />
                 </div>
               </div>
 
-              {/* Static Glassmorphism Deal Count Badge (Hover Effect Removed) */}
               {allOffers.length > 0 && (
                 <div className="bg-[#111318] border border-white/5 backdrop-blur-md text-white px-8 py-3 rounded-2xl text-[12px] font-black uppercase tracking-widest shadow-2xl">
                   {allOffers.length} Live Offers Available
@@ -252,7 +249,7 @@ const ParentPromotionPage = async ({ params }: { params: string }) => {
               )}
             </div>
 
-            {/* Grid Container - Logic untouched */}
+            {/* Grid Container */}
             <div className="relative pt-4">
               <EventsGrid>
                 {allOffers.map((item, index) => (
@@ -308,7 +305,7 @@ const ParentPromotionPage = async ({ params }: { params: string }) => {
         </div>
       </section>
 
-      {/* ─── TOP RATED MERCHANTS SECTION (Server Side) ─── */}
+      {/* TOP RATED MERCHANTS SECTION */}
       {promotion?.merchants && promotion.merchants.length > 0 && (
         <section className="pb-24 overflow-hidden">
           <div className="container mx-auto px-4">

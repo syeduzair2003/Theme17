@@ -2,12 +2,13 @@
 import React, { useState, useEffect, Suspense } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import {
-  getMerchantHref,
-  getPromotionHref,
-} from "@/constants/hooks";
+import { getMerchantHref, getPromotionHref } from "@/constants/hooks";
 import { FontAwesomeIcon } from "@/constants/icons";
-import { faChevronDown, faTimes, faBars } from "@fortawesome/free-solid-svg-icons";
+import {
+  faChevronDown,
+  faTimes,
+  faBars,
+} from "@fortawesome/free-solid-svg-icons";
 import NavSearch from "./NavSearch";
 
 interface Props {
@@ -72,7 +73,7 @@ export default function MobileNavMenu({
     sectionName: string,
     items: any[],
     renderLink: (item: any) => { href: string; label: string },
-    viewAllHref?: string
+    viewAllHref?: string,
   ) => {
     if (!items || !Array.isArray(items) || items.length === 0) return null;
     return (
@@ -82,7 +83,9 @@ export default function MobileNavMenu({
           onClick={() => handleToggleSection(sectionName)}
         >
           <span className="text-[14px]">{title}</span>
-          <div className={`w-6 h-6 rounded-full flex items-center justify-center transition-colors ${openSection === sectionName ? 'bg-[#8bc94a] text-white' : 'bg-gray-100 text-gray-500'}`}>
+          <div
+            className={`w-6 h-6 rounded-full flex items-center justify-center transition-colors ${openSection === sectionName ? "bg-[#8bc94a] text-white" : "bg-gray-100 text-gray-500"}`}
+          >
             <FontAwesomeIcon
               icon={faChevronDown}
               className={`w-3 h-3 transition-transform duration-300 ${
@@ -93,7 +96,9 @@ export default function MobileNavMenu({
         </div>
         <div
           className={`overflow-hidden transition-all duration-300 ease-in-out bg-[#F4F7F6]/50 ${
-            openSection === sectionName ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+            openSection === sectionName
+              ? "max-h-[500px] opacity-100"
+              : "max-h-0 opacity-0"
           }`}
         >
           <ul className="py-2 px-6 flex flex-col gap-1">
@@ -134,30 +139,41 @@ export default function MobileNavMenu({
         type="button"
         aria-label="Toggle mobile menu"
         onClick={toggle}
-        style={{ 
-          display: 'flex',
-          visibility: 'visible',
+        style={{
+          display: "flex",
+          visibility: "visible",
           opacity: 1,
           zIndex: 20010,
-          pointerEvents: 'auto',
-          minWidth: '44px',
-          width: '44px',
-          height: '44px',
-          alignItems: 'center',
-          justifyContent: 'center',
-          background: '#f4f9f0',
-          border: '1px solid rgba(139,201,74,0.3)',
-          borderRadius: '12px',
-          color: '#8bc94a',
-          position: 'relative',
-          marginLeft: '8px',
-          marginRight: '8px',
-          cursor: 'pointer',
-          flexShrink: 0
+          pointerEvents: "auto",
+          minWidth: "44px",
+          width: "44px",
+          height: "44px",
+          alignItems: "center",
+          justifyContent: "center",
+          background: "#f4f9f0",
+          border: "1px solid rgba(139,201,74,0.3)",
+          borderRadius: "12px",
+          color: "#8bc94a",
+          position: "relative",
+          marginLeft: "8px",
+          marginRight: "8px",
+          cursor: "pointer",
+          flexShrink: 0,
         }}
       >
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" style={{ width: '24px', height: '24px' }}>
-           <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16m-16 6h16" />
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth={2.5}
+          stroke="currentColor"
+          style={{ width: "24px", height: "24px" }}
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M4 6h16M4 12h16m-16 6h16"
+          />
         </svg>
       </button>
 
@@ -177,7 +193,11 @@ export default function MobileNavMenu({
       >
         {/* Header */}
         <div className="flex items-center justify-between p-5 border-b border-gray-100 bg-white rounded-tr-2xl">
-          <Link href="/" onClick={closeMenu} className="block relative h-10 w-28">
+          <Link
+            href="/"
+            onClick={closeMenu}
+            className="block relative h-10 w-28"
+          >
             <Image
               src={companyLogo || "/themes/Theme_3/images/logo.png"}
               alt="Logo"
@@ -195,10 +215,14 @@ export default function MobileNavMenu({
           </button>
         </div>
 
-        {/* Search container pulled OUT of scroll area so dropdown isn't clipped */}
+        {/* Search container */}
         <div className="p-4 pb-3 bg-gray-50/50 border-b border-gray-100 relative z-[1200]">
           <div className="pointer-events-auto w-full relative">
-            <React.Suspense fallback={<div className="w-full h-10 bg-gray-100 animate-pulse rounded-xl"></div>}>
+            <React.Suspense
+              fallback={
+                <div className="w-full h-10 bg-gray-100 animate-pulse rounded-xl"></div>
+              }
+            >
               <NavSearch
                 companyId={companyId}
                 mer_slug={mer_slug}
@@ -222,25 +246,49 @@ export default function MobileNavMenu({
                 </Link>
               </li>
 
-              {renderSection("Stores", "stores", merchantData, (m) => ({
-                href: getMerchantHref(m, mer_slug, mer_slug_type),
-                label: m.merchant_name,
-              }), "/all-stores/A")}
+              {renderSection(
+                "Stores",
+                "stores",
+                merchantData,
+                (m) => ({
+                  href: getMerchantHref(m, mer_slug, mer_slug_type),
+                  label: m.merchant_name,
+                }),
+                "/all-stores/A",
+              )}
 
-              {renderSection("Categories", "categories", categories, (c) => ({
-                href: `/${c?.url || c?.category_slug}`,
-                label: c.name || c.category_name,
-              }), `/${cat_slug}`)}
+              {renderSection(
+                "Categories",
+                "categories",
+                categories,
+                (c) => ({
+                  href: `/${c?.url || c?.category_slug}`,
+                  label: c.name || c.category_name,
+                }),
+                `/${cat_slug}`,
+              )}
 
-              {renderSection("Events", "events", events, (e) => ({
-                href: getPromotionHref(e, promo_slug),
-                label: e.name,
-              }), "/events")}
+              {renderSection(
+                "Events",
+                "events",
+                events,
+                (e) => ({
+                  href: getPromotionHref(e, promo_slug),
+                  label: e.name,
+                }),
+                "/events",
+              )}
 
-              {renderSection("Promotions", "promotions", promotions, (p) => ({
-                href: getPromotionHref(p, promo_slug),
-                label: p.name,
-              }), `/${promo_slug}`)}
+              {renderSection(
+                "Promotions",
+                "promotions",
+                promotions,
+                (p) => ({
+                  href: getPromotionHref(p, promo_slug),
+                  label: p.name,
+                }),
+                `/${promo_slug}`,
+              )}
 
               <li className="border-b border-gray-100">
                 <div
@@ -248,7 +296,9 @@ export default function MobileNavMenu({
                   onClick={() => handleToggleSection("products")}
                 >
                   <span className="text-[14px]">Products</span>
-                  <div className={`w-6 h-6 rounded-full flex items-center justify-center transition-colors ${openSection === "products" ? 'bg-[#8bc94a] text-white' : 'bg-gray-100 text-gray-500'}`}>
+                  <div
+                    className={`w-6 h-6 rounded-full flex items-center justify-center transition-colors ${openSection === "products" ? "bg-[#8bc94a] text-white" : "bg-gray-100 text-gray-500"}`}
+                  >
                     <FontAwesomeIcon
                       icon={faChevronDown}
                       className={`w-3 h-3 transition-transform duration-300 ${
@@ -259,7 +309,9 @@ export default function MobileNavMenu({
                 </div>
                 <div
                   className={`overflow-hidden transition-all duration-300 ease-in-out bg-[#F4F7F6]/50 ${
-                    openSection === "products" ? "max-h-[200px] opacity-100" : "max-h-0 opacity-0"
+                    openSection === "products"
+                      ? "max-h-[200px] opacity-100"
+                      : "max-h-0 opacity-0"
                   }`}
                 >
                   <ul className="py-2 px-6">

@@ -48,7 +48,7 @@ const HeroSection = ({ keywords, mer_slug, cat_slug }: Props) => {
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveIndex((current) => (current + 1) % luxuryHotels.length);
-    }, 4000); 
+    }, 4000);
     return () => clearInterval(interval);
   }, []);
 

@@ -52,31 +52,30 @@ const TrendingProductsCard = async ({
 
   return (
     <div className="group relative flex flex-col bg-[#1a1612] rounded-[1.5rem] overflow-hidden transition-all duration-500 hover:-translate-y-1.5 w-full h-full border border-white/5 hover:border-orange-500/40 flex-grow shadow-2xl">
-      
       {/* ── Top Image Section ── */}
       <div className="relative w-full h-[170px] sm:h-[190px] bg-[#14110e] flex-shrink-0 overflow-hidden">
         {/* Subtle Ambient Light Overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-orange-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
-        
+
         {/* Time Left - Dark Themed Badge */}
         <div className="absolute top-3 left-3 bg-[#1a1612]/90 backdrop-blur-md border border-white/10 text-orange-500 text-[9px] font-bold px-2.5 py-1 rounded-lg z-20 shadow-md uppercase tracking-tight">
-            {calculateOfferDuration(product?.end_date)}
+          {calculateOfferDuration(product?.end_date)}
         </div>
-        
+
         {/* Sale Badge - Signature Orange */}
         {finalDiscountTag && (
-            <div className="absolute top-3 right-3 bg-orange-600 text-white text-[9px] font-black px-2.5 py-1 rounded-lg z-20 shadow-lg flex items-center gap-1 uppercase tracking-wider">
-                <FontAwesomeIcon icon={faFire} className="w-2.5 h-2.5" />
-                {finalDiscountTag}
-            </div>
+          <div className="absolute top-3 right-3 bg-orange-600 text-white text-[9px] font-black px-2.5 py-1 rounded-lg z-20 shadow-lg flex items-center gap-1 uppercase tracking-wider">
+            <FontAwesomeIcon icon={faFire} className="w-2.5 h-2.5" />
+            {finalDiscountTag}
+          </div>
         )}
 
         <Image
-            src={imageSrc}
-            alt={product?.offer_title || "Offer"}
-            fill
-            className="object-contain p-7 z-0 transition-transform duration-700 group-hover:scale-105" 
-            sizes="(max-width: 480px) 80vw, (max-width: 768px) 45vw, (max-width: 1024px) 30vw, 20vw"
+          src={imageSrc}
+          alt={product?.offer_title || "Offer"}
+          fill
+          className="object-contain p-7 z-0 transition-transform duration-700 group-hover:scale-105"
+          sizes="(max-width: 480px) 80vw, (max-width: 768px) 45vw, (max-width: 1024px) 30vw, 20vw"
         />
       </div>
 

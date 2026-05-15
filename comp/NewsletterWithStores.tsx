@@ -83,7 +83,7 @@ const NewsletterWithStores = ({
               </span>
             </div>
 
-            {/* Main Heading - Restored to your original version */}
+            {/* Main Heading */}
             <h2 className="text-3xl md:text-5xl font-black text-slate-800 leading-[0.95] italic tracking-tighter uppercase mb-8">
               Never Miss a <br />
               <span className="text-orange-500 not-italic">Golden Deal</span>
@@ -97,7 +97,6 @@ const NewsletterWithStores = ({
               to your inbox.
             </p>
 
-            {/* Subscription Form */}
             <form
               onSubmit={handleSubscribe}
               className="relative flex flex-col sm:flex-row items-stretch sm:items-center bg-white rounded-2xl p-2 border border-slate-200 group focus-within:border-orange-500/50 focus-within:shadow-[0_20px_50px_-15px_rgba(249,115,22,0.15)] transition-all duration-500 gap-3 max-w-lg"
