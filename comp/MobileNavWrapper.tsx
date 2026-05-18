@@ -44,8 +44,6 @@ export default function MobileNavWrapper({
   const [isOpen, setIsOpen] = useState(false);
   const [openSection, setOpenSection] = useState<string | null>(null);
 
-  // FIX: Only modify body overflow in the toggle handler, NOT in useEffect.
-  // useEffect was setting overflow:"unset" on mount which crashed the Home page.
   const toggle = useCallback(() => {
     const next = !isOpen;
     setIsOpen(next);

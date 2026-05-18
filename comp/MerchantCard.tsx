@@ -24,20 +24,16 @@ const MerchantCard = ({
       href={href}
       className="group flex flex-col p-6 bg-white rounded-[2rem] border border-gray-100 transition-all duration-500 hover:shadow-2xl hover:shadow-[#8bc94a]/15 hover:border-[#8bc94a]/30 hover:-translate-y-2 relative overflow-hidden no-underline h-[250px]"
     >
-      {/* Top Colored Border Accent - Expands from center on hover */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-0 h-1.5 bg-[#8bc94a] transition-all duration-500 ease-out group-hover:w-full"></div>
 
-      {/* Massive Background Letter Watermark - Thematic for Alphabet Directory */}
       <div className="absolute -bottom-8 -right-4 text-[180px] font-black text-gray-50 opacity-40 group-hover:text-[#8bc94a] group-hover:opacity-[0.04] transition-all duration-700 select-none z-0 transform group-hover:scale-110 group-hover:-rotate-12 pointer-events-none leading-none">
         {firstLetter}
       </div>
 
-      {/* Subtle Glowing Orb effect on hover */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-[#ff912f]/10 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-0 pointer-events-none"></div>
 
-      {/* Main Content Container */}
+      {/* Main Content */}
       <div className="relative z-10 flex flex-col h-full">
-        {/* Logo Section - Significantly larger for maximum impact */}
         <div className="flex-1 flex items-center justify-center w-full mb-3 mt-2">
           {merchant.merchant_logo ? (
             <div className="relative w-[90%] h-[110px] flex items-center justify-center">
@@ -58,14 +54,13 @@ const MerchantCard = ({
           )}
         </div>
 
-        {/* Text & Button Area */}
+        {/* Button */}
         <div className="flex flex-col items-center mt-auto h-[60px] justify-end pb-1">
           {/* Store Title */}
           <h3 className="text-[16px] font-bold text-gray-700 text-center leading-snug line-clamp-2 transition-all duration-400 group-hover:-translate-y-8 group-hover:opacity-0 m-0 w-full absolute bottom-6 px-4">
             {merchant.merchant_name}
           </h3>
 
-          {/* Animated Pill Button - Slides up to replace the title */}
           <div className="absolute bottom-6 opacity-0 translate-y-8 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 ease-out w-full flex justify-center px-4">
             <span className="inline-flex items-center justify-center gap-2 bg-[#ff912f] text-white px-6 py-2.5 rounded-full text-[13px] font-bold shadow-lg shadow-[#8bc94a]/30 uppercase tracking-widest w-full max-w-[180px]">
               Visit Store

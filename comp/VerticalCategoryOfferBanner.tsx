@@ -1,5 +1,4 @@
 "use client";
-
 import { OffersOffer } from "@/services/dataTypes";
 import React, { useEffect, useState } from "react";
 import { filterOfferBanners, getBannerDimensions } from "@/constants/hooks";
@@ -86,7 +85,6 @@ const VerticalCategoryOfferBanner = ({
   return (
     <div className="relative group/sidebar mb-10 w-full">
       <div className="relative bg-white border border-gray-100 rounded-[2.5rem] p-6 lg:p-8 shadow-[0_20px_50px_rgba(0,0,0,0.02)] overflow-hidden text-center w-full">
-        {/* Decorative Accents */}
         <div className="absolute top-0 left-0 w-32 h-32 bg-gradient-to-br from-[#FF5F1F]/5 to-transparent rounded-full -ml-16 -mt-16 blur-3xl opacity-60" />
 
         {/* Header */}
@@ -119,7 +117,6 @@ const VerticalCategoryOfferBanner = ({
           })}
         </div>
 
-        {/* Combined Actions Section */}
         {(hasMore || isExpanded) && (
           <div className="mt-6 flex flex-col gap-3 relative z-10">
             {hasMore && (

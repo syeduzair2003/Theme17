@@ -51,7 +51,7 @@ const FooterNewsletter = ({ companyId }: Props) => {
 
   return (
     <div className="w-full">
-      {/* Header with Luxury Dark Style */}
+      {/* Header */}
       <h3 className="text-white font-black uppercase tracking-[0.2em] text-[11px] mb-6 italic">
         Get Exclusive Deals
       </h3>
@@ -69,9 +69,8 @@ const FooterNewsletter = ({ companyId }: Props) => {
         }}
         autoComplete="off"
       >
-        {/* Input Container with Deep Dark & Orange Focus */}
+        {/* Input Container */}
         <div className="group relative flex items-center w-full bg-black/40 rounded-2xl p-1.5 border border-white/5 focus-within:border-orange-500/50 transition-all duration-500 shadow-2xl">
-          {/* Subtle Inner Glow on focus */}
           <div className="absolute inset-0 rounded-2xl bg-orange-500/5 opacity-0 group-focus-within:opacity-100 transition-opacity pointer-events-none" />
 
           <input

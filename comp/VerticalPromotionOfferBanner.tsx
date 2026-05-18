@@ -1,5 +1,4 @@
 "use client";
-
 import { OffersOffer } from "@/services/dataTypes";
 import React, { useState } from "react";
 import { filterOfferBanners, getBannerDimensions } from "@/constants/hooks";

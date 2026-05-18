@@ -1,5 +1,4 @@
 "use client";
-
 import { OffersOffer, PaginationType } from "@/services/dataTypes";
 import React, { useEffect, useState } from "react";
 import { filterOfferBanners, getBannerDimensions } from "@/constants/hooks";
@@ -91,14 +90,12 @@ const VerticalOfferBanner = ({
 
   return (
     <div className="relative group/sidebar mb-10">
-      {/* Elegant Background Layer */}
       <div className="absolute -inset-0.5 bg-gradient-to-br from-[#8bc94a20] to-[#ff912f10] rounded-[2.5rem] blur opacity-50 group-hover/sidebar:opacity-100 transition duration-1000 -z-10" />
 
       <div className="relative bg-white/90 backdrop-blur-xl rounded-[2.5rem] p-8 lg:p-10 shadow-[0_10px_40px_rgba(0,0,0,0.02)] border border-white/50 overflow-hidden text-center">
-        {/* Decorative Element */}
         <div className="absolute top-0 right-0 w-32 h-32 bg-[#8bc94a08] rounded-full blur-3xl -mr-16 -mt-16" />
 
-        {/* Header section with refined typography */}
+        {/* Header section */}
         <h4 className="text-xl font-black text-[#222e48] mb-8 pb-4 border-b border-gray-50 flex items-center justify-center relative">
           Related Banner Offers
           <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-12 h-1 rounded-full -mb-[2px]" />

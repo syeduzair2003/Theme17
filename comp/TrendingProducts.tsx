@@ -42,10 +42,10 @@ const TrendingProducts = async ({
         className="mb-12 last:mb-0 w-full relative"
         key={sectionData?.merchant?.unique_id}
       >
-        {/* ── Compact Header Row ── */}
+        {/* Header Row */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-5 mb-6">
           <div className="flex items-center gap-4 sm:gap-5">
-            {/* Merchant Logo - Themed to #14110e */}
+            {/* Merchant Logo */}
             {sectionData?.merchant?.merchant_logo && (
               <div className="flex-shrink-0 w-14 h-14 sm:w-16 sm:h-16 bg-[#14110e] rounded-xl p-2.5 border border-white/5 shadow-md relative overflow-hidden group/logo ring-1 ring-orange-500/10">
                 <div className="absolute inset-0 bg-orange-500/5 group-hover/logo:bg-orange-500/10 transition-colors duration-500" />
@@ -63,7 +63,6 @@ const TrendingProducts = async ({
             )}
 
             <div className="flex flex-col">
-              {/* Eyebrow */}
               <div className="flex items-center gap-2 mb-1">
                 <span className="relative flex h-1.5 w-1.5">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
@@ -84,7 +83,6 @@ const TrendingProducts = async ({
                 </span>
               </h2>
 
-              {/* SubText */}
               {sectionData?.home_page_widget?.widget_text && (
                 <p className="mt-0.5 text-[12px] text-zinc-500 leading-snug m-0 max-w-sm font-medium line-clamp-1">
                   {sectionData.home_page_widget.widget_text}
@@ -122,13 +120,12 @@ const TrendingProducts = async ({
           </div>
         </div>
 
-        {/* ── Subtle Divider ── */}
         <div
           className="w-full h-px mb-8 bg-gradient-to-r from-transparent via-white/5 to-transparent"
           aria-hidden="true"
         />
 
-        {/* ── Slider Container ── */}
+        {/* Slider Container */}
         <div className="w-full relative">
           <TrendingProductsSlider>
             {sectionData.offers.slice(0, count).map((item, i) => (
@@ -165,7 +162,6 @@ const TrendingProducts = async ({
 
   return (
     <section className="relative py-12 md:py-20 bg-[#1a1612] overflow-hidden">
-      {/* ── Subtle Orange Glow ── */}
       <div className="absolute inset-0 pointer-events-none opacity-40">
         <div className="absolute top-0 left-[-10%] w-[40%] h-[40%] bg-orange-900/10 rounded-full blur-[120px]" />
         <div className="absolute bottom-0 right-[-10%] w-[40%] h-[40%] bg-orange-800/5 rounded-full blur-[120px]" />

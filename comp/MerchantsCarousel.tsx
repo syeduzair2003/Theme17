@@ -61,7 +61,7 @@ const MerchantsCarousel = async ({
             )}
           </div>
 
-          {/* Compact Action Button */}
+          {/* Action Button */}
           <div className="shrink-0">
             <Link
               href="/all-stores/A"
@@ -76,7 +76,7 @@ const MerchantsCarousel = async ({
           </div>
         </div>
 
-        {/* ── Content Grid ── */}
+        {/* Content Grid */}
         <div className="relative">
           <TopMerchants
             merchantData={merchantList}

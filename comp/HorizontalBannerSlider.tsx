@@ -244,7 +244,7 @@ const HorizontalBannerSlider = ({
               <FontAwesomeIcon icon={faAngleRight} className="w-5 h-5" />
             </button>
 
-            {/* Premium Banner Badge */}
+            {/* Banner Badge */}
             <div className="absolute top-6 left-6 z-10">
               <span className="px-5 py-2 rounded-full bg-white/80 backdrop-blur-md text-[#8bc94a] text-[11px] font-extrabold tracking-widest uppercase border border-[#8bc94a]/30 shadow-sm">
                 Exclusive Deals

@@ -60,7 +60,7 @@ const RoundedMerchantHome = async ({
         />
 
         <div className="container relative z-10 mx-auto px-4">
-          {/* ── Header Section ── */}
+          {/* Header Section */}
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-10">
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-2 mb-3">
@@ -98,7 +98,7 @@ const RoundedMerchantHome = async ({
             </div>
           </div>
 
-          {/* ── Store Carousel ── */}
+          {/* Store Carousel */}
           <div className="relative">
             <div className="absolute inset-y-0 left-0 w-16 md:w-32 bg-gradient-to-r from-[#1a1612] to-transparent z-20 pointer-events-none" />
             <div className="absolute inset-y-0 right-0 w-16 md:w-32 bg-gradient-to-l from-[#1a1612] to-transparent z-20 pointer-events-none" />

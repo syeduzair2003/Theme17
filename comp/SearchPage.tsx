@@ -57,7 +57,6 @@ const SearchPage = async ({
             Return to Dashboard
           </Link>
         </div>
-        {/* Subtle Decorative Accents */}
         <div className="absolute top-0 right-0 -mr-20 -mt-20 w-80 h-80 bg-orange-500/[0.03] blur-[120px] rounded-full pointer-events-none" />
         <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 bg-slate-100 blur-[120px] rounded-full pointer-events-none" />
       </div>

@@ -137,7 +137,7 @@ const SimpleOfferModal = ({
         className="relative w-full max-w-md bg-white rounded-[2rem] shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] overflow-hidden flex flex-col max-h-[85vh] animate-in zoom-in-95 duration-300 border border-gray-100"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* ── Close Button ── */}
+        {/* Close Button */}
         <button
           onClick={onClose}
           className="absolute top-5 right-5 z-30 w-9 h-9 flex items-center justify-center rounded-full bg-gray-50 text-gray-400 hover:text-white hover:bg-[#FF5F1F] transition-all duration-300 shadow-sm"
@@ -180,7 +180,6 @@ const SimpleOfferModal = ({
               {data?.offer_title}
             </h2>
 
-            {/* ── Actions ── */}
             <div className="mb-8">
               {data?.coupon_code ? (
                 <div>
@@ -220,7 +219,6 @@ const SimpleOfferModal = ({
               )}
             </div>
 
-            {/* ── Details ── */}
             <div className="text-left border-t border-gray-100 pt-6">
               <h4 className="text-[11px] font-black uppercase tracking-widest text-[#1a1612] mb-3">
                 Offer Details
@@ -248,7 +246,7 @@ const SimpleOfferModal = ({
           </div>
         </div>
 
-        {/* ── Footer Link ── */}
+        {/* Footer Link */}
         <div className="bg-[#fcfcfc] border-t border-gray-100 p-5 text-center shrink-0">
           <Link
             href={merchantHref}

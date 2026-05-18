@@ -5,7 +5,6 @@ import Link from "next/link";
 import { faArrowRight, FontAwesomeIcon } from "@/constants/icons";
 import cookieService from "@/services/CookiesService";
 
-// Naya component yahan import karlo (path adjust karlena agar zaroorat ho)
 import Category3DSlider from "./Category3DSlider";
 
 interface Props {
@@ -30,17 +29,15 @@ const HomeCategories = async ({ companyId, cat_slug, slug_type }: Props) => {
         aria-label="Categories Section"
         className="relative w-full py-12 md:py-16 lg:py-20 overflow-hidden bg-[#fafafa]"
       >
-        {/* ── Subtle Light Background Elements ── */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full pointer-events-none">
           <div className="absolute top-[-5%] left-[-5%] w-[30%] h-[30%] bg-[#FF5722]/5 blur-[100px] rounded-full" />
           <div className="absolute bottom-[-5%] right-[-5%] w-[30%] h-[30%] bg-black/5 blur-[100px] rounded-full" />
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
-          {/* ── Optimized Section Header ── */}
+          {/* Section Header */}
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-5 mb-10">
             <div className="flex-1 min-w-0">
-              {/* Orange Eyebrow - Slimmer version */}
               <div className="flex items-center gap-2 mb-2.5">
                 <span
                   className="w-8 h-[1.5px] rounded-full bg-[#FF5722]"
@@ -51,7 +48,7 @@ const HomeCategories = async ({ companyId, cat_slug, slug_type }: Props) => {
                 </span>
               </div>
 
-              {/* Heading - Reduced Size & Tighter Tracking */}
+              {/* Heading */}
               <h2 className="text-2xl md:text-3xl font-[900] text-white tracking-tight leading-[1.1] m-0">
                 {firstWord && (
                   <span className="text-[#FF5722] mr-2 uppercase italic">
@@ -63,7 +60,6 @@ const HomeCategories = async ({ companyId, cat_slug, slug_type }: Props) => {
                 </span>
               </h2>
 
-              {/* Sub-text - Balanced spacing */}
               {subText && (
                 <p className="mt-3 text-[10px] text-gray-500 text-lg leading-relaxed max-w-3xl font-medium">
                   {subText}
@@ -71,7 +67,7 @@ const HomeCategories = async ({ companyId, cat_slug, slug_type }: Props) => {
               )}
             </div>
 
-            {/* View All Button - More Compact & Elegant */}
+            {/* View All Button */}
             <div className="shrink-0">
               <Link
                 href={`/${cat_slug}`}
@@ -86,7 +82,6 @@ const HomeCategories = async ({ companyId, cat_slug, slug_type }: Props) => {
               </Link>
             </div>
           </div>
-          {/* ── Slider Injection ── */}
           <Category3DSlider
             categories={topCategoriesResponse.categories}
             companyDomain={companyDomain}

@@ -59,7 +59,7 @@ const AllStoresPage = async ({ store_slug, slug_type, company_id, slug, page }: 
             
             <div className="container mx-auto px-4 max-w-7xl">
 
-                {/* Alphabet Toggle Directory */}
+                {/* Alphabet Toggle */}
                 <div className="flex justify-center mb-10 w-full px-2">
                     <div className="flex flex-wrap items-center justify-center gap-2 max-w-5xl">
                         {ALPHABETS.map((alpha) => {

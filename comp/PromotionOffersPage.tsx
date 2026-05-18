@@ -242,7 +242,7 @@ const PromotionOffersPage = async ({ params }: { params: string }) => {
                 />
               )}
 
-              {/* Suggested Promotions */}
+              {/* Promotions */}
               {suggestedPromotions?.length > 0 && (
                 <div className="relative group/sidebar">
                   <div className="absolute -inset-0.5 bg-gradient-to-br from-[#ff912f15] to-[#8bc94a10] rounded-[2.5rem] blur opacity-50 group-hover/sidebar:opacity-100 transition duration-1000 -z-10" />

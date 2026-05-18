@@ -69,7 +69,6 @@ const RoundedMerchant = async ({ merchants, storeSlug, slugType }: Props) => {
           </div>
         </div>
 
-        {/* ── Elegant Divider ── */}
         <div className="mt-16 flex items-center justify-center gap-4">
           <div className="h-px flex-1 bg-gradient-to-r from-transparent via-gray-200 to-transparent"></div>
           <div className="w-2 h-2 rounded-full border-2 border-[#FF5F1F]/20"></div>

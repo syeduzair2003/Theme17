@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useState } from "react";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
@@ -23,7 +22,7 @@ const TrendingProductsSlider = ({ children }: Props) => {
     mode: "snap",
     slides: {
       perView: 5,
-      spacing: 20, // Increased spacing for a cleaner look
+      spacing: 20,
     },
     slideChanged(slider) {
       setCurrentSlide(slider.track.details.rel);
@@ -49,7 +48,7 @@ const TrendingProductsSlider = ({ children }: Props) => {
 
   return (
     <div className="relative group w-full">
-      {/* ── Slider Main Container ── */}
+      {/* Slider Main Container */}
       <div ref={sliderRef} className="keen-slider py-6 overflow-visible">
         {React.Children.map(children, (child) => {
           if (React.isValidElement(child)) {
@@ -63,7 +62,7 @@ const TrendingProductsSlider = ({ children }: Props) => {
         })}
       </div>
 
-      {/* ── Navigation Arrows (Orange Glass Style) ── */}
+      {/* Navigation Arrows */}
       {loaded && instanceRef.current && (
         <>
           <button
@@ -90,7 +89,7 @@ const TrendingProductsSlider = ({ children }: Props) => {
         </>
       )}
 
-      {/* ── Pagination Bullets (Orange Neon Bars) ── */}
+      {/* Pagination */}
       {loaded && instanceRef.current && (
         <div className="flex justify-center mt-6 gap-2.5">
           {[

@@ -30,7 +30,7 @@ const TrendingProductsCard = async ({
   const companyDomain = await cookieService.get("domain");
 
   const product = item?.offer;
-  const type = item?.offer?.offer_type?.name; // usually "product" or "coupon"
+  const type = item?.offer?.offer_type?.name;
 
   const imageSrc =
     type === "product"
@@ -52,17 +52,14 @@ const TrendingProductsCard = async ({
 
   return (
     <div className="group relative flex flex-col bg-[#1a1612] rounded-[1.5rem] overflow-hidden transition-all duration-500 hover:-translate-y-1.5 w-full h-full border border-white/5 hover:border-orange-500/40 flex-grow shadow-2xl">
-      {/* ── Top Image Section ── */}
+      {/* Top Image Section */}
       <div className="relative w-full h-[170px] sm:h-[190px] bg-[#14110e] flex-shrink-0 overflow-hidden">
-        {/* Subtle Ambient Light Overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-orange-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
 
-        {/* Time Left - Dark Themed Badge */}
         <div className="absolute top-3 left-3 bg-[#1a1612]/90 backdrop-blur-md border border-white/10 text-orange-500 text-[9px] font-bold px-2.5 py-1 rounded-lg z-20 shadow-md uppercase tracking-tight">
           {calculateOfferDuration(product?.end_date)}
         </div>
 
-        {/* Sale Badge - Signature Orange */}
         {finalDiscountTag && (
           <div className="absolute top-3 right-3 bg-orange-600 text-white text-[9px] font-black px-2.5 py-1 rounded-lg z-20 shadow-lg flex items-center gap-1 uppercase tracking-wider">
             <FontAwesomeIcon icon={faFire} className="w-2.5 h-2.5" />
@@ -79,7 +76,7 @@ const TrendingProductsCard = async ({
         />
       </div>
 
-      {/* ── Bottom Content Section ── */}
+      {/* Bottom Section */}
       <div className="p-4 flex flex-col flex-grow relative z-20">
         <div className="flex-grow">
           {product?.is_detail === 1 && productDetailUrl ? (
@@ -94,7 +91,7 @@ const TrendingProductsCard = async ({
             </h3>
           )}
 
-          {/* Prices - Clean Orange Highlight */}
+          {/* Prices */}
           <div className="flex items-center gap-2 mb-4">
             {salePrice > 0 && (
               <span className="text-base sm:text-lg font-black text-orange-500 tracking-tight">
@@ -111,9 +108,8 @@ const TrendingProductsCard = async ({
           </div>
         </div>
 
-        {/* ── Action Footer ── */}
+        {/* Action Footer */}
         <div className="mt-auto border-t border-white/5 pt-3.5 flex items-center justify-between gap-2">
-          {/* View Details Toggle */}
           <div className="text-[10px] sm:text-[11px] text-zinc-400 font-bold hover:text-orange-500 transition-colors whitespace-nowrap flex-shrink-0 cursor-pointer">
             <OfferDetailsToggle
               domain={companyDomain.domain}
@@ -146,7 +142,6 @@ const TrendingProductsCard = async ({
         </div>
       </div>
 
-      {/* Dynamic Bottom Line Accent */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-orange-500 group-hover:w-full transition-all duration-500 ease-in-out" />
     </div>
   );

@@ -60,14 +60,12 @@ const NewsletterWithStores = ({
 
   const hasMerchants = promoMerchants && promoMerchants.length > 0;
 
-  // Autoplay ke liye items ko triple kar rahe hain taake seamless loop bane
   const duplicatedMerchants = hasMerchants
     ? [...promoMerchants, ...promoMerchants, ...promoMerchants]
     : [];
 
   return (
     <section className="py-16 md:py-28 relative overflow-hidden bg-white">
-      {/* ── Soft Gradient Background Accents ── */}
       <div className="absolute top-[-10%] right-[-10%] w-[40%] h-[40%] bg-orange-100/50 blur-[120px] rounded-full pointer-events-none"></div>
       <div className="absolute bottom-[-10%] left-[-10%] w-[30%] h-[30%] bg-slate-100/80 blur-[100px] rounded-full pointer-events-none"></div>
 
@@ -75,7 +73,6 @@ const NewsletterWithStores = ({
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* ── LEFT COLUMN: Newsletter ── */}
           <div className="w-full">
-            {/* Sub-heading Badge */}
             <div className="flex items-center gap-3 mb-6">
               <span className="h-[2px] w-8 bg-orange-500 rounded-full" />
               <span className="text-[11px] font-black uppercase tracking-[0.3em] text-orange-600">
@@ -102,7 +99,6 @@ const NewsletterWithStores = ({
               className="relative flex flex-col sm:flex-row items-stretch sm:items-center bg-white rounded-2xl p-2 border border-slate-200 group focus-within:border-orange-500/50 focus-within:shadow-[0_20px_50px_-15px_rgba(249,115,22,0.15)] transition-all duration-500 gap-3 max-w-lg"
             >
               <div className="flex-1 flex items-center px-4 gap-3">
-                {/* Small Email Icon for detail */}
                 <svg
                   className="w-4 h-4 text-slate-400 group-focus-within:text-orange-500 transition-colors"
                   fill="none"
@@ -139,7 +135,6 @@ const NewsletterWithStores = ({
               </button>
             </form>
 
-            {/* Trust Badge */}
             <div className="mt-6 flex items-center gap-4">
               <div className="flex -space-x-2">
                 {[1, 2, 3].map((i) => (
@@ -157,7 +152,7 @@ const NewsletterWithStores = ({
             </div>
           </div>
 
-          {/* ── RIGHT COLUMN: Recently Updated Stores Autoplay Carousel ── */}
+          {/* RIGHT COLUMN */}
           {hasMerchants && (
             <div className="w-full relative group/container lg:pl-10 overflow-hidden">
               {/* Header */}

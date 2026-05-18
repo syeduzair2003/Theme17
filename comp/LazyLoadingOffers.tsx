@@ -94,9 +94,7 @@ const LazyLoadingOffers = ({
     try {
       const response = await apiExpiredOffers(merchantId, companyId);
       setExpiredOffers(response.data?.offers || []);
-    } catch (error) {
-      // console.error("Error fetching expired offers:", error);
-    }
+    } catch (error) {}
   };
 
   const observerCallback = useCallback(

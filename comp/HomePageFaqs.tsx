@@ -22,7 +22,6 @@ const HomepageFAQs = async ({ store_slug, slug_type }: Props) => {
   return (
     <section className="py-12 md:py-20 bg-white relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
-        {/* Centered Heading Section */}
         <div className="mb-14 text-center max-w-2xl mx-auto">
           <div className="inline-block px-4 py-1.5 bg-orange-50 rounded-full mb-4">
             <span className="text-[10px] font-black uppercase tracking-[0.3em] text-orange-600">
@@ -39,7 +38,6 @@ const HomepageFAQs = async ({ store_slug, slug_type }: Props) => {
           </p>
         </div>
 
-        {/* Data pass to Wrapper */}
         <FaqWrapper totalCount={allFaqs.length}>
           {allFaqs.map((faq: any, index: number) => (
             <details
