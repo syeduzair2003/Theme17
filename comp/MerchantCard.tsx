@@ -4,7 +4,7 @@ import Link from "next/link";
 import React from "react";
 
 interface Props {
-  merchant: string;
+  merchant: any;
   companyDomain: string;
   store_slug: string;
   slug_type: string;
@@ -15,60 +15,54 @@ const MerchantCard = ({
   companyDomain,
   store_slug,
   slug_type,
-}: any) => {
+}: Props) => {
   const href = getMerchantHref(merchant, store_slug, slug_type);
   const firstLetter = merchant.merchant_name?.[0]?.toUpperCase() || "#";
 
   return (
     <Link
       href={href}
-      className="group flex flex-col p-6 bg-white rounded-[2rem] border border-gray-100 transition-all duration-500 hover:shadow-2xl hover:shadow-[#8bc94a]/15 hover:border-[#8bc94a]/30 hover:-translate-y-2 relative overflow-hidden no-underline h-[250px]"
+      className="group flex flex-col p-6 bg-[#161412] rounded-[2rem] border border-zinc-800/60 transition-all duration-500 hover:border-[#ff912f]/40 hover:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.85)] hover:-translate-y-1.5 relative overflow-hidden no-underline h-[240px]"
     >
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-0 h-1.5 bg-[#8bc94a] transition-all duration-500 ease-out group-hover:w-full"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-white/[0.01] to-transparent pointer-events-none" />
 
-      <div className="absolute -bottom-8 -right-4 text-[180px] font-black text-gray-50 opacity-40 group-hover:text-[#8bc94a] group-hover:opacity-[0.04] transition-all duration-700 select-none z-0 transform group-hover:scale-110 group-hover:-rotate-12 pointer-events-none leading-none">
-        {firstLetter}
-      </div>
+      <div className="absolute -top-12 -left-12 w-32 h-32 bg-[#ff912f]/5 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
 
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-[#ff912f]/10 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-0 pointer-events-none"></div>
-
-      {/* Main Content */}
-      <div className="relative z-10 flex flex-col h-full">
-        <div className="flex-1 flex items-center justify-center w-full mb-3 mt-2">
+      <div className="relative z-10 flex flex-col h-full w-full">
+        {/* Brand Logo Display Stage */}
+        <div className="flex-1 flex items-center justify-center w-full mb-2">
           {merchant.merchant_logo ? (
-            <div className="relative w-[90%] h-[110px] flex items-center justify-center">
+            <div className="relative w-[85%] h-[95px] flex items-center justify-center transition-transform duration-500 group-hover:scale-[1.03]">
               <Image
                 src={getBaseImageUrl(companyDomain, merchant.merchant_logo, "")}
                 alt={merchant.merchant_name}
                 fill
-                className="object-contain filter transform transition-all duration-700 ease-out group-hover:scale-110 origin-center"
+                className="object-contain filter brightness-[0.95] group-hover:brightness-100 transition-all duration-500"
                 unoptimized
               />
             </div>
           ) : (
-            <div className="w-24 h-24 rounded-full bg-gray-50 flex items-center justify-center border border-gray-100 transition-all duration-500 group-hover:bg-white group-hover:border-[#ff912f]/30 group-hover:shadow-[0_0_20px_rgba(255,145,47,0.1)]">
-              <span className="text-4xl font-light text-gray-300 group-hover:text-[#ff912f] transition-colors duration-500">
+            <div className="w-16 h-16 rounded-full bg-black/40 flex items-center justify-center border border-zinc-800 transition-all duration-500 group-hover:border-[#ff912f]/30 shadow-inner">
+              <span className="text-2xl font-light text-zinc-500 group-hover:text-[#ff912f] transition-colors duration-500 font-mono">
                 {firstLetter}
               </span>
             </div>
           )}
         </div>
 
-        {/* Button */}
-        <div className="flex flex-col items-center mt-auto h-[60px] justify-end pb-1">
-          {/* Store Title */}
-          <h3 className="text-[16px] font-bold text-gray-700 text-center leading-snug line-clamp-2 transition-all duration-400 group-hover:-translate-y-8 group-hover:opacity-0 m-0 w-full absolute bottom-6 px-4">
+        <div className="relative h-[48px] w-full flex items-center justify-center overflow-hidden">
+          <h3 className="text-[15px] font-bold tracking-wide text-zinc-200 text-center line-clamp-1 w-full m-0 transition-all duration-500 ease-out transform group-hover:-translate-y-10 group-hover:opacity-0 px-2">
             {merchant.merchant_name}
           </h3>
 
-          <div className="absolute bottom-6 opacity-0 translate-y-8 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 ease-out w-full flex justify-center px-4">
-            <span className="inline-flex items-center justify-center gap-2 bg-[#ff912f] text-white px-6 py-2.5 rounded-full text-[13px] font-bold shadow-lg shadow-[#8bc94a]/30 uppercase tracking-widest w-full max-w-[180px]">
+          <div className="absolute inset-0 flex items-center justify-center translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 ease-out">
+            <span className="inline-flex items-center justify-center gap-1.5 bg-[#ff912f] text-white px-6 py-2.5 rounded-full text-[11px] font-extrabold tracking-widest uppercase shadow-lg shadow-[#ff912f]/10 hover:bg-[#e07d24] transition-colors duration-300 w-full max-w-[160px]">
               Visit Store
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
                 fill="currentColor"
-                className="w-4 h-4"
+                className="w-3.5 h-3.5 transform group-hover:translate-x-0.5 transition-transform duration-300"
               >
                 <path
                   fillRule="evenodd"
