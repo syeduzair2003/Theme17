@@ -4,11 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { getMerchantHref, getPromotionHref } from "@/constants/hooks";
 import { FontAwesomeIcon } from "@/constants/icons";
-import {
-  faChevronDown,
-  faTimes,
-  faBars,
-} from "@fortawesome/free-solid-svg-icons";
+import { faChevronDown, faTimes } from "@fortawesome/free-solid-svg-icons";
 import NavSearch from "./NavSearch";
 
 interface Props {
@@ -76,32 +72,53 @@ export default function MobileNavMenu({
     viewAllHref?: string,
   ) => {
     if (!items || !Array.isArray(items) || items.length === 0) return null;
+    const isSectionOpen = openSection === sectionName;
+
     return (
-      <li className="border-b border-gray-100 last:border-0 relative">
+      <li className="border-b border-zinc-900/40 last:border-0 relative transition-all duration-300">
+        {/* Active Side Accent Strip - pointer-events-none ensures it never blocks clicks */}
         <div
-          className="flex justify-between items-center py-4 px-5 w-full text-left font-semibold text-gray-800 hover:bg-[#f4f9f0] hover:text-[#8bc94a] transition-all cursor-pointer"
+          className={`absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-[#ff912f] to-[#e07d24] transition-all duration-300 transform origin-left pointer-events-none ${
+            isSectionOpen ? "scale-x-100 opacity-100" : "scale-x-0 opacity-0"
+          }`}
+        />
+
+        <div
+          className={`flex justify-between items-center py-4 px-5 w-full text-left font-bold transition-all cursor-pointer select-none ${
+            isSectionOpen
+              ? "bg-white/[0.02] text-[#ff912f]"
+              : "text-zinc-300 hover:bg-white/[0.01] hover:text-[#ff912f]"
+          }`}
           onClick={() => handleToggleSection(sectionName)}
         >
-          <span className="text-[14px]">{title}</span>
+          <span className="text-[13px] tracking-widest uppercase font-extrabold">
+            {title}
+          </span>
           <div
-            className={`w-6 h-6 rounded-full flex items-center justify-center transition-colors ${openSection === sectionName ? "bg-[#8bc94a] text-white" : "bg-gray-100 text-gray-500"}`}
+            className={`w-6 h-6 rounded-full flex items-center justify-center border transition-all duration-300 ${
+              isSectionOpen
+                ? "bg-[#ff912f] text-black border-transparent shadow-lg shadow-[#ff912f]/20 scale-105"
+                : "bg-zinc-950 text-zinc-500 border-zinc-800/80"
+            }`}
           >
             <FontAwesomeIcon
               icon={faChevronDown}
-              className={`w-3 h-3 transition-transform duration-300 ${
-                openSection === sectionName ? "rotate-180" : ""
+              className={`w-2.5 h-2.5 transition-transform duration-300 ease-out ${
+                isSectionOpen ? "rotate-180" : ""
               }`}
             />
           </div>
         </div>
+
+        {/* Dropdown Container */}
         <div
-          className={`overflow-hidden transition-all duration-300 ease-in-out bg-[#F4F7F6]/50 ${
-            openSection === sectionName
-              ? "max-h-[500px] opacity-100"
-              : "max-h-0 opacity-0"
+          className={`overflow-hidden transition-all duration-300 ease-in-out bg-black/30 border-l border-zinc-900 ${
+            isSectionOpen
+              ? "max-h-[500px] opacity-100 pointer-events-auto"
+              : "max-h-0 opacity-0 pointer-events-none"
           }`}
         >
-          <ul className="py-2 px-6 flex flex-col gap-1">
+          <ul className="py-2.5 pl-6 pr-4 flex flex-col gap-1">
             {items.slice(0, 10).map((item, i) => {
               const { href, label } = renderLink(item);
               return (
@@ -109,7 +126,7 @@ export default function MobileNavMenu({
                   <Link
                     href={href}
                     onClick={closeMenu}
-                    className="block py-2.5 text-[13px] font-medium text-gray-600 hover:text-[#ff912f] hover:translate-x-1 transition-all truncate"
+                    className="block py-2 text-[13px] font-medium text-zinc-400 hover:text-white hover:translate-x-1 transition-all truncate no-underline"
                   >
                     {label}
                   </Link>
@@ -117,13 +134,16 @@ export default function MobileNavMenu({
               );
             })}
             {viewAllHref && (
-              <li>
+              <li className="mt-1.5 pt-1.5 border-t border-zinc-900/60">
                 <Link
                   href={viewAllHref}
                   onClick={closeMenu}
-                  className="inline-block py-2 text-[12px] font-bold text-[#8bc94a] hover:text-[#ff912f] transition-colors mt-2"
+                  className="inline-flex items-center gap-1 text-[11px] font-black text-[#ff912f] hover:text-[#e07d24] transition-colors uppercase tracking-wider no-underline"
                 >
-                  View All {title} &rarr;
+                  View All {title}
+                  <span className="text-xs transform translate-y-[-0.5px]">
+                    &rarr;
+                  </span>
                 </Link>
               </li>
             )}
@@ -135,6 +155,7 @@ export default function MobileNavMenu({
 
   return (
     <>
+      {/* High Maxed-out Z-Index Trigger */}
       <button
         type="button"
         aria-label="Toggle mobile menu"
@@ -143,31 +164,32 @@ export default function MobileNavMenu({
           display: "flex",
           visibility: "visible",
           opacity: 1,
-          zIndex: 20010,
+          zIndex: 100000,
           pointerEvents: "auto",
           minWidth: "44px",
           width: "44px",
           height: "44px",
           alignItems: "center",
           justifyContent: "center",
-          background: "#f4f9f0",
-          border: "1px solid rgba(139,201,74,0.3)",
+          background: "#161412",
+          border: "1px solid rgba(255,145,47,0.15)",
           borderRadius: "12px",
-          color: "#8bc94a",
+          color: "#ff912f",
           position: "relative",
           marginLeft: "8px",
           marginRight: "8px",
           cursor: "pointer",
           flexShrink: 0,
+          boxShadow: "0 4px 12px rgba(0,0,0,0.3)",
         }}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
-          strokeWidth={2.5}
+          strokeWidth={2.3}
           stroke="currentColor"
-          style={{ width: "24px", height: "24px" }}
+          style={{ width: "22px", height: "22px" }}
         >
           <path
             strokeLinecap="round"
@@ -177,50 +199,57 @@ export default function MobileNavMenu({
         </svg>
       </button>
 
-      {/* Overlay */}
+      {/* Dark Immersive Blur Overlay - Isolated Z-Index */}
       <div
-        className={`fixed inset-0 z-[1050] bg-[#111]/40 backdrop-blur-sm transition-all duration-400 ease-in-out ${
-          isOpen ? "opacity-100 visible" : "opacity-0 invisible"
+        className={`fixed inset-0 z-[99990] bg-black/70 backdrop-blur-md transition-all duration-400 ease-in-out ${
+          isOpen
+            ? "opacity-100 visible pointer-events-auto"
+            : "opacity-0 invisible pointer-events-none"
         }`}
         onClick={closeMenu}
       />
 
-      {/* Drawer */}
+      {/* Premium Slide-out Console Drawer - Ultimate Priority Stacking */}
       <aside
-        className={`fixed top-0 left-0 w-[85%] max-w-[380px] h-full bg-white shadow-[10px_0_40px_rgba(0,0,0,0.1)] z-[1100] transform transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] flex flex-col rounded-r-2xl ${
+        onClick={(e) => e.stopPropagation()} // 🔥 Stops click from bubbling up to the backdrop close handler
+        className={`fixed top-0 left-0 w-[85%] max-w-[380px] h-full bg-[#110e0c] border-r border-zinc-900/60 shadow-[5px_0_50px_rgba(0,0,0,0.9)] z-[99995] pointer-events-auto transform transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] flex flex-col rounded-r-2xl ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        {/* Header */}
-        <div className="flex items-center justify-between p-5 border-b border-gray-100 bg-white rounded-tr-2xl">
+        {/* Top Control Header */}
+        <div className="flex items-center justify-between p-5 border-b border-zinc-900/50 bg-[#161412] rounded-tr-2xl relative">
+          <div className="absolute inset-x-0 bottom-0 h-[1px] bg-gradient-to-r from-transparent via-[#ff912f]/10 to-transparent" />
+
           <Link
             href="/"
             onClick={closeMenu}
-            className="block relative h-10 w-28"
+            className="block relative h-9 w-28 transition-transform active:scale-95"
           >
             <Image
               src={companyLogo || "/themes/Theme_3/images/logo.png"}
               alt="Logo"
               fill
-              className="object-contain object-left"
+              className="object-contain object-left filter brightness-[0.95]"
               sizes="(max-width: 768px) 100vw, 33vw"
             />
           </Link>
+
           <button
             onClick={closeMenu}
-            className="w-9 h-9 flex items-center justify-center rounded-full bg-red-50 text-red-400 hover:bg-red-500 hover:text-white hover:rotate-90 transition-all duration-300"
+            className="w-9 h-9 flex items-center justify-center rounded-xl bg-zinc-900/80 text-zinc-400 hover:bg-zinc-800 hover:text-white active:scale-90 hover:rotate-90 transition-all duration-300 border border-zinc-800/40"
             aria-label="Close menu"
           >
-            <FontAwesomeIcon icon={faTimes} className="w-4 h-4" />
+            <FontAwesomeIcon icon={faTimes} className="w-3.5 h-3.5" />
           </button>
         </div>
 
-        {/* Search container */}
-        <div className="p-4 pb-3 bg-gray-50/50 border-b border-gray-100 relative z-[1200]">
-          <div className="pointer-events-auto w-full relative">
-            <React.Suspense
+        {/* Embedded Dynamic Search Stage */}
+        {/* 🔥 FIX 1: Change p-4 to pl-6 pr-4 for safe left margin for search content */}
+        <div className="pl-6 pr-4 pt-4 pb-3 bg-black/10 border-b border-zinc-900/30 relative z-[1200]">
+          <div className="w-full relative">
+            <Suspense
               fallback={
-                <div className="w-full h-10 bg-gray-100 animate-pulse rounded-xl"></div>
+                <div className="w-full h-10 bg-zinc-900/60 animate-pulse rounded-xl border border-zinc-800/30" />
               }
             >
               <NavSearch
@@ -229,23 +258,27 @@ export default function MobileNavMenu({
                 slug_type={mer_slug_type}
                 cat_slug={cat_slug}
               />
-            </React.Suspense>
+            </Suspense>
           </div>
         </div>
 
-        <div className="flex-1 overflow-y-auto custom-scrollbar bg-white">
-          <nav className="p-2 pt-4 pb-10">
-            <ul className="flex flex-col bg-white border border-gray-100 rounded-2xl mx-3 overflow-hidden shadow-[0_4px_20px_-10px_rgba(0,0,0,0.05)]">
-              <li className="border-b border-gray-100">
+        {/* Navigation Channels Main Body */}
+        <div className="flex-1 overflow-y-auto custom-scrollbar bg-transparent">
+          {/* 🔥 FIX 2: Change p-3 to px-6 (pl-6 pr-6) for general safe content margin */}
+          <nav className="px-6 pt-5 pb-8">
+            <ul className="flex flex-col bg-[#161412] border border-zinc-900/80 rounded-2xl overflow-hidden shadow-xl shadow-black/40">
+              {/* Home Channel */}
+              <li className="border-b border-zinc-900/40 relative group">
                 <Link
                   href="/"
                   onClick={closeMenu}
-                  className="block py-4 px-5 text-[14px] font-semibold text-gray-800 hover:text-[#8bc94a] hover:bg-[#f4f9f0] transition-colors"
+                  className="block py-4 px-5 text-[13px] font-extrabold tracking-widest uppercase text-zinc-300 hover:text-[#ff912f] hover:bg-white/[0.01] transition-all no-underline"
                 >
                   Home
                 </Link>
               </li>
 
+              {/* Dynamic Prop Blocks Integration */}
               {renderSection(
                 "Stores",
                 "stores",
@@ -290,47 +323,69 @@ export default function MobileNavMenu({
                 `/${promo_slug}`,
               )}
 
-              <li className="border-b border-gray-100">
+              {/* Custom Products Dropdown Control Section */}
+              <li className="border-b border-zinc-900/40 last:border-0 relative">
+                {/* pointer-events-none ensures it never blocks clicks */}
                 <div
-                  className="flex justify-between items-center py-4 px-5 w-full text-left font-semibold text-gray-800 hover:text-[#8bc94a] hover:bg-[#f4f9f0] transition-colors cursor-pointer"
+                  className={`absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-[#ff912f] to-[#e07d24] transition-all duration-300 transform origin-left pointer-events-none ${
+                    openSection === "products"
+                      ? "scale-x-100 opacity-100"
+                      : "scale-x-0 opacity-0"
+                  }`}
+                />
+                <div
+                  className={`flex justify-between items-center py-4 px-5 w-full text-left font-bold transition-all cursor-pointer select-none ${
+                    openSection === "products"
+                      ? "bg-white/[0.02] text-[#ff912f]"
+                      : "text-zinc-300 hover:bg-white/[0.01] hover:text-[#ff912f]"
+                  }`}
                   onClick={() => handleToggleSection("products")}
                 >
-                  <span className="text-[14px]">Products</span>
+                  <span className="text-[13px] tracking-widest uppercase font-extrabold">
+                    Products
+                  </span>
                   <div
-                    className={`w-6 h-6 rounded-full flex items-center justify-center transition-colors ${openSection === "products" ? "bg-[#8bc94a] text-white" : "bg-gray-100 text-gray-500"}`}
+                    className={`w-6 h-6 rounded-full flex items-center justify-center border transition-all duration-300 ${
+                      openSection === "products"
+                        ? "bg-[#ff912f] text-black border-transparent shadow-lg shadow-[#ff912f]/20 scale-105"
+                        : "bg-zinc-950 text-zinc-500 border-zinc-800/80"
+                    }`}
                   >
                     <FontAwesomeIcon
                       icon={faChevronDown}
-                      className={`w-3 h-3 transition-transform duration-300 ${
+                      className={`w-2.5 h-2.5 transition-transform duration-300 ease-out ${
                         openSection === "products" ? "rotate-180" : ""
                       }`}
                     />
                   </div>
                 </div>
                 <div
-                  className={`overflow-hidden transition-all duration-300 ease-in-out bg-[#F4F7F6]/50 ${
+                  className={`overflow-hidden transition-all duration-300 ease-in-out bg-black/30 border-l border-zinc-900 ${
                     openSection === "products"
-                      ? "max-h-[200px] opacity-100"
-                      : "max-h-0 opacity-0"
+                      ? "max-h-[200px] opacity-100 pointer-events-auto"
+                      : "max-h-0 opacity-0 pointer-events-none"
                   }`}
                 >
-                  <ul className="py-2 px-6">
+                  <ul className="py-2.5 pl-6 pr-4 flex flex-col gap-1">
                     <li>
                       <Link
                         href="/products"
                         onClick={closeMenu}
-                        className="block py-2 text-[13px] font-medium text-gray-600 hover:text-[#ff912f] hover:translate-x-1 transition-all"
+                        className="block py-2 text-[13px] font-medium text-zinc-400 hover:text-white hover:translate-x-1 transition-all no-underline"
                       >
                         Brands Products
                       </Link>
                     </li>
-                    <li>
+                    <li className="mt-1.5 pt-1.5 border-t border-zinc-900/60">
                       <Link
                         href="/all-products"
                         onClick={closeMenu}
-                        className="inline-block py-2 text-[12px] font-bold text-[#8bc94a] hover:text-[#ff912f] transition-colors mt-2"
+                        className="inline-flex items-center gap-1 text-[11px] font-black text-[#ff912f] hover:text-[#e07d24] transition-colors uppercase tracking-wider no-underline"
                       >
-                        View All Products &rarr;
+                        View All Products{" "}
+                        <span className="text-xs transform translate-y-[-0.5px]">
+                          &rarr;
+                        </span>
                       </Link>
                     </li>
                   </ul>
@@ -338,13 +393,14 @@ export default function MobileNavMenu({
               </li>
             </ul>
 
+            {/* Core Campaign Trigger (Blog Button) */}
             {blog_title && blog_url && (
               <div className="mt-6 mx-3">
                 <Link
                   href={blog_url}
                   target="_blank"
                   onClick={closeMenu}
-                  className="block w-full py-3.5 px-5 text-[14px] font-bold text-white bg-gradient-to-r from-[#8bc94a] to-[#ff912f] hover:shadow-lg hover:shadow-[#8bc94a]/30 transition-all rounded-xl text-center"
+                  className="block w-full py-3.5 px-5 text-[11px] font-black text-white bg-gradient-to-r from-[#ff912f] to-[#e07d24] active:scale-[0.98] hover:shadow-[0_0_25px_rgba(255,145,47,0.15)] transition-all rounded-xl text-center uppercase tracking-widest no-underline"
                 >
                   {blog_title}
                 </Link>
@@ -352,7 +408,21 @@ export default function MobileNavMenu({
             )}
           </nav>
         </div>
+
+        {/* Quiet Luxury Console Footer */}
+        {/* 🔥 FIX 3: Change p-5 to pl-6 pr-5 to safe left margin */}
+        <div className="pl-6 pr-5 pt-5 pb-5 bg-[#161412] border-t border-zinc-900/50 flex flex-col items-center justify-center gap-1 relative rounded-br-2xl">
+          <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-[#ff912f]/10 to-transparent" />
+          <span className="text-[9px] tracking-[0.3em] font-black text-[#ff912f]/60 uppercase">
+            100% Verified Savings
+          </span>
+          <p className="text-[10px] text-zinc-500 m-0 font-medium">
+            Your premium lifestyle savings gateway
+          </p>
+        </div>
       </aside>
     </>
   );
 }
+
+const LazyNavSearch = React.lazy(() => import("./NavSearch"));

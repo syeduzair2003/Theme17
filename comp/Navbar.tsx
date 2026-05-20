@@ -132,10 +132,8 @@ const NavbarSec = ({
                     <div className="w-32 h-11 rounded-2xl animate-pulse bg-white/5 border border-white/10" />
                   }
                 >
-                  {/* Glow Effect */}
                   <div className="absolute -inset-[1px] bg-gradient-to-r from-[#FF5F1F]/30 via-orange-500/10 to-[#FF5F1F]/30 rounded-2xl opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-500 blur-[3px]" />
 
-                  {/* Container */}
                   <div className="relative w-full bg-[#141414] group-hover:bg-[#1A1A1A] group-focus-within:bg-[#1A1A1A] rounded-2xl border border-white/5 group-hover:border-white/10 group-focus-within:border-white/10 transition-all duration-500 shadow-inner">
                     <NavSearch
                       companyId={unique_id}
@@ -148,25 +146,23 @@ const NavbarSec = ({
               </div>
             </div>
 
-            {/* Mobile Menu */}
+            {/* Mobile Menu (🔥 FIXED: Double wrapper removed, clean rendering) */}
             <div className="lg:hidden flex items-center relative z-[20000] shrink-0">
-              <div className="p-2.5 bg-[#FF5F1F] rounded-xl shadow-[0_0_20px_rgba(255,95,31,0.2)] hover:bg-orange-600 active:scale-90 transition-all border border-orange-400/10">
-                <MobileNavWrapper
-                  categories={categories || []}
-                  merchantData={merchantData || []}
-                  events={events || []}
-                  promotions={promotions || []}
-                  cat_slug={cat_slug}
-                  mer_slug={mer_slug}
-                  mer_slug_type={mer_slug_type}
-                  promo_slug={promo_slug}
-                  blog_url={blog_url}
-                  blog_title={blog_title}
-                  companyLogo={companyLogo}
-                  companyId={unique_id}
-                  companyDomain={companyDomain}
-                />
-              </div>
+              <MobileNavWrapper
+                categories={categories || []}
+                merchantData={merchantData || []}
+                events={events || []}
+                promotions={promotions || []}
+                cat_slug={cat_slug}
+                mer_slug={mer_slug}
+                mer_slug_type={mer_slug_type}
+                promo_slug={promo_slug}
+                blog_url={blog_url}
+                blog_title={blog_title}
+                companyLogo={companyLogo}
+                companyId={unique_id}
+                companyDomain={companyDomain}
+              />
             </div>
           </div>
         </div>

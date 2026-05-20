@@ -126,6 +126,7 @@ const SearchBar = ({ companyId, mer_slug, slug_type, cat_slug }: Props) => {
     }
   };
 
+  // Click Outside to Close
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (
@@ -138,6 +139,21 @@ const SearchBar = ({ companyId, mer_slug, slug_type, cat_slug }: Props) => {
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
+
+  // 🔥 NEW: Scroll to Auto-Close (Perfect for both Desktop and Mobile view)
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsDropdownVisible(false);
+    };
+
+    if (isDropdownVisible) {
+      window.addEventListener("scroll", handleScroll, { passive: true });
+    }
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [isDropdownVisible]);
 
   const renderMerchant = (merchant: SearchMerchant) => (
     <Link
@@ -186,23 +202,22 @@ const SearchBar = ({ companyId, mer_slug, slug_type, cat_slug }: Props) => {
   return (
     <div
       ref={searchWrapperRef}
-      className="relative flex justify-end w-full max-w-[400px] xl:max-w-[450px] group"
-      onMouseEnter={() => setIsDropdownVisible(true)}
-      onMouseLeave={() => setIsDropdownVisible(false)}
+      className="relative flex justify-end w-full max-w-full lg:max-w-[400px] xl:max-w-[450px] group"
     >
-      {/* Search Input Container: Compact height 42px */}
+      {/* Search Input Container */}
       <div
         className={`
           relative flex items-center h-[42px] rounded-xl transition-all duration-500 ease-in-out
-          w-32 group-hover:w-full group-focus-within:w-full
-          bg-transparent group-hover:bg-[#1A1A1A] group-focus-within:bg-[#1A1A1A]
-          border border-transparent group-hover:border-white/10 group-focus-within:border-white/10
+          w-full lg:w-32 lg:group-hover:w-full lg:group-focus-within:w-full
+          bg-[#1A1A1A] border-white/10 lg:bg-transparent lg:group-hover:bg-[#1A1A1A] lg:group-focus-within:bg-[#1A1A1A]
+          border lg:border-transparent lg:group-hover:border-white/10 lg:group-focus-within:border-white/10
           ${search.length > 0 || isDropdownVisible ? "w-full bg-[#1A1A1A] border-white/10 shadow-lg" : ""}
         `}
       >
         <span
           className={`
-            absolute left-4 text-[11px] font-black text-white/40 tracking-[0.2em] pointer-events-none transition-all duration-300 uppercase
+            absolute left-4 text-[11px] font-black text-white/40 tracking-[0.2em] pointer-events-none transition-all duration-300 uppercase hidden lg:block
+            lg:group-hover:opacity-0 lg:group-hover:-translate-x-4 lg:group-focus-within:opacity-0 lg:group-focus-within:-translate-x-4
             ${search.length > 0 || isDropdownVisible ? "opacity-0 -translate-x-4" : "opacity-100"}
           `}
         >
@@ -214,8 +229,8 @@ const SearchBar = ({ companyId, mer_slug, slug_type, cat_slug }: Props) => {
           placeholder="Find hotels,resorts,villas..."
           className={`
             bg-transparent border-none outline-none text-[13px] w-full text-white placeholder-white/20 font-medium px-4 z-10
-            transition-all duration-500
-            ${search.length > 0 || isDropdownVisible ? "opacity-100" : "opacity-0"}
+            transition-all duration-500 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 lg:group-focus-within:opacity-100
+            ${search.length > 0 || isDropdownVisible ? "lg:opacity-100" : ""}
           `}
           ref={inputRef}
           value={search}
@@ -231,7 +246,8 @@ const SearchBar = ({ companyId, mer_slug, slug_type, cat_slug }: Props) => {
         />
 
         <button
-          className="absolute right-0 top-0 bottom-0 w-10 flex items-center justify-center text-white/30 group-hover:text-[#FF5F1F] transition-all z-20"
+          type="button"
+          className="absolute right-0 top-0 bottom-0 w-10 flex items-center justify-center text-white/30 lg:text-white/30 group-hover:text-[#FF5F1F] group-focus-within:text-[#FF5F1F] transition-all z-20"
           onClick={submitSearchNow}
         >
           <FontAwesomeIcon icon={faSearch} className="w-3.5 h-3.5" />
@@ -240,13 +256,13 @@ const SearchBar = ({ companyId, mer_slug, slug_type, cat_slug }: Props) => {
 
       {/* Dropdown */}
       <div
-        className={`absolute right-0 top-full mt-2 w-[420px] max-w-[90vw] z-[9999] transition-all duration-300 ${
+        className={`absolute right-0 top-full mt-2 w-full sm:w-[420px] max-w-[92vw] sm:max-w-[none] z-[9999] transition-all duration-300 ${
           isDropdownVisible && (search.trim().length > 0 || tagsData.length > 0)
-            ? "opacity-100 translate-y-0 visible"
+            ? "opacity-100 translate-y-0 visible pointer-events-auto"
             : "opacity-0 -translate-y-2 invisible pointer-events-none"
         }`}
       >
-        <div className="bg-[#141414] p-4 rounded-2xl shadow-[0_30px_70px_-10px_rgba(0,0,0,0.9)] border border-white/10 max-h-[70vh] overflow-y-auto custom-scrollbar backdrop-blur-3xl">
+        <div className="bg-[#141414] p-4 rounded-2xl shadow-[0_30px_70px_-10px_rgba(0,0,0,0.9)] border border-white/10 max-h-[60vh] overflow-y-auto custom-scrollbar backdrop-blur-3xl">
           {loading &&
             search.trim().length >= 3 &&
             merchantData.length === 0 && (
@@ -324,6 +340,7 @@ const SearchBar = ({ companyId, mer_slug, slug_type, cat_slug }: Props) => {
             (merchantData.length > 0 || categoriesData.length > 0) && (
               <div className="mt-4 pt-3 border-t border-white/5 text-center">
                 <button
+                  type="button"
                   onClick={submitSearchNow}
                   className="text-[11px] font-black text-[#FF5F1F] hover:text-orange-400 transition-all flex items-center justify-center mx-auto gap-2 uppercase tracking-widest"
                 >
