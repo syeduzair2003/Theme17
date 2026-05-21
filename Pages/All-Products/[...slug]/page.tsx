@@ -1,9 +1,9 @@
-import { apiCompanyUpdatedData, apiGetCategoryUniqueId } from '@/apis/user';
-import ProductsLayout from '@/components/Theme-17/comp/ProductsLayout';
+import { apiCompanyUpdatedData, apiGetCategoryUniqueId } from "@/apis/user";
+import ProductsLayout from "@/components/Theme-17/comp/ProductsLayout";
 
-import cookieService from '@/services/CookiesService';
-import { notFound, redirect } from 'next/navigation';
-import React from 'react';
+import cookieService from "@/services/CookiesService";
+import { notFound, redirect } from "next/navigation";
+import React from "react";
 
 interface Props {
   params: Promise<{ slug: string[] }>;
@@ -17,13 +17,17 @@ const Page = async ({ params }: Props) => {
   if (slug.length >= 2 && slug[0] === "page" && slug[1] === "1") {
     return redirect("/all-products");
   }
-  if (slug[0] === 'all-products') return redirect('/all-products');
-  if (slug?.length > 4){
-    notFound()
+  if (slug[0] === "all-products") return redirect("/all-products");
+  if (slug?.length > 4) {
+    notFound();
   }
 
   // ✅ Case: parent category with page/1 → redirect to /all-products/category
-  if (slug.length >= 3 && slug[slug.length - 2] === "page" && slug[slug.length - 1] === "1") {
+  if (
+    slug.length >= 3 &&
+    slug[slug.length - 2] === "page" &&
+    slug[slug.length - 1] === "1"
+  ) {
     const cleaned = slug.slice(0, slug.length - 2).join("/");
     return redirect(`/all-products/${cleaned}`);
   }
@@ -34,8 +38,7 @@ const Page = async ({ params }: Props) => {
     return redirect(`/all-products/${cleaned}`);
   }
 
-  // Case: only "page/[n]"
-  if (slug[0] === 'page') {
+  if (slug[0] === "page") {
     return (
       <ProductsLayout
         page={slug[1]}
@@ -69,7 +72,7 @@ const Page = async ({ params }: Props) => {
     const catRes = await apiGetCategoryUniqueId(slug[0], c_data.unique_id);
     if (catRes?.data?.parent_category_id != null) {
       const parsedUrl = `/${catRes?.data?.url.replace(/^category\//, "all-products/")}`;
-      return redirect(parsedUrl)
+      return redirect(parsedUrl);
     }
     const categoryId = catRes?.data?.unique_id;
     if (!categoryId) return notFound();
@@ -86,11 +89,11 @@ const Page = async ({ params }: Props) => {
   }
 
   // Case: parent category with page
-  if (slug.length === 3 && slug[1] === 'page') {
+  if (slug.length === 3 && slug[1] === "page") {
     const catRes = await apiGetCategoryUniqueId(slug[0], c_data.unique_id);
     if (catRes?.data?.parent_category_id != null) {
       const parsedUrl = `/${catRes?.data?.url.replace(/^category\//, "all-products/")}`;
-      return redirect(parsedUrl)
+      return redirect(parsedUrl);
     }
     const categoryId = catRes?.data?.unique_id;
     if (!categoryId) return notFound();
@@ -109,7 +112,7 @@ const Page = async ({ params }: Props) => {
   }
 
   // Case: child category with page
-  if (slug.length === 4 && slug[2] === 'page') {
+  if (slug.length === 4 && slug[2] === "page") {
     const catRes = await apiGetCategoryUniqueId(slug[1], c_data.unique_id);
     const categoryId = catRes?.data?.unique_id;
     if (!categoryId) return notFound();
@@ -125,8 +128,7 @@ const Page = async ({ params }: Props) => {
         categoryName={catRes?.data?.name}
       />
     );
-  }
-  else if (slug.length > 4) {
+  } else if (slug.length > 4) {
     return notFound();
   }
   return notFound();

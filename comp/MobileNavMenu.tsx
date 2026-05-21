@@ -41,7 +41,6 @@ export default function MobileNavMenu({
   const [isOpen, setIsOpen] = useState(false);
   const [openSection, setOpenSection] = useState<string | null>(null);
 
-  // Prevent scrolling when menu is open
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
@@ -76,7 +75,6 @@ export default function MobileNavMenu({
 
     return (
       <li className="border-b border-zinc-900/40 last:border-0 relative transition-all duration-300">
-        {/* Active Side Accent Strip - pointer-events-none ensures it never blocks clicks */}
         <div
           className={`absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-[#ff912f] to-[#e07d24] transition-all duration-300 transform origin-left pointer-events-none ${
             isSectionOpen ? "scale-x-100 opacity-100" : "scale-x-0 opacity-0"
@@ -110,7 +108,6 @@ export default function MobileNavMenu({
           </div>
         </div>
 
-        {/* Dropdown Container */}
         <div
           className={`overflow-hidden transition-all duration-300 ease-in-out bg-black/30 border-l border-zinc-900 ${
             isSectionOpen
@@ -155,7 +152,6 @@ export default function MobileNavMenu({
 
   return (
     <>
-      {/* High Maxed-out Z-Index Trigger */}
       <button
         type="button"
         aria-label="Toggle mobile menu"
@@ -199,7 +195,6 @@ export default function MobileNavMenu({
         </svg>
       </button>
 
-      {/* Dark Immersive Blur Overlay - Isolated Z-Index */}
       <div
         className={`fixed inset-0 z-[99990] bg-black/70 backdrop-blur-md transition-all duration-400 ease-in-out ${
           isOpen
@@ -209,14 +204,12 @@ export default function MobileNavMenu({
         onClick={closeMenu}
       />
 
-      {/* Premium Slide-out Console Drawer - Ultimate Priority Stacking */}
       <aside
         onClick={(e) => e.stopPropagation()} // 🔥 Stops click from bubbling up to the backdrop close handler
         className={`fixed top-0 left-0 w-[85%] max-w-[380px] h-full bg-[#110e0c] border-r border-zinc-900/60 shadow-[5px_0_50px_rgba(0,0,0,0.9)] z-[99995] pointer-events-auto transform transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] flex flex-col rounded-r-2xl ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        {/* Top Control Header */}
         <div className="flex items-center justify-between p-5 border-b border-zinc-900/50 bg-[#161412] rounded-tr-2xl relative">
           <div className="absolute inset-x-0 bottom-0 h-[1px] bg-gradient-to-r from-transparent via-[#ff912f]/10 to-transparent" />
 
@@ -243,8 +236,6 @@ export default function MobileNavMenu({
           </button>
         </div>
 
-        {/* Embedded Dynamic Search Stage */}
-        {/* 🔥 FIX 1: Change p-4 to pl-6 pr-4 for safe left margin for search content */}
         <div className="pl-6 pr-4 pt-4 pb-3 bg-black/10 border-b border-zinc-900/30 relative z-[1200]">
           <div className="w-full relative">
             <Suspense
@@ -262,9 +253,7 @@ export default function MobileNavMenu({
           </div>
         </div>
 
-        {/* Navigation Channels Main Body */}
         <div className="flex-1 overflow-y-auto custom-scrollbar bg-transparent">
-          {/* 🔥 FIX 2: Change p-3 to px-6 (pl-6 pr-6) for general safe content margin */}
           <nav className="px-6 pt-5 pb-8">
             <ul className="flex flex-col bg-[#161412] border border-zinc-900/80 rounded-2xl overflow-hidden shadow-xl shadow-black/40">
               {/* Home Channel */}
@@ -278,7 +267,6 @@ export default function MobileNavMenu({
                 </Link>
               </li>
 
-              {/* Dynamic Prop Blocks Integration */}
               {renderSection(
                 "Stores",
                 "stores",
@@ -323,9 +311,7 @@ export default function MobileNavMenu({
                 `/${promo_slug}`,
               )}
 
-              {/* Custom Products Dropdown Control Section */}
               <li className="border-b border-zinc-900/40 last:border-0 relative">
-                {/* pointer-events-none ensures it never blocks clicks */}
                 <div
                   className={`absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-[#ff912f] to-[#e07d24] transition-all duration-300 transform origin-left pointer-events-none ${
                     openSection === "products"
@@ -393,7 +379,6 @@ export default function MobileNavMenu({
               </li>
             </ul>
 
-            {/* Core Campaign Trigger (Blog Button) */}
             {blog_title && blog_url && (
               <div className="mt-6 mx-3">
                 <Link
@@ -409,8 +394,6 @@ export default function MobileNavMenu({
           </nav>
         </div>
 
-        {/* Quiet Luxury Console Footer */}
-        {/* 🔥 FIX 3: Change p-5 to pl-6 pr-5 to safe left margin */}
         <div className="pl-6 pr-5 pt-5 pb-5 bg-[#161412] border-t border-zinc-900/50 flex flex-col items-center justify-center gap-1 relative rounded-br-2xl">
           <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-[#ff912f]/10 to-transparent" />
           <span className="text-[9px] tracking-[0.3em] font-black text-[#ff912f]/60 uppercase">

@@ -27,7 +27,7 @@ const page = async ({ searchParams }: Props) => {
 
   return (
     <div className="bg-[#fcfcfc] min-h-screen pb-20 pt-20 lg:pt-28 selection:bg-orange-100">
-      {/* ── Header Section ── */}
+      {/* Header Section */}
       <div className="relative border-b border-slate-100 bg-white overflow-hidden">
         {/* Banner Section */}
         <div className="pt-4 sm:pt-8">
@@ -39,7 +39,6 @@ const page = async ({ searchParams }: Props) => {
           />
         </div>
 
-        {/* Search Context / Breadcrumb Container */}
         <div className="max-w-7xl mx-auto px-6 py-12 sm:py-16 relative z-10">
           <div className="flex flex-col gap-4">
             <nav className="flex items-center gap-3 text-[10px] sm:text-[11px] font-black tracking-[0.3em] uppercase text-slate-400 italic">
@@ -68,20 +67,16 @@ const page = async ({ searchParams }: Props) => {
           </div>
         </div>
 
-        {/* Subtle Decorative Background */}
         <div className="absolute top-0 right-0 w-[40%] h-full bg-gradient-to-l from-orange-500/[0.02] to-transparent pointer-events-none -skew-x-12 transform translate-x-1/4" />
       </div>
 
-      {/* ── Main Content Layout ── */}
+      {/* Main Content */}
       <div className="max-w-7xl mx-auto px-6 mt-12 sm:mt-16">
         <div className="flex flex-col lg:flex-row gap-10 lg:gap-14">
-          {/* Sidebar: Left Side */}
           <aside className="lg:w-1/4 w-full">
             <div className="bg-white border border-slate-100 rounded-[2.5rem] p-10 shadow-[0_20px_50px_rgba(0,0,0,0.03)] sticky top-32 overflow-hidden group">
-              {/* Decorative Glow */}
               <div className="absolute top-0 right-0 -mr-12 -mt-12 w-32 h-32 bg-orange-500/[0.03] blur-3xl rounded-full" />
 
-              {/* Section: Popular Picks */}
               <div className="relative">
                 <h2 className="text-[11px] font-black text-black mb-10 tracking-[0.4em] uppercase flex items-center gap-4 italic border-l-4 border-orange-500 pl-4">
                   Popular Picks
@@ -123,12 +118,10 @@ const page = async ({ searchParams }: Props) => {
                 )}
               </div>
 
-              {/* Divider */}
               {all_tags?.length > 0 && (
                 <div className="my-10 h-px bg-gradient-to-r from-transparent via-slate-100 to-transparent" />
               )}
 
-              {/* Section: Popular Tags */}
               {all_tags?.length > 0 && (
                 <div className="relative">
                   <h2 className="text-[11px] font-black text-black mb-8 tracking-[0.4em] uppercase flex items-center gap-4 italic border-l-4 border-slate-200 pl-4">

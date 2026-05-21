@@ -78,12 +78,11 @@ const NavbarSec = ({
         </div>
       )}
 
-      {/* ── Main Navbar ── */}
+      {/* Main Navbar */}
       <nav className="relative w-full bg-[#141414] border-b border-white/5 shadow-2xl">
         <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#FF5F1F]/40 to-transparent" />
 
         <div className="max-w-[1400px] mx-auto px-4 lg:px-8 py-5 flex items-center">
-          {/* 1. LEFT: Branding */}
           <div className="flex-1 flex items-center justify-start z-[10005]">
             <Link
               href="/"
@@ -103,7 +102,6 @@ const NavbarSec = ({
             </Link>
           </div>
 
-          {/* 2. CENTER: Navigation Pill */}
           <div className="hidden lg:flex flex-none items-center justify-center z-[10001] lg:mr-12">
             <div className="bg-[#1A1A1A] rounded-2xl p-1 border border-white/10 hover:border-[#FF5F1F]/30 transition-all duration-300 shadow-sm">
               <NavigationPill
@@ -122,9 +120,7 @@ const NavbarSec = ({
             </div>
           </div>
 
-          {/* 3. RIGHT: Actions */}
           <div className="flex-1 flex items-center justify-end gap-3 lg:gap-6 relative z-[10006]">
-            {/* Search Bar: Desktop */}
             <div className="hidden lg:block relative">
               <div className="relative group w-32 hover:w-[280px] focus-within:w-[280px] transition-all duration-500 ease-in-out flex justify-end">
                 <Suspense
@@ -146,7 +142,6 @@ const NavbarSec = ({
               </div>
             </div>
 
-            {/* Mobile Menu (🔥 FIXED: Double wrapper removed, clean rendering) */}
             <div className="lg:hidden flex items-center relative z-[20000] shrink-0">
               <MobileNavWrapper
                 categories={categories || []}

@@ -12,7 +12,6 @@ const page = async () => {
 
   return (
     <div className="bg-[#110e0c] min-h-screen text-white">
-      {/* BREADCRUMB AREA */}
       <BreadcrumbSection
         title="Branded Products"
         breadcrumbs={[
@@ -23,7 +22,7 @@ const page = async () => {
 
       <section className="pt-16 pb-20">
         <div className="container px-4 sm:px-6">
-          {/* SECTION HEADER */}
+          {/* Header Section */}
           <div className="mb-14 text-center max-w-2xl mx-auto">
             <h2 className="text-3xl md:text-5xl font-black text-white mb-5 tracking-tight">
               Explore Our <span className="text-[#ff912f]">Top Brands</span>

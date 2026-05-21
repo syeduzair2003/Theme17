@@ -140,7 +140,6 @@ const SearchBar = ({ companyId, mer_slug, slug_type, cat_slug }: Props) => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // 🔥 NEW: Scroll to Auto-Close (Perfect for both Desktop and Mobile view)
   useEffect(() => {
     const handleScroll = () => {
       setIsDropdownVisible(false);
@@ -310,7 +309,6 @@ const SearchBar = ({ companyId, mer_slug, slug_type, cat_slug }: Props) => {
             </div>
           )}
 
-          {/* Tags / Destinations */}
           {tagsData.length > 0 && search.trim().length === 0 && (
             <div className="mb-1">
               <p className="text-[9px] font-black text-white/20 uppercase tracking-[0.2em] mb-3 flex items-center">

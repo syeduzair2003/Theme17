@@ -15,7 +15,7 @@ import NewsletterWithStores from "../comp/NewsletterWithStores";
 
 const Home = async () => {
   const companyDomainObj = await cookieService.get("domain");
-  const companyDomain = companyDomainObj?.domain || '';
+  const companyDomain = companyDomainObj?.domain || "";
 
   const companyRes = await apiCompanyUpdatedData(companyDomainObj);
   const c_data = companyRes?.data;
@@ -76,16 +76,16 @@ const Home = async () => {
         mer_slug_type={c_data?.slug_type}
         mer_slug={c_data?.store_slug}
       />
-      
+
       <HomepageFAQs
         slug_type={c_data?.slug_type}
         store_slug={c_data?.store_slug}
       />
-      
-      <NewsletterWithStores 
+
+      <NewsletterWithStores
         companyId={c_data?.unique_id}
         companyDomain={companyDomain}
-        promoMerchants={storesData}  
+        promoMerchants={storesData}
         slug_type={c_data?.slug_type}
         store_slug={c_data?.store_slug}
       />
@@ -93,7 +93,6 @@ const Home = async () => {
       {(c_data?.blog_title || c_data?.blog_url) && (
         <Blog companyId={c_data?.unique_id} blog_url={c_data?.blog_url} />
       )}
-      
     </div>
   );
 };

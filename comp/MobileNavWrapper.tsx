@@ -145,7 +145,6 @@ export default function MobileNavWrapper({
 
   return (
     <>
-      {/* 🔥 FIXED: Combined orange premium wrapper styling directly into the trigger button */}
       <button
         type="button"
         aria-label="Toggle mobile menu"
@@ -168,7 +167,6 @@ export default function MobileNavWrapper({
         </svg>
       </button>
 
-      {/* Backdrop */}
       <div
         className={`fixed inset-0 z-[99990] bg-black/70 backdrop-blur-md transition-all duration-500 ease-in-out ${
           isOpen
@@ -178,7 +176,6 @@ export default function MobileNavWrapper({
         onClick={closeMenu}
       />
 
-      {/* Sidebar Content Panel */}
       <aside
         onClick={(e) => e.stopPropagation()} // 🔥 Absolute Shield: Stops click from bubbling up
         className={`fixed top-0 left-0 h-full w-[85vw] max-w-[340px] z-[99995] pointer-events-auto flex flex-col bg-[#110e0c] border-r border-zinc-900/60 shadow-[5px_0_50px_rgba(0,0,0,0.9)] transition-transform duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] ${
@@ -288,7 +285,6 @@ export default function MobileNavWrapper({
                 `/${promo_slug}`,
               )}
 
-              {/* Branded Products Section */}
               <li className="border-b border-zinc-900/40 last:border-0 relative">
                 <div
                   className={`absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-[#FF5F1F] to-[#e07d24] transition-all duration-300 transform origin-left pointer-events-none ${
