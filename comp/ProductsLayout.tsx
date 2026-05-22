@@ -144,7 +144,7 @@ const ProductsLayout = async ({
               )}
             </div>
 
-            {/* Right Content Area: Product Offers */}
+            {/* Right Content Area */}
             <div className="w-full lg:w-[70%]">
               <ProductOffers
                 category_id={categoryId}

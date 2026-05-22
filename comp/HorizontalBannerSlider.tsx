@@ -14,6 +14,7 @@ interface Props {
   slug_type: string;
   domain: string;
 }
+
 const HorizontalBannerSlider = ({
   companyId,
   slug_type,
@@ -58,7 +59,7 @@ const HorizontalBannerSlider = ({
     sliderInViewRef.current = sliderInView;
   }, [sliderInView]);
 
-  // Keen slider
+  // Keen slider configurations
   const [sliderRef, slider] = useKeenSlider<HTMLDivElement>({
     loop: true,
     slides: { perView: 1 },
@@ -164,6 +165,7 @@ const HorizontalBannerSlider = ({
     },
     [companyId],
   );
+
   useEffect(() => {
     if (!sliderSectionRef.current) return;
     const observer = new window.IntersectionObserver(
@@ -193,8 +195,11 @@ const HorizontalBannerSlider = ({
   const goNext = () => slider.current?.next();
 
   return (
-    <section ref={sliderSectionRef} className="max-w-7xl mx-auto px-4 py-8">
-      <div className="relative group rounded-3xl overflow-hidden shadow-2xl border border-white/20">
+    <section
+      ref={sliderSectionRef}
+      className="max-w-7xl mx-auto px-6 py-6 selection:bg-orange-100"
+    >
+      <div className="relative group rounded-[2.5rem] overflow-hidden bg-white border border-slate-100 shadow-[0_30px_70px_rgba(0,0,0,0.035)] hover:shadow-[0_35px_80px_rgba(255,95,31,0.045)] transition-all duration-500">
         {offers?.length > 0 ? (
           <>
             <div ref={sliderRef} className="keen-slider">
@@ -203,9 +208,10 @@ const HorizontalBannerSlider = ({
                 return (
                   <div
                     key={i}
-                    className="keen-slider__slide flex items-center justify-center h-[180px] sm:h-[280px] bg-slate-50 relative"
+                    className="keen-slider__slide flex items-center justify-center h-[200px] sm:h-[320px] bg-gradient-to-b from-slate-50/40 to-white relative overflow-hidden"
                   >
-                    <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/5 pointer-events-none"></div>
+                    <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-transparent to-orange-500/[0.015] pointer-events-none" />
+
                     <Banner
                       data={items}
                       height={dimension?.height}
@@ -218,45 +224,56 @@ const HorizontalBannerSlider = ({
                   </div>
                 );
               })}
+
               {loading && (
-                <div className="keen-slider__slide flex items-center justify-center h-full bg-white/50 backdrop-blur-sm">
-                  <div className="flex flex-col items-center gap-3">
-                    <div className="w-10 h-10 border-4 border-[#8bc94a] border-t-transparent rounded-full animate-spin"></div>
-                    <span className="text-sm font-medium text-slate-500">
-                      Loading more...
+                <div className="keen-slider__slide flex items-center justify-center h-full bg-white/70 backdrop-blur-md absolute inset-0 z-20">
+                  <div className="flex flex-col items-center gap-2">
+                    <div className="w-8 h-8 border-[3px] border-[#FF5F1F] border-t-transparent rounded-full animate-spin"></div>
+                    <span className="text-[11px] font-black uppercase tracking-widest text-slate-400 font-mono">
+                      Syncing catalog...
                     </span>
                   </div>
                 </div>
               )}
             </div>
 
-            {/* Navigation Arrows */}
             <button
               onClick={goPrev}
-              className="absolute left-6 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center rounded-full bg-white/40 backdrop-blur-md border border-white/50 text-slate-800 opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-[#ff912f] hover:text-white hover:border-[#ff912f] shadow-lg scale-90 hover:scale-100"
+              className="absolute left-6 top-1/2 -translate-y-1/2 z-10 w-11 h-11 flex items-center justify-center rounded-full bg-white/90 backdrop-blur-md border border-slate-200/60 text-slate-800 opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-black hover:text-white hover:border-black shadow-md scale-95 hover:scale-100"
+              aria-label="Previous Slide"
             >
-              <FontAwesomeIcon icon={faAngleLeft} className="w-5 h-5" />
-            </button>
-            <button
-              onClick={goNext}
-              className="absolute right-6 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center rounded-full bg-white/40 backdrop-blur-md border border-white/50 text-slate-800 opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-[#ff912f] hover:text-white hover:border-[#ff912f] shadow-lg scale-90 hover:scale-100"
-            >
-              <FontAwesomeIcon icon={faAngleRight} className="w-5 h-5" />
+              <FontAwesomeIcon icon={faAngleLeft} className="w-4 h-4" />
             </button>
 
-            {/* Banner Badge */}
+            <button
+              onClick={goNext}
+              className="absolute right-6 top-1/2 -translate-y-1/2 z-10 w-11 h-11 flex items-center justify-center rounded-full bg-white/90 backdrop-blur-md border border-slate-200/60 text-slate-800 opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-black hover:text-white hover:border-black shadow-md scale-95 hover:scale-100"
+              aria-label="Next Slide"
+            >
+              <FontAwesomeIcon icon={faAngleRight} className="w-4 h-4" />
+            </button>
+
             <div className="absolute top-6 left-6 z-10">
-              <span className="px-5 py-2 rounded-full bg-white/80 backdrop-blur-md text-[#8bc94a] text-[11px] font-extrabold tracking-widest uppercase border border-[#8bc94a]/30 shadow-sm">
-                Exclusive Deals
-              </span>
+              <div className="flex items-center gap-2.5 px-4 py-2 rounded-xl bg-white/95 backdrop-blur-md border border-slate-200/40 shadow-[0_4px_15px_rgba(0,0,0,0.03)]">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FF5F1F] opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#FF5F1F]"></span>
+                </span>
+                <span className="text-slate-900 text-[10px] font-black tracking-[0.25em] uppercase font-mono">
+                  Verified Collection
+                </span>
+              </div>
             </div>
           </>
         ) : loading ? (
-          <div className="flex items-center justify-center h-[280px] bg-white rounded-3xl border-2 border-dashed border-slate-200">
+          <div className="flex items-center justify-center h-[320px] bg-white rounded-[2.5rem] border border-slate-100 shadow-inner">
             <div className="flex flex-col items-center gap-4">
-              <div className="w-14 h-14 border-4 border-[#8bc94a] border-t-transparent rounded-full animate-spin"></div>
-              <p className="text-slate-500 font-semibold tracking-tight text-lg">
-                Curating best offers...
+              <div className="relative flex items-center justify-center">
+                <div className="w-12 h-12 border-2 border-slate-100 rounded-full absolute"></div>
+                <div className="w-12 h-12 border-2 border-[#FF5F1F] border-t-transparent rounded-full animate-spin"></div>
+              </div>
+              <p className="text-slate-400 font-bold tracking-widest text-[11px] uppercase font-mono">
+                Assembling dynamic canvas...
               </p>
             </div>
           </div>

@@ -8,7 +8,7 @@ import Link from "next/link";
 import Image from "next/image";
 import cookieService from "@/services/CookiesService";
 import { getBaseImageUrl } from "@/constants/hooks";
-import { ArrowRight, Search } from "lucide-react";
+import { ArrowRight, Search, Sparkles } from "lucide-react";
 
 interface Props {
   slug_type: string;
@@ -33,49 +33,45 @@ const SearchPage = async ({
 
   if (!searchData?.merchants?.length && !searchData?.categories?.length) {
     return (
-      <div className="bg-white border border-slate-100 rounded-[3rem] p-16 min-h-[500px] flex items-center justify-center relative overflow-hidden group shadow-[0_20px_50px_rgba(0,0,0,0.02)]">
-        <div className="flex flex-col items-center text-center gap-8 relative z-10">
-          <div className="w-24 h-24 bg-slate-50 border border-slate-100 rounded-[2rem] flex items-center justify-center text-slate-300 group-hover:rotate-12 group-hover:scale-110 transition-all duration-500 shadow-inner">
-            <Search size={48} strokeWidth={1.5} />
+      <div className="bg-white border border-slate-100 rounded-[2.5rem] p-12 sm:p-20 min-h-[500px] flex items-center justify-center text-center relative overflow-hidden shadow-[0_15px_50px_rgba(0,0,0,0.02)]">
+        <div className="flex flex-col items-center gap-6 relative z-10 max-w-sm">
+          <div className="w-20 h-20 bg-orange-50/60 border border-orange-100 rounded-3xl flex items-center justify-center text-orange-500 shadow-inner">
+            <Search size={32} strokeWidth={2} />
           </div>
-          <div className="space-y-3">
-            <h3 className="text-3xl font-black text-black tracking-tight italic">
-              Zero Matches Found
+          <div className="space-y-2">
+            <h3 className="text-2xl font-black text-slate-900 tracking-tight">
+              No Matches Found
             </h3>
-            <p className="text-slate-500 max-w-md text-base font-medium">
-              We couldn&apos;t find any stores or categories matching{" "}
+            <p className="text-slate-500 text-sm font-medium leading-relaxed">
+              We couldn&apos;t find any premium deals or stores matching{" "}
               <span className="text-orange-500 font-bold">
                 &quot;{query}&quot;
               </span>
-              . Try a different keyword.
+              .
             </p>
           </div>
           <Link
             href="/"
-            className="px-10 py-4 bg-black text-white rounded-2xl font-black uppercase text-[11px] tracking-[0.2em] hover:bg-orange-500 transition-all duration-500 shadow-2xl hover:-translate-y-1"
+            className="mt-2 px-8 py-3.5 bg-slate-900 hover:bg-orange-500 text-white rounded-2xl font-bold uppercase text-[11px] tracking-wider transition-all duration-300 shadow-md hover:shadow-orange-500/20"
           >
             Return to Dashboard
           </Link>
         </div>
-        <div className="absolute top-0 right-0 -mr-20 -mt-20 w-80 h-80 bg-orange-500/[0.03] blur-[120px] rounded-full pointer-events-none" />
-        <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 bg-slate-100 blur-[120px] rounded-full pointer-events-none" />
+        <div className="absolute top-0 right-0 w-64 h-64 bg-orange-500/[0.02] blur-3xl rounded-full pointer-events-none" />
       </div>
     );
   }
 
   return (
-    <div className="flex flex-col gap-16 sm:gap-24">
-      {/* Stores Section */}
+    <div className="flex flex-col gap-16 p-2 sm:p-6 bg-white">
       {searchData?.merchants?.length > 0 && (
         <section>
-          <div className="flex items-center justify-between mb-10 px-4">
-            <div className="flex flex-col gap-1">
-              <h2 className="text-2xl font-black text-black tracking-tighter flex items-center gap-4 italic uppercase text-[18px]">
-                <span className="w-2 h-8 bg-orange-500 rounded-full shadow-[0_0_15px_rgba(249,115,22,0.3)]"></span>
-                Stores for &ldquo;{query}&rdquo;
-              </h2>
-            </div>
-            <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 bg-slate-50 border border-slate-100 px-5 py-2 rounded-full">
+          <div className="flex items-center justify-between mb-8 px-2">
+            <h2 className="text-xl font-black text-slate-900 tracking-tight flex items-center gap-2.5 uppercase text-[16px]">
+              <span className="w-2 h-5 bg-orange-500 rounded-md"></span>
+              Stores for &ldquo;{query}&rdquo;
+            </h2>
+            <span className="text-[10px] font-bold text-slate-500 bg-slate-100 px-3 py-1.5 rounded-xl border border-slate-200/40">
               {searchData.merchants.length} Results
             </span>
           </div>
@@ -85,11 +81,11 @@ const SearchPage = async ({
               <Link
                 key={i}
                 href={getHref(merchant)}
-                className="group bg-white border border-slate-100 rounded-[2.5rem] p-7 hover:shadow-[0_30px_60px_rgba(0,0,0,0.04)] hover:border-orange-500/20 transition-all duration-500 relative overflow-hidden flex flex-col items-center text-center gap-6"
+                className="group bg-white border border-slate-100/80 rounded-[2rem] p-6 shadow-[0_8px_30px_rgb(0,0,0,0.015)] hover:shadow-[0_25px_50px_rgba(249,115,22,0.07)] hover:border-orange-500/20 hover:-translate-y-1 transition-all duration-500 flex flex-col items-center text-center gap-5 relative overflow-hidden"
               >
-                <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-orange-500/[0.03] to-transparent rounded-bl-[4rem] group-hover:scale-150 transition-transform duration-700" />
+                <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-orange-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-                <div className="w-28 h-28 bg-white border border-slate-50 rounded-[2rem] flex items-center justify-center p-5 overflow-hidden shadow-sm group-hover:shadow-xl group-hover:border-orange-500/10 transition-all duration-500 group-hover:-translate-y-2 relative z-10">
+                <div className="w-24 h-24 bg-slate-50 border border-slate-100 rounded-2xl flex items-center justify-center p-4 shadow-sm group-hover:bg-white group-hover:shadow-md group-hover:border-orange-500/10 transition-all duration-500">
                   <Image
                     src={getBaseImageUrl(
                       companyDomain.domain,
@@ -97,21 +93,22 @@ const SearchPage = async ({
                       "",
                     )}
                     alt={merchant.merchant_name}
-                    width={120}
-                    height={120}
-                    className="w-full h-full object-contain"
+                    width={90}
+                    height={90}
+                    className="w-full h-full object-contain filter contrast-[1.01]"
                   />
                 </div>
 
-                <div className="relative z-10 w-full">
-                  <h3 className="font-black text-black text-lg leading-tight mb-3 group-hover:text-orange-500 transition-colors duration-300 italic">
+                <div className="w-full flex flex-col items-center gap-4">
+                  <h3 className="font-black text-slate-900 text-[16px] tracking-tight group-hover:text-orange-500 transition-colors duration-300">
                     {merchant.merchant_name}
                   </h3>
-                  <div className="inline-flex items-center gap-2 text-black font-black text-[10px] uppercase tracking-[0.2em] py-2 px-4 bg-slate-50 rounded-xl group-hover:bg-orange-500 group-hover:text-white transition-all duration-300">
+
+                  <div className="inline-flex items-center gap-2 text-white bg-slate-900 group-hover:bg-orange-500 font-bold text-[10px] uppercase tracking-wider py-2.5 px-5 rounded-full shadow-sm transition-all duration-300">
                     <span>Visit Store</span>
                     <ArrowRight
                       size={12}
-                      strokeWidth={3}
+                      strokeWidth={2.5}
                       className="group-hover:translate-x-1 transition-transform duration-300"
                     />
                   </div>
@@ -122,49 +119,49 @@ const SearchPage = async ({
         </section>
       )}
 
-      {/* Categories Section */}
       {searchData?.categories?.length > 0 && (
         <section>
-          <div className="flex items-center justify-between mb-10 px-4">
-            <h2 className="text-2xl font-black text-black tracking-tighter flex items-center gap-4 italic uppercase text-[18px]">
-              <span className="w-2 h-8 bg-slate-200 rounded-full"></span>
+          <div className="flex items-center justify-between mb-8 px-2">
+            <h2 className="text-xl font-black text-slate-900 tracking-tight flex items-center gap-2.5 uppercase text-[16px]">
+              <span className="w-2 h-5 bg-slate-200 rounded-md"></span>
               Categories matching &ldquo;{query}&rdquo;
             </h2>
-            <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 bg-slate-50 border border-slate-100 px-5 py-2 rounded-full">
+            <span className="text-[10px] font-bold text-slate-500 bg-slate-100 px-3 py-1.5 rounded-xl border border-slate-200/40">
               {searchData.categories.length} Found
             </span>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {searchData.categories.map((category: any) => (
               <Link
                 key={category.unique_id}
                 href={category?.url || getCatHref(category)}
-                className="group relative bg-white border border-slate-100 rounded-[2rem] p-6 hover:shadow-[0_20px_40px_rgba(0,0,0,0.03)] hover:border-black/5 transition-all duration-500 flex items-center gap-5 overflow-hidden"
+                className="group bg-white border border-slate-100/70 hover:border-orange-500/20 rounded-2xl p-4 shadow-[0_4px_20px_rgba(0,0,0,0.01)] hover:shadow-[0_15px_35px_rgba(0,0,0,0.03)] transition-all duration-300 flex items-center justify-between overflow-hidden"
               >
-                <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-slate-50 to-transparent rounded-bl-[4rem] opacity-50 group-hover:scale-125 transition-transform duration-700 pointer-events-none" />
+                <div className="flex items-center gap-3.5 min-w-0">
+                  <div className="w-12 h-12 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center p-2.5 group-hover:bg-orange-50/50 group-hover:border-orange-100 transition-all duration-300 shrink-0">
+                    <Image
+                      src={getBaseImageUrl(
+                        companyDomain.domain,
+                        category?.category_image,
+                        "",
+                      )}
+                      alt={category?.name}
+                      width={44}
+                      height={44}
+                      className="w-full h-full object-contain mix-blend-multiply"
+                    />
+                  </div>
 
-                <div className="w-14 h-14 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center overflow-hidden p-3 shadow-inner group-hover:bg-white group-hover:border-orange-500/20 group-hover:scale-110 transition-all duration-500 z-10">
-                  <Image
-                    src={getBaseImageUrl(
-                      companyDomain.domain,
-                      category?.category_image,
-                      "",
-                    )}
-                    alt={category?.name}
-                    width={64}
-                    height={64}
-                    className="w-full h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-500"
-                  />
+                  <div className="min-w-0">
+                    <h4 className="font-black text-slate-800 text-[13px] tracking-tight group-hover:text-orange-500 transition-colors duration-300 uppercase truncate">
+                      {category?.name}
+                    </h4>
+                  </div>
                 </div>
 
-                <div className="flex-1 z-10">
-                  <h4 className="font-black text-slate-800 text-[15px] leading-tight group-hover:text-orange-500 transition-colors duration-300 uppercase tracking-tight">
-                    {category?.name}
-                  </h4>
-                </div>
-                <div className="z-10 opacity-0 group-hover:opacity-100 -translate-x-4 group-hover:translate-x-0 transition-all duration-300">
-                  <ArrowRight size={18} className="text-orange-500" />
+                <div className="w-7 h-7 rounded-full bg-slate-50 border border-slate-100 group-hover:bg-orange-500 group-hover:text-white group-hover:border-orange-500 flex items-center justify-center text-slate-400 transition-all duration-300 shrink-0 mr-1">
+                  <ArrowRight size={12} strokeWidth={2.5} />
                 </div>
               </Link>
             ))}

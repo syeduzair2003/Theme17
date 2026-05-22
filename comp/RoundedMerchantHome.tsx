@@ -58,7 +58,6 @@ const RoundedMerchantHome = async ({
                 `,
           }}
         />
-
         <div className="container relative z-10 mx-auto px-4">
           {/* Header Section */}
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-10">

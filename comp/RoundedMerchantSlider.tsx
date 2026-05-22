@@ -107,7 +107,6 @@ const RoundedMerchantSlider: React.FC<Props> = ({
         </div>
       )}
 
-      {/* Scrollable Container */}
       <div
         ref={scrollContainerRef}
         className="flex overflow-x-auto gap-6 md:gap-10 pb-8 pt-4 hide-scroll scroll-smooth snap-x snap-mandatory"

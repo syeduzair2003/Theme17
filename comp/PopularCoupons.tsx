@@ -16,7 +16,6 @@ const PopularCoupons = async ({
   mer_slug_type,
   mer_slug,
 }: Props) => {
-  // ── Logic (Preserved 100%) ──
   const response = await apiGetPopularOffers(companyId);
   const domainData = await cookieService.get("domain");
   const domain = domainData?.domain || "";

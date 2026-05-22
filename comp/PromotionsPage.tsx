@@ -91,7 +91,6 @@ const PromotionsPage = async ({ promotionSlug }: { promotionSlug: string }) => {
                       </div>
                     </div>
 
-                    {/* Subtle Bottom Accent */}
                     <div className="absolute bottom-0 left-0 w-0 h-[2px] bg-orange-500 group-hover:w-full transition-all duration-500"></div>
                   </div>
                 </Link>

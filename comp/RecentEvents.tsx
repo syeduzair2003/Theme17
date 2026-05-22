@@ -51,18 +51,15 @@ const RecentEvents = async ({ companyId, mer_slug, mer_slug_type }: Props) => {
       aria-label="Recent Events Section"
       className="relative w-full py-16 md:py-24 bg-[#f8f9fa] overflow-hidden"
     >
-      {/* ── Soft Top Divider ── */}
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#FF5722]/10 to-transparent" />
 
-      {/* ── Subtle Background Shapes ── */}
       <div className="absolute top-20 -right-20 w-[500px] h-[500px] bg-[#FF5722]/5 blur-[100px] rounded-full pointer-events-none" />
       <div className="absolute -bottom-20 -left-20 w-[300px] h-[300px] bg-slate-200 blur-[80px] rounded-full pointer-events-none" />
 
       <div className="container relative z-10 mx-auto px-4">
-        {/* ── Section header row ── */}
+        {/* Header Section */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 mb-12">
           <div className="flex-1 min-w-0">
-            {/* Eye-catching Badge */}
             <div className="flex items-center gap-3 mb-4">
               <div className="flex items-center gap-1.5 px-3 py-1 bg-white border border-[#FF5722]/20 rounded-full text-[10px] font-black text-[#FF5722] uppercase tracking-[0.2em] shadow-sm">
                 <Sparkles size={12} className="fill-[#FF5722]" />
@@ -71,7 +68,6 @@ const RecentEvents = async ({ companyId, mer_slug, mer_slug_type }: Props) => {
               <div className="h-px w-10 bg-slate-200" />
             </div>
 
-            {/* Heading - Size reduced to match your sleek style */}
             <h2 className="text-2xl md:text-3xl font-black text-[#1a1612] tracking-tight m-0 uppercase italic leading-tight">
               {firstWord && (
                 <span className="text-[#FF5722]">{firstWord} </span>
@@ -86,7 +82,6 @@ const RecentEvents = async ({ companyId, mer_slug, mer_slug_type }: Props) => {
             )}
           </div>
 
-          {/* Right: View All button */}
           <div className="shrink-0">
             <Link
               href={getEventsHref(event, mer_slug_type)}

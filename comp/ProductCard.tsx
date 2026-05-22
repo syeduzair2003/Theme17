@@ -78,7 +78,6 @@ const ProductCard = ({
 
       {/* INFO SECTION */}
       <div className="p-4 flex flex-col flex-grow">
-        {/* Brand & Price Header */}
         <div className="flex justify-between items-center mb-2 gap-2">
           <span className="text-[9px] font-black text-gray-400 uppercase tracking-widest truncate">
             {merchant_name || "Store"}
@@ -110,7 +109,6 @@ const ProductCard = ({
           )}
         </div>
 
-        {/* ACTION BAR */}
         <div className="flex items-center gap-3 pt-3 border-t border-gray-50">
           <div className="shrink-0 opacity-60 hover:opacity-100 transition-opacity">
             <OfferDetailsToggle

@@ -45,8 +45,8 @@
 //             </p>
 //           </div>
 //           <div className="hidden md:flex items-center">
-//             <Link 
-//               href="/products" 
+//             <Link
+//               href="/products"
 //               className="group inline-flex items-center gap-2 text-[#ff7b00] font-bold text-[0.9rem] no-underline px-5 py-2 border-2 border-[#ff7b00] rounded-full transition-all duration-300 hover:bg-[#ff7b00] hover:text-white hover:translate-x-1 hover:shadow-[0_4px_15px_rgba(255,123,0,0.3)]"
 //             >
 //               <span>View All</span>
@@ -72,7 +72,7 @@
 
 //             return (
 //               <div key={product.id || index} className="group relative flex flex-col bg-white rounded-2xl overflow-hidden border border-[#f0ebe5] transition-all duration-400 hover:-translate-y-1.5 hover:border-[#ff943d]/40 hover:shadow-[0_12px_40px_rgba(255,148,61,0.12),0_4px_12px_rgba(0,0,0,0.06)]">
-                
+
 //                 {/* Discount Badge */}
 //                 {finalDiscountTag !== null && (
 //                   <div className="absolute top-3 left-0 z-10 flex items-center gap-1 bg-gradient-to-r from-[#ff7b00] to-[#ff943d] text-white text-[10px] md:text-[11px] font-bold tracking-tight py-1 pl-2.5 pr-3 rounded-r-full shadow-[0_2px_8px_rgba(255,123,0,0.3)]">

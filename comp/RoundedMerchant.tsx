@@ -19,10 +19,9 @@ const RoundedMerchant = async ({ merchants, storeSlug, slugType }: Props) => {
       <div className="absolute top-0 right-[-10%] w-[400px] h-[400px] bg-[#FF5F1F]/[0.03] rounded-full blur-[100px] pointer-events-none"></div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
-        {/* ── Header Section ── */}
+        {/* Header Section */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 relative">
           <div className="flex-1">
-            {/* Badge Text */}
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FF5F1F]/5 border border-[#FF5F1F]/10 mb-4 transition-all duration-300 hover:bg-[#FF5F1F]/10">
               <span className="w-1.5 h-1.5 rounded-full bg-[#FF5F1F] animate-pulse"></span>
               <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-[#FF5F1F]">
@@ -54,7 +53,7 @@ const RoundedMerchant = async ({ merchants, storeSlug, slugType }: Props) => {
           </div>
         </div>
 
-        {/* ── Slider Component ── */}
+        {/* Slider Component */}
         <div className="relative group">
           {/* Floating slider */}
           <div className="absolute inset-0 bg-[#FF5F1F]/[0.01] rounded-[3rem] blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>

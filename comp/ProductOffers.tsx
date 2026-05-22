@@ -111,7 +111,7 @@ const ProductOffers = async ({
         )}
       </div>
 
-      {/* PAGINATION SECTION */}
+      {/* PAGINATION */}
       <div className="mt-auto py-4 border-t border-gray-50/50">
         <Pagination
           currentPage={currentPage}
