@@ -11,6 +11,7 @@ import { getBaseImageUrl, getMerchantHref } from "@/constants/hooks";
 import MobileNavWrapper from "./MobileNavWrapper";
 import NavSearch from "./NavSearch";
 import NavigationPill from "./NavigationPill";
+import ScrollNavbarWrapper from "./ScrollNavbarWrapper";
 
 interface Props {
   merchantData: Merchant[];
@@ -54,7 +55,7 @@ const NavbarSec = ({
   return (
     <header className="fixed top-0 left-0 w-full z-[10000]">
       {headerPromoMerchant && headerPromoMerchant.length > 0 && (
-        <div className="w-full bg-[#0D0D0D] border-b border-white/5 hidden md:block relative z-[10001]">
+        <div className="w-full bg-[#0D0D0D] border-b border-white/5 hidden md:block relative z-[10020]">
           <div className="max-w-[1400px] mx-auto flex justify-center items-center py-2.5 overflow-hidden whitespace-nowrap">
             <div className="flex items-center gap-1">
               <span className="text-[10px] uppercase tracking-[0.3em] font-medium text-white/30 px-3">
@@ -78,90 +79,91 @@ const NavbarSec = ({
         </div>
       )}
 
-      {/* Main Navbar */}
-      <nav className="relative w-full bg-[#141414] border-b border-white/5 shadow-2xl">
-        <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#FF5F1F]/40 to-transparent" />
+      <ScrollNavbarWrapper>
+        <nav className="relative w-full bg-[#141414] border-b border-white/5 shadow-2xl">
+          <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#FF5F1F]/40 to-transparent" />
 
-        <div className="max-w-[1400px] mx-auto px-4 lg:px-8 py-5 flex items-center">
-          <div className="flex-1 flex items-center justify-start z-[10005]">
-            <Link
-              href="/"
-              className="group relative transition-transform duration-300 hover:scale-105 flex-shrink-0"
-            >
-              <div className="absolute -inset-3 bg-[#FF5F1F]/5 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
-              {companyLogo && (
-                <Image
-                  src={companyLogo}
-                  alt="Logo"
-                  width={150}
-                  height={45}
-                  className="relative object-contain brightness-110 contrast-125 invert"
-                  priority
-                />
-              )}
-            </Link>
-          </div>
-
-          <div className="hidden lg:flex flex-none items-center justify-center z-[10001] lg:mr-12">
-            <div className="bg-[#1A1A1A] rounded-2xl p-1 border border-white/10 hover:border-[#FF5F1F]/30 transition-all duration-300 shadow-sm">
-              <NavigationPill
-                merchantData={merchantData}
-                categories={categories}
-                mer_slug={mer_slug}
-                mer_slug_type={mer_slug_type}
-                cat_slug={cat_slug}
-                events={events}
-                promotions={promotions}
-                promo_slug={promo_slug}
-                blog_title={blog_title}
-                blog_url={blog_url}
-                companyDomain={companyDomain}
-              />
+          <div className="max-w-[1400px] mx-auto px-4 lg:px-8 py-5 flex items-center">
+            <div className="flex-1 flex items-center justify-start z-[10005]">
+              <Link
+                href="/"
+                className="group relative transition-transform duration-300 hover:scale-105 flex-shrink-0"
+              >
+                <div className="absolute -inset-3 bg-[#FF5F1F]/5 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
+                {companyLogo && (
+                  <Image
+                    src={companyLogo}
+                    alt="Logo"
+                    width={150}
+                    height={45}
+                    className="relative object-contain brightness-110 contrast-125 invert"
+                    priority
+                  />
+                )}
+              </Link>
             </div>
-          </div>
 
-          <div className="flex-1 flex items-center justify-end gap-3 lg:gap-6 relative z-[10006]">
-            <div className="hidden lg:block relative">
-              <div className="relative group w-32 hover:w-[280px] focus-within:w-[280px] transition-all duration-500 ease-in-out flex justify-end">
-                <Suspense
-                  fallback={
-                    <div className="w-32 h-11 rounded-2xl animate-pulse bg-white/5 border border-white/10" />
-                  }
-                >
-                  <div className="absolute -inset-[1px] bg-gradient-to-r from-[#FF5F1F]/30 via-orange-500/10 to-[#FF5F1F]/30 rounded-2xl opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-500 blur-[3px]" />
-
-                  <div className="relative w-full bg-[#141414] group-hover:bg-[#1A1A1A] group-focus-within:bg-[#1A1A1A] rounded-2xl border border-white/5 group-hover:border-white/10 group-focus-within:border-white/10 transition-all duration-500 shadow-inner">
-                    <NavSearch
-                      companyId={unique_id}
-                      mer_slug={mer_slug}
-                      slug_type={mer_slug_type}
-                      cat_slug={cat_slug}
-                    />
-                  </div>
-                </Suspense>
+            <div className="hidden lg:flex flex-none items-center justify-center z-[10001] lg:mr-12">
+              <div className="bg-[#1A1A1A] rounded-2xl p-1 border border-white/10 hover:border-[#FF5F1F]/30 transition-all duration-300 shadow-sm">
+                <NavigationPill
+                  merchantData={merchantData}
+                  categories={categories}
+                  mer_slug={mer_slug}
+                  mer_slug_type={mer_slug_type}
+                  cat_slug={cat_slug}
+                  events={events}
+                  promotions={promotions}
+                  promo_slug={promo_slug}
+                  blog_title={blog_title}
+                  blog_url={blog_url}
+                  companyDomain={companyDomain}
+                />
               </div>
             </div>
 
-            <div className="lg:hidden flex items-center relative z-[20000] shrink-0">
-              <MobileNavWrapper
-                categories={categories || []}
-                merchantData={merchantData || []}
-                events={events || []}
-                promotions={promotions || []}
-                cat_slug={cat_slug}
-                mer_slug={mer_slug}
-                mer_slug_type={mer_slug_type}
-                promo_slug={promo_slug}
-                blog_url={blog_url}
-                blog_title={blog_title}
-                companyLogo={companyLogo}
-                companyId={unique_id}
-                companyDomain={companyDomain}
-              />
+            <div className="flex-1 flex items-center justify-end gap-3 lg:gap-6 relative z-[10006]">
+              <div className="hidden lg:block relative">
+                <div className="relative group w-32 hover:w-[280px] focus-within:w-[280px] transition-all duration-500 ease-in-out flex justify-end">
+                  <Suspense
+                    fallback={
+                      <div className="w-32 h-11 rounded-2xl animate-pulse bg-white/5 border border-white/10" />
+                    }
+                  >
+                    <div className="absolute -inset-[1px] bg-gradient-to-r from-[#FF5F1F]/30 via-orange-500/10 to-[#FF5F1F]/30 rounded-2xl opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-500 blur-[3px]" />
+
+                    <div className="relative w-full bg-[#141414] group-hover:bg-[#1A1A1A] group-focus-within:bg-[#1A1A1A] rounded-2xl border border-white/5 group-hover:border-white/10 group-focus-within:border-white/10 transition-all duration-500 shadow-inner">
+                      <NavSearch
+                        companyId={unique_id}
+                        mer_slug={mer_slug}
+                        slug_type={mer_slug_type}
+                        cat_slug={cat_slug}
+                      />
+                    </div>
+                  </Suspense>
+                </div>
+              </div>
+
+              <div className="lg:hidden flex items-center relative z-[20000] shrink-0">
+                <MobileNavWrapper
+                  categories={categories || []}
+                  merchantData={merchantData || []}
+                  events={events || []}
+                  promotions={promotions || []}
+                  cat_slug={cat_slug}
+                  mer_slug={mer_slug}
+                  mer_slug_type={mer_slug_type}
+                  promo_slug={promo_slug}
+                  blog_url={blog_url}
+                  blog_title={blog_title}
+                  companyLogo={companyLogo}
+                  companyId={unique_id}
+                  companyDomain={companyDomain}
+                />
+              </div>
             </div>
           </div>
-        </div>
-      </nav>
+        </nav>
+      </ScrollNavbarWrapper>
     </header>
   );
 };

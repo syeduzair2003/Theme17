@@ -239,10 +239,9 @@ const Footer = async ({
           </div>
         </div>
 
-        {/* ── Divider ── */}
         <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent my-10" />
 
-        {/* ── Bottom Section ── */}
+        {/* Bottom Section */}
         <div className="flex flex-col lg:flex-row justify-between items-center gap-8 mb-10">
           <div className="text-center lg:text-left">
             <p className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-500 leading-relaxed italic">
