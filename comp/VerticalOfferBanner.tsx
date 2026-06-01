@@ -2,7 +2,7 @@
 import { OffersOffer, PaginationType } from "@/services/dataTypes";
 import React, { useEffect, useState } from "react";
 import { filterOfferBanners, getBannerDimensions } from "@/constants/hooks";
-import { apiOfferBanners } from "@/apis/offers"; // Adjust path if needed
+import { apiOfferBanners } from "@/apis/offers";
 import Spinner from "react-bootstrap/Spinner";
 import Banner from "./Banner";
 
@@ -90,15 +90,16 @@ const VerticalOfferBanner = ({
 
   return (
     <div className="relative group/sidebar mb-10">
-      <div className="absolute -inset-0.5 bg-gradient-to-br from-[#8bc94a20] to-[#ff912f10] rounded-[2.5rem] blur opacity-50 group-hover/sidebar:opacity-100 transition duration-1000 -z-10" />
+      {/* Updated Theme Glow */}
+      <div className="absolute -inset-0.5 bg-gradient-to-br from-[#FF5A0020] to-[#00000010] rounded-[2.5rem] blur opacity-50 group-hover/sidebar:opacity-100 transition duration-1000 -z-10" />
 
-      <div className="relative bg-white/90 backdrop-blur-xl rounded-[2.5rem] p-8 lg:p-10 shadow-[0_10px_40px_rgba(0,0,0,0.02)] border border-white/50 overflow-hidden text-center">
-        <div className="absolute top-0 right-0 w-32 h-32 bg-[#8bc94a08] rounded-full blur-3xl -mr-16 -mt-16" />
+      <div className="relative bg-white/90 backdrop-blur-xl rounded-[2.5rem] p-8 lg:p-10 shadow-[0_10px_40px_rgba(0,0,0,0.05)] border border-neutral-100 overflow-hidden text-center">
+        <div className="absolute top-0 right-0 w-32 h-32 bg-[#FF5A0008] rounded-full blur-3xl -mr-16 -mt-16" />
 
         {/* Header section */}
-        <h4 className="text-xl font-black text-[#222e48] mb-8 pb-4 border-b border-gray-50 flex items-center justify-center relative">
+        <h4 className="text-xl font-black text-[#000000] mb-8 pb-4 border-b border-neutral-100 flex items-center justify-center relative">
           Related Banner Offers
-          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-12 h-1 rounded-full -mb-[2px]" />
+          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-12 h-1 bg-[#FF5A00] rounded-full -mb-[2px]" />
         </h4>
 
         <div className="flex flex-col gap-2 mb-8">
@@ -124,28 +125,28 @@ const VerticalOfferBanner = ({
           {hasMore && (
             <button
               onClick={loadMore}
-              className="relative group/btn overflow-hidden rounded-full py-3 px-8 bg-white border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 active:scale-95 flex items-center gap-2"
+              className="relative group/btn overflow-hidden rounded-full py-3 px-8 bg-white border border-neutral-200 shadow-sm hover:shadow-md hover:border-[#FF5A00] transition-all duration-300 active:scale-95 flex items-center gap-2"
             >
-              <span className="relative z-10 text-sm font-bold text-[#222e48] group-hover/btn:text-[#8bc94a] transition-colors">
+              <span className="relative z-10 text-sm font-bold text-[#000000] group-hover/btn:text-[#FF5A00] transition-colors">
                 {loading ? (
                   <Spinner
                     size="sm"
                     animation="border"
-                    className="border-[#8bc94a]"
+                    className="text-[#FF5A00]"
                   />
                 ) : (
                   "Show More"
                 )}
               </span>
-              <div className="absolute inset-0 bg-gradient-to-r from-[#8bc94a08] to-[#ff912f08] opacity-0 group-hover/btn:opacity-100 transition-opacity" />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#FF5A0005] to-[#00000005] opacity-0 group-hover/btn:opacity-100 transition-opacity" />
             </button>
           )}
           {isExpanded && (
             <button
               onClick={showLess}
-              className="relative group/btn overflow-hidden rounded-full py-3 px-8 bg-white/50 border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 active:scale-95 flex items-center gap-2"
+              className="relative group/btn overflow-hidden rounded-full py-3 px-8 bg-white/50 border border-neutral-100 shadow-sm hover:shadow-md transition-all duration-300 active:scale-95 flex items-center gap-2"
             >
-              <span className="relative z-10 text-sm font-bold text-[#222e4860] group-hover/btn:text-red-400 transition-colors">
+              <span className="relative z-10 text-sm font-bold text-neutral-400 group-hover/btn:text-[#FF5A00] transition-colors">
                 {loading ? (
                   <Spinner size="sm" animation="border" />
                 ) : (

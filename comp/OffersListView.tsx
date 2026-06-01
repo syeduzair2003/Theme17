@@ -30,15 +30,6 @@ const OffersListView = ({ product, companyId, awaited_p_id, mer_slug_type, mer_s
     const [showModal, setShowModal] = useState(false);
     const merchantHref = getMerchantHref(product.merchant, mer_slug, mer_slug_type);
 
-    // useEffect(() => {
-    //     if (product?.offer?.offer_type?.name === "product") {
-    //         setImageSrc(getBaseImageUrl(domain, product?.offer?.product_image, ""));
-    //     }else {
-    //         setImageSrc(getBaseImageUrl(domain, product?.merchant?.merchant_logo, ""));
-    //     }
-    // }, [product]);
-
-
     useEffect(() => {
         if (!awaited_p_id || !companyId) return;
 
@@ -76,13 +67,6 @@ const OffersListView = ({ product, companyId, awaited_p_id, mer_slug_type, mer_s
         discountPercent,
     );
 
-
-
-    // const imageSrc =
-    // product?.offer?.offer_type?.name === "product"
-    //     ? getBaseImageUrl(domain, product?.offer?.product_image, "")
-    //     : getBaseImageUrl(domain, product?.merchant?.merchant_logo, "");
-
     return (
         <>
             {showModal && p_data != null && !ads_campaign && (
@@ -106,96 +90,121 @@ const OffersListView = ({ product, companyId, awaited_p_id, mer_slug_type, mer_s
                     merchantImg={product?.merchant?.merchant_logo}
                 />
             )}
-            <div className="w-full mb-6">
-                <div className="relative flex flex-col md:flex-row items-center w-full h-full p-5 md:p-6 bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-lg transition-shadow duration-300 gap-6">
+            
+            <div className="w-full mb-4 group/capsule relative select-none">
+                {/* Asymmetric Tech Backdrop */}
+                <div className="absolute inset-0 bg-neutral-50/60 rounded-tl-2xl rounded-br-2xl transition-all duration-200 group-hover/capsule:scale-[1.001] -z-10" />
 
-                    {/* Discount Ribbon - Using Secondary Color */}
-                    {finalDiscountTag && (
-                        <div className="absolute top-0 right-0 z-10">
-                            <div className="bg-[#Ff912f] text-white text-xs md:text-sm font-bold px-4 py-1.5 rounded-bl-xl rounded-tr-2xl shadow-md">
-                                {finalDiscountTag}
-                            </div>
+                {/* Balanced Card Container */}
+                <div className="relative w-full bg-white border border-neutral-200/70 rounded-tl-2xl rounded-br-2xl p-4 md:p-5 transition-all duration-200 group-hover/capsule:border-neutral-400 group-hover/capsule:shadow-[0_10px_28px_rgba(0,0,0,0.02)]">
+                    
+                    {/* 1. TOP META LINE */}
+                    <div className="w-full flex items-center justify-between gap-4 mb-3">
+                        <div className="flex items-center">
+                            <OfferDuration endDate={product?.offer?.end_date} />
                         </div>
-                    )}
 
-                    {/* Hidden Debug Info (Retained from original) */}
+                        {finalDiscountTag && (
+                            <span className="bg-neutral-950 text-[#FF5A00] text-[9px] font-black tracking-wider uppercase px-2 py-0.5 rounded transition-transform duration-200 group-hover/capsule:scale-105">
+                                {finalDiscountTag}
+                            </span>
+                        )}
+                    </div>
+
+                    {/* Hidden Debug Info */}
                     <div className="hidden">
                         Type Name: {product?.offer?.offer_type?.name}, Discount: {finalDiscountTag}
                     </div>
 
-                    {/* Left/Main Content Area */}
-                    <div className="flex-1 w-full flex flex-col gap-4 pt-4 md:pt-0">
-
-                        {/* Duration & Title */}
-                        <div className="flex flex-col gap-2">
-                            <div className="text-gray-500 text-sm font-medium">
-                                <OfferDuration endDate={product?.offer?.end_date} />
+                    {/* 2. MAIN MIDDLE BODY */}
+                    <div className="flex items-start gap-4 w-full mb-3">
+                        {/* ─── FIXED CONSISTENT IMAGE CONTAINER ─── */}
+                        {product?.offer?.product_image && (
+                            <div className="relative shrink-0 w-20 h-20 md:w-22 md:h-22 bg-neutral-50 rounded-xl border border-neutral-200/80 overflow-hidden flex items-center justify-center transition-all duration-200 group-hover/capsule:bg-white group-hover/capsule:border-neutral-300">
+                                <div className="relative w-full h-full p-1.5 flex items-center justify-center">
+                                    <Image
+                                        src={getBaseImageUrl(domain, product?.offer?.product_image, "")}
+                                        alt={
+                                            product?.offer?.offer_type?.name === "product"
+                                                ? `${product?.offer?.offer_title || "Product"} image`
+                                                : `${product?.merchant?.merchant_name} Deals and Coupons`
+                                        }
+                                        className="object-contain mix-blend-multiply transition-transform duration-200 group-hover/capsule:scale-102"
+                                        fill
+                                        sizes="(max-width: 768px) 80px, 88px"
+                                    />
+                                </div>
                             </div>
-                            <h4 className="text-left text-gray-800 text-lg md:text-xl font-bold leading-tight">
+                        )}
+
+                        {/* Title & Pricing Text Stack */}
+                        <div className="flex-1 min-w-0 space-y-1.5 self-center">
+                            <h4 className="text-left text-neutral-800 text-sm md:text-base font-bold tracking-tight leading-snug line-clamp-2 transition-colors duration-200 group-hover/capsule:text-neutral-950">
                                 {discardHTMLTags(product?.offer?.offer_title?.replaceAll('_', ' '))}
                             </h4>
-                        </div>
-
-                        {/* Price & Social Info */}
-                        {(product?.offer?.offer_type?.name === "product" || product?.offer?.product_image !== null) && (
-                            <div className="flex justify-between items-center mt-1">
-                                <div className="flex items-baseline gap-3">
+                            
+                            {/* Financial Container Data */}
+                            {(product?.offer?.offer_type?.name === "product" || product?.offer?.product_image !== null) && (
+                                <div className="flex items-baseline gap-2 pt-0.5">
                                     {product?.offer?.sale_price && (
-                                        <span className="font-extrabold text-[#8bc94a] text-2xl md:text-3xl">
+                                        <span className="font-extrabold text-neutral-950 text-lg md:text-xl tracking-tight transition-colors duration-200 group-hover/capsule:text-[#FF5A00]">
                                             {getCurrencySymbol(product?.offer?.currency)}{product?.offer?.sale_price}
                                         </span>
                                     )}
                                     {product?.offer?.original_price && (
-                                        <span className="text-gray-400 text-sm md:text-base font-medium line-through decoration-gray-300">
+                                        <span className="text-neutral-400 text-[11px] font-semibold line-through tracking-wide decoration-neutral-200">
                                             {getCurrencySymbol(product?.offer?.currency)}{product?.offer?.original_price}
                                         </span>
                                     )}
                                 </div>
-
-                                <SocialMediaShare
-                                    offerUrl={`/${product?.offer?.url}`}
-                                    offerTitle={product?.offer?.offer_title}
-                                    merchantHref={merchantHref}
-                                    unique_id={product?.offer?.unique_id}
-                                    domain={domain}
-                                />
-                            </div>
-                        )}
-
-                        {/* Action Area (Bottom Row) */}
-                        <div className="w-full mt-2 pt-4 border-t border-gray-100 flex flex-wrap items-center justify-between gap-4">
-                            <div className="flex items-center gap-2">
-                                <OfferDetailsToggle
-                                    domain={domain}
-                                    imageSrc={product?.offer?.product_image}
-                                    merchantHref={merchantHref}
-                                    offer={product?.offer}
-                                    type='anchor'
-                                    merchantImg={product?.merchant?.merchant_logo}
-                                />
-                            </div>
-
-                            {/* Social Share fallback if no image */}
-                            {product?.offer?.product_image === null && (
-                                <SocialMediaShare
-                                    offerUrl={`/${product?.offer?.url}`}
-                                    offerTitle={product?.offer?.offer_title}
-                                    merchantHref={merchantHref}
-                                    unique_id={product?.offer?.unique_id}
-                                    domain={domain}
-                                />
                             )}
+                        </div>
+                    </div>
 
-                            {/* Call to Action Buttons */}
+                    {/* 3. RELAXED DIVIDER LINE */}
+                    <div className="w-full border-t border-neutral-100/90 my-3" />
+
+                    {/* 4. BALANCED FOOTER ROW */}
+                    <div className="w-full flex flex-col sm:flex-row items-center justify-between gap-3 pt-0.5">
+                        
+                        {/* Left Side: View Details Link */}
+                        <div className="text-left text-[11px] md:text-xs font-bold text-neutral-400 hover:text-[#FF5A00] transition-colors cursor-pointer underline decoration-neutral-200 hover:decoration-[#FF5A00] underline-offset-4 shrink-0">
+                            <OfferDetailsToggle
+                                domain={domain}
+                                imageSrc={product?.offer?.product_image}
+                                merchantHref={merchantHref}
+                                offer={product?.offer}
+                                type='anchor'
+                                merchantImg={product?.merchant?.merchant_logo}
+                            />
+                        </div>
+
+                        {/* Center Side: Social Icons Wrapper */}
+                        <div className="flex items-center justify-center max-h-6 overflow-hidden shrink-0">
+                            {product?.offer?.unique_id && (
+                                <div className="flex items-center justify-center [&_span]:hidden [&_p]:hidden [&_h4]:hidden [&_a]:flex [&_a]:items-center">
+                                    <SocialMediaShare
+                                        offerUrl={`/${product?.offer?.url}`}
+                                        offerTitle={product?.offer?.offer_title}
+                                        merchantHref={merchantHref}
+                                        unique_id={product?.offer?.unique_id}
+                                        domain={domain}
+                                    />
+                                </div>
+                            )}
+                        </div>
+
+                        {/* Right Side: Pill-Shaped CTA Button */}
+                        <div className="min-w-[125px] sm:min-w-[145px] w-full sm:w-auto shrink-0">
                             {product?.offer?.coupon_code ? (
                                 <OfferOutUrl
                                     unique_id={product?.offer?.unique_id}
                                     outUrl={product?.offer?.url}
                                     merchantHref={merchantHref}
                                     domain={domain}
-                                    customClass="relative flex items-center justify-center p-1 rounded-full border-2 border-dashed border-[#Ff912f] group-hover:border-[#8bc94a] bg-white cursor-pointer w-full sm:w-auto min-w-[160px] group transition-all duration-300 hover:shadow-md hover:shadow-[#8bc94a]/20"
+                                    customClass="relative flex items-center justify-center p-[1px] rounded-full border border-dashed border-neutral-300 hover:border-neutral-950 bg-white cursor-pointer w-full group/btn transition-colors duration-200"
                                 >
-                                    <div className="bg-[#8bc94a] group-hover:bg-[#Ff912f] text-white font-bold w-full rounded-full flex items-center justify-center py-2 px-6 transition-colors duration-300">
+                                    <div className="bg-neutral-950 group-hover/btn:bg-[#FF5A00] text-white group-hover/btn:text-neutral-950 font-extrabold text-[11px] uppercase tracking-wider w-full rounded-full flex items-center justify-center py-2 px-3 transition-colors duration-200">
                                         Show Coupon
                                     </div>
                                 </OfferOutUrl>
@@ -205,7 +214,7 @@ const OffersListView = ({ product, companyId, awaited_p_id, mer_slug_type, mer_s
                                     outUrl={product?.offer?.url}
                                     merchantHref={merchantHref}
                                     domain={domain}
-                                    customClass="flex items-center justify-center bg-[#8bc94a] hover:bg-[#Ff912f] text-white font-bold rounded-full py-2.5 px-8 shadow-md shadow-[#8bc94a]/30 hover:shadow-[#Ff912f]/30 transition-all duration-300 transform hover:-translate-y-0.5 w-full sm:w-auto"
+                                    customClass="flex items-center justify-center bg-neutral-950 hover:bg-[#FF5A00] text-white hover:text-neutral-950 text-[11px] font-extrabold uppercase tracking-wider rounded-full py-2.5 px-4 transition-all duration-200 w-full text-center shadow-xs"
                                 >
                                     <span>
                                         {product?.offer?.offer_type?.name === "product" ? "Buy Now" : "Get Deal"}
@@ -213,26 +222,9 @@ const OffersListView = ({ product, companyId, awaited_p_id, mer_slug_type, mer_s
                                 </OfferOutUrl>
                             )}
                         </div>
+                        
                     </div>
 
-                    {/* Right Area (Image) */}
-                    {product?.offer?.product_image && (
-                        <div className="flex items-center justify-center shrink-0 w-full md:w-[160px] lg:w-[180px] p-2 bg-gray-50/50 rounded-xl border border-gray-50">
-                            <div className="relative w-[120px] h-[120px] md:w-[140px] md:h-[140px]">
-                                <Image
-                                    src={getBaseImageUrl(domain, product?.offer?.product_image, "")}
-                                    alt={
-                                        product?.offer?.offer_type?.name === "product"
-                                            ? `${product?.offer?.offer_title || "Product"} image`
-                                            : `${product?.merchant?.merchant_name} Deals and Coupons`
-                                    }
-                                    className="object-contain mix-blend-multiply"
-                                    fill
-                                    sizes="(max-width: 768px) 120px, 140px"
-                                />
-                            </div>
-                        </div>
-                    )}
                 </div>
             </div>
         </>

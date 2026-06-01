@@ -177,175 +177,209 @@ const OfferModal = ({
 
   return ReactDOM.createPortal(
     <div
-      className="fixed top-[64px] md:top-[110px] inset-x-0 bottom-0 z-[50000] flex items-center justify-center p-4 bg-gray-900/60 backdrop-blur-sm transition-opacity duration-300"
+      className="fixed inset-0 z-[50000] flex items-center justify-center p-4 bg-neutral-950/40 backdrop-blur-md transition-opacity duration-300"
       onClick={onClose}
     >
+      {/* ─── PREMIUM WIDE SYMMETRICAL CANVAS ─── */}
       <div
-        className="relative w-full max-w-4xl bg-white rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[95%] sm:max-h-[90vh] animate-in zoom-in-95 duration-300"
+        className="relative w-full max-w-4xl bg-white rounded-2xl border border-neutral-200/80 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.15)] flex flex-col max-h-[90vh] overflow-hidden animate-in zoom-in-98 duration-200 text-neutral-900 pt-[3px]"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* ── Close Button ── */}
-        <button
-          onClick={onClose}
-          className="absolute top-4 right-4 z-30 w-8 h-8 flex items-center justify-center rounded-full bg-gray-50 text-gray-400 hover:text-gray-700 hover:bg-gray-100 transition-colors"
-        >
-          <FontAwesomeIcon icon={faTimes} className="w-4 h-4" />
-        </button>
-
-        {/* ── Modal Content Wrapper (Scrollable) ── */}
-        <div className="overflow-y-auto flex-grow custom-scrollbar">
-          {/* Header Section */}
-          <div className="bg-white p-6 sm:p-8 lg:p-12 text-center border-b border-gray-100 relative">
-            {/* Secondary Color (#ff912f) for "Exclusive Offer" badge to grab attention */}
-            <span className="inline-block px-3 py-1 rounded-full bg-[#ff912f]/10 text-[#ff912f] text-[10px] font-bold uppercase tracking-widest mb-4">
-              Exclusive Offer
-            </span>
-
-            <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-6 leading-snug max-w-2xl mx-auto">
-              {data.offer_title}
-            </h2>
-
-            <Link
-              href={absoluteOutUrl}
-              target="_blank"
-              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-[#8bc94a] text-white text-sm font-bold uppercase tracking-wider hover:bg-[#7ab33f] transition-colors shadow-lg shadow-[#8bc94a]/20 group"
-              onClick={onClose}
-            >
-              Get Deal Now
-              <FontAwesomeIcon
-                icon={faChevronRight}
-                className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform"
+        {/* TOP BRAND ACCENT BAR */}
+        <div className="absolute top-0 left-0 right-0 h-[3px] bg-[#FF5A00] z-50" />
+        
+        {/* ─── HIGH-END SYMMETRICAL CENTERED HEADER BANNER ─── */}
+        <div className="w-full flex items-center justify-center relative px-5 py-4 border-b border-neutral-100 bg-neutral-50/60 shrink-0 min-h-[72px]">
+          
+          {/* Centered Identity Pack */}
+          <div className="flex items-center gap-3 justify-center text-center">
+            {/* Minimal Brand Thumbnail Grid */}
+            <div className="w-10 h-10 bg-white rounded-lg border border-neutral-200 p-1 flex items-center justify-center shrink-0 shadow-3xs">
+              <Image
+                src={imageSrc}
+                alt="merchant logo"
+                width={32}
+                height={32}
+                className="object-contain max-h-full"
               />
-            </Link>
+            </div>
+            
+            {/* Status Info Indicators */}
+            <div className="flex items-center gap-2">
+              <span className="flex items-center gap-1 px-2 py-0.5 rounded bg-orange-50 border border-orange-200 text-[9px] font-black uppercase tracking-wider text-[#FF5A00]">
+                <FontAwesomeIcon icon={faCheck} className="w-2.5 h-2.5" /> Verified
+              </span>
+              
+              {/* FIXED HIGH-CONTRAST BORDERLESS MATTE BADGE */}
+              <span className="inline-flex items-center text-[10px] font-black uppercase tracking-wider text-white bg-neutral-950 px-3 py-1 rounded-md shadow-3xs h-6 overflow-hidden border-none outline-none lifetime-badge-override">
+                <OfferDuration endDate={data?.end_date} />
+              </span>
+            </div>
           </div>
 
-          {/* Split Layout Body */}
-          <div className="grid grid-cols-1 lg:grid-cols-12">
-            {/* Left Side: Offer Info */}
-            <div className="lg:col-span-7 p-6 sm:p-8 lg:p-10 border-b lg:border-b-0 lg:border-r border-gray-100">
-              <div className="flex flex-wrap items-center gap-2 mb-8">
-                {/* Primary Color (#8bc94a) for Verified Badge */}
-                <span className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#8bc94a]/10">
-                  <FontAwesomeIcon
-                    icon={faCheck}
-                    className="w-3 h-3 text-[#8bc94a]"
-                  />
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-[#8bc94a]">
-                    Verified
-                  </span>
+          {/* Dismiss Layout Anchor Button */}
+          <button
+            onClick={onClose}
+            className="absolute right-5 w-8 h-8 flex items-center justify-center rounded-lg bg-white border border-neutral-200 text-neutral-400 hover:bg-red-500 hover:border-red-500 hover:text-white hover:shadow-3xs transition-all duration-200"
+          >
+            <FontAwesomeIcon icon={faTimes} className="w-3.5 h-3.5" />
+          </button>
+        </div>
+
+        <div className="overflow-y-auto flex-grow custom-scrollbar px-6 pt-6 pb-8 space-y-6">
+          
+          <div className="space-y-1">
+            <span className="text-[9px] font-black uppercase tracking-[0.18em] text-[#FF5A00] block">
+              ⚡ Exclusive Verified Offer
+            </span>
+            <h2 className="text-xl sm:text-2xl font-extrabold text-neutral-950 tracking-tight leading-snug">
+              {data.offer_title}
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+            
+            <div className="lg:col-span-7 bg-neutral-50/70 border border-neutral-200/60 rounded-xl p-5 space-y-4">
+              <div className="space-y-1">
+                <span className="text-[9px] font-bold uppercase tracking-widest text-neutral-400 block">
+                  Offer Details & Terms
                 </span>
-                <OfferDuration endDate={data?.end_date} />
+                <p className="text-neutral-600 leading-relaxed text-xs sm:text-sm font-medium">
+                  {discardHTMLTags(data?.offer_detail || "")}
+                </p>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-6 items-start sm:items-center mb-8">
-                <div className="w-24 h-24 bg-white rounded-2xl border border-gray-100 p-3 flex items-center justify-center shrink-0">
-                  <Image
-                    src={imageSrc}
-                    alt="merchant logo"
-                    width={80}
-                    height={80}
-                    className="object-contain max-h-full"
-                  />
-                </div>
-                <div className="flex-grow">
-                  <h4 className="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-2">
-                    Offer Details
-                  </h4>
-                  <p className="text-gray-600 leading-relaxed text-sm">
-                    {discardHTMLTags(data?.offer_detail || "")}
-                  </p>
-                </div>
-              </div>
-
-              {/* Coupon Section */}
-              {data.coupon_code && (
-                <div>
-                  <div className="flex items-center justify-between bg-gray-50 border-2 border-dashed border-gray-200 rounded-xl p-1.5 mb-2 hover:border-[#8bc94a]/50 transition-colors">
-                    <span className="text-lg font-mono font-bold text-gray-900 px-4 tracking-widest select-all">
+              {/* Direct Link */}
+              {data.coupon_code ? (
+                <div className="pt-1">
+                  <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between bg-white border border-neutral-200 rounded-lg p-1.5 gap-2.5 focus-within:border-neutral-950 transition-colors duration-200">
+                    <span className="text-base font-mono font-black text-neutral-950 px-3 tracking-widest select-all flex items-center justify-center sm:justify-start min-h-[38px]">
                       {data.coupon_code}
                     </span>
                     <button
                       onClick={handleCopy}
-                      className={`px-5 py-2.5 rounded-lg flex items-center gap-2 text-sm font-bold transition-all duration-300 shadow-sm ${
+                      className={`px-5 py-2.5 rounded-md flex items-center justify-center gap-2 text-xs font-black uppercase tracking-wider transition-all duration-200 shrink-0 ${
                         copied
-                          ? "bg-[#8bc94a] text-white shadow-[#8bc94a]/20"
-                          : "bg-[#ff912f] text-white hover:bg-[#e68228] hover:shadow-md hover:shadow-[#ff912f]/30 active:scale-95"
+                          ? "bg-neutral-950 text-white"
+                          : "bg-[#FF5A00] text-white hover:bg-neutral-950 shadow-3xs"
                       }`}
                     >
                       <FontAwesomeIcon
                         icon={copied ? faCheck : faCopy}
-                        className="w-3.5 h-3.5"
+                        className="w-3 h-3"
                       />
-                      {copied ? "Copied" : "Copy"}
+                      {copied ? "Copied!" : "Copy Code"}
                     </button>
                   </div>
-                  <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider text-center">
-                    Use code at checkout
+                  <p className="text-[9px] font-bold text-neutral-400 uppercase tracking-widest text-center mt-2">
+                    Apply code at checkout window to claim discount
                   </p>
+                </div>
+              ) : (
+                <div className="pt-1">
+                  <Link
+                    href={absoluteOutUrl}
+                    target="_blank"
+                    className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg bg-neutral-950 text-white text-xs font-black uppercase tracking-widest hover:bg-[#FF5A00] transition-all duration-200 shadow-3xs group w-full text-center"
+                    onClick={onClose}
+                  >
+                    Get Deal Direct
+                    <FontAwesomeIcon
+                      icon={faChevronRight}
+                      className="w-2.5 h-2.5 transform group-hover:translate-x-0.5 transition-transform"
+                    />
+                  </Link>
                 </div>
               )}
             </div>
 
-            {/* Right Side: Rating & Interactions */}
-            <div className="lg:col-span-5 bg-gray-50 p-6 sm:p-8 lg:p-10 flex items-center justify-center">
-              <RateUs offer_id={data?.unique_id || ""} company_id={companyId} />
+            {/* Right Box: Integrated RateUs Shared Grid Column */}
+            <div className="lg:col-span-5 border border-neutral-200/80 rounded-xl p-5 bg-white shadow-3xs">
+              <div className="w-full">
+                <RateUs offer_id={data?.unique_id || ""} company_id={companyId} />
+              </div>
             </div>
+
           </div>
+
         </div>
 
-        {/* ── Footer ── */}
-        <div className="bg-white border-t border-gray-100 p-5 sm:p-6 flex flex-col sm:flex-row items-center justify-between gap-6 shrink-0">
-          <div className="flex items-center gap-4">
-            <span className="text-[11px] font-bold uppercase tracking-widest text-gray-400">
-              Did it work?
+        {/* ─── OPTIMIZED SLIM LOW-PROFILE FOOTER ─── */}
+        <div className="bg-neutral-50/90 border-t border-neutral-100 px-5 py-2 flex flex-row items-center justify-between gap-4 shrink-0 min-h-[48px]">
+          
+          {/* Feedback Thumbs Widget Row */}
+          <div className="flex items-center gap-3">
+            <span className="text-[9px] font-black uppercase tracking-widest text-neutral-400 hidden xxs:block">
+              Was it helpful?
             </span>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1">
               <button
                 onClick={(e) => handleLikeStatus(1, e)}
-                className={`w-10 h-10 rounded-xl flex items-center justify-center transition-colors border ${
+                className={`w-7 h-7 rounded-md flex items-center justify-center transition-all border ${
                   isLiked === 1
-                    ? "bg-[#8bc94a] border-[#8bc94a] text-white"
-                    : "bg-white border-gray-200 text-gray-400 hover:text-gray-700 hover:bg-gray-50"
+                    ? "bg-[#FF5A00] border-[#FF5A00] text-white"
+                    : "bg-white border-neutral-200 text-neutral-400 hover:text-neutral-900 hover:bg-neutral-100"
                 }`}
               >
-                <FontAwesomeIcon icon={faThumbsUp} className="w-4 h-4" />
+                <FontAwesomeIcon icon={faThumbsUp} className="w-2.5 h-2.5" />
               </button>
               <button
                 onClick={(e) => handleLikeStatus(0, e)}
-                className={`w-10 h-10 rounded-xl flex items-center justify-center transition-colors border ${
+                className={`w-7 h-7 rounded-md flex items-center justify-center transition-all border ${
                   isLiked === 0
-                    ? "bg-red-500 border-red-500 text-white"
-                    : "bg-white border-gray-200 text-gray-400 hover:text-gray-700 hover:bg-gray-50"
+                    ? "bg-neutral-950 border-neutral-950 text-white"
+                    : "bg-white border-neutral-200 text-neutral-400 hover:text-neutral-900 hover:bg-neutral-100"
                 }`}
               >
-                <FontAwesomeIcon icon={faThumbsDown} className="w-4 h-4" />
+                <FontAwesomeIcon icon={faThumbsDown} className="w-2.5 h-2.5" />
               </button>
             </div>
           </div>
 
-          <SocialMediaShare
-            offerUrl={offerUrl}
-            offerTitle={offerTitleStr}
-            merchantHref={merchantHref}
-            unique_id={data?.unique_id}
-            domain={domain}
-          />
+          {/* Social Icons */}
+          <div className="scale-90 origin-right flex items-center max-h-8 overflow-hidden whitespace-nowrap">
+            <SocialMediaShare
+              offerUrl={offerUrl}
+              offerTitle={offerTitleStr}
+              merchantHref={merchantHref}
+              unique_id={data?.unique_id}
+              domain={domain}
+            />
+          </div>
         </div>
+
       </div>
 
       <style jsx>{`
         .custom-scrollbar::-webkit-scrollbar {
-          width: 6px;
+          width: 4px;
         }
         .custom-scrollbar::-webkit-scrollbar-track {
           background: transparent;
         }
         .custom-scrollbar::-webkit-scrollbar-thumb {
           background: #e5e7eb;
-          border-radius: 20px;
+          border-radius: 10px;
         }
         .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-          background: #d1d5db;
+          background: #cbd5e1;
+        }
+        
+        :global(.lifetime-badge-override) {
+          background-color: #0a0a0a !important;
+          border: none !important;
+          outline: none !important;
+          box-shadow: none !important;
+        }
+        :global(.lifetime-badge-override *) {
+          color: #ffffff !important;
+          fill: #ffffff !important;
+          stroke: #ffffff !important;
+          background: transparent !important;
+          background-color: transparent !important;
+          border: none !important;
+          outline: none !important;
+          box-shadow: none !important;
         }
       `}</style>
     </div>,

@@ -81,16 +81,19 @@ const RateUs = ({ offer_id, company_id }: RatingProps) => {
   };
 
   return (
-    <div className="p-6 bg-white rounded-3xl border border-gray-100 shadow-sm">
+    <div className="w-full bg-white p-1">
       <ToastContainer />
-      <h4 className="text-lg font-black text-gray-900 mb-4 uppercase tracking-wider">
+      
+      {/* Premium Clean Title Element */}
+      <h4 className="text-sm font-black text-neutral-950 mb-4 uppercase tracking-widest text-center sm:text-left">
         Rate This Offer
       </h4>
 
-      <form onSubmit={handleRate} autoComplete="off" className="space-y-6">
-        {/* Star Rating Section */}
-        <div className="space-y-2">
-          <div className="flex items-center gap-2">
+      <form onSubmit={handleRate} autoComplete="off" className="space-y-5">
+        
+        {/* Star Rating Section with Sync Accents */}
+        <div className="space-y-1.5 flex flex-col items-center sm:items-start">
+          <div className="flex items-center gap-1">
             {[...Array(5)].map((_, index) => (
               <button
                 type="button"
@@ -100,47 +103,48 @@ const RateUs = ({ offer_id, company_id }: RatingProps) => {
               >
                 <FontAwesomeIcon
                   icon={index < rating ? filledStar : emptyStar}
-                  className={`w-6 h-6 ${index < rating ? "text-yellow-400" : "text-gray-200"} transition-colors duration-200`}
+                  className={`w-5 h-5 ${
+                    index < rating ? "text-[#FF5A00]" : "text-neutral-200"
+                  } transition-colors duration-200`}
                 />
               </button>
             ))}
           </div>
-          <p className="text-xs font-bold text-gray-400 uppercase tracking-widest">
+          <p className="text-[9px] font-black text-neutral-400 uppercase tracking-widest">
             {rating
               ? `${rating} Star${rating > 1 ? "s" : ""}`
               : "Select Rating"}
           </p>
         </div>
 
-        {/* Comment Section */}
-        <div className="space-y-2">
+        {/* Comment Section with Minimalist Styling */}
+        <div className="space-y-1.5">
           <label
             htmlFor="comment"
-            className="text-xs font-black text-gray-900 uppercase tracking-widest block"
+            className="text-[9px] font-black text-neutral-400 uppercase tracking-widest block text-left"
           >
             Add a Comment
           </label>
           <textarea
             id="comment"
             placeholder="Share your experience..."
-            className="w-full px-4 py-3 rounded-2xl bg-gray-50 border border-transparent focus:bg-white focus:border-[#8bc94a] focus:ring-4 focus:ring-[#8bc94a10] transition-all duration-300 resize-none h-24 text-sm text-gray-700 outline-none"
+            className="w-full px-4 py-3 rounded-xl bg-neutral-50 border border-neutral-200 focus:bg-white focus:border-neutral-950 transition-all duration-200 resize-none h-24 text-xs font-medium text-neutral-800 outline-none placeholder-neutral-400"
             value={comment}
             onChange={(e) => setComment(e.target.value)}
           />
         </div>
 
-        {/* Submit Button */}
+        {/* Premium Action Button (Black to Orange Smooth Inversion) */}
         <button
           type="submit"
           disabled={loading || (hasRated && rating === 0 && comment === "")}
-          className="w-full py-4 rounded-2xl bg-[#8bc94a] text-white text-xs font-black uppercase tracking-[0.2em] hover:bg-[#ff912f] transition-all duration-500 shadow-lg shadow-[#8bc94a20] hover:shadow-[#ff912f40] disabled:opacity-50 disabled:cursor-not-allowed group"
+          className="w-full py-3.5 rounded-xl bg-neutral-950 text-white text-xs font-black uppercase tracking-[0.15em] hover:bg-[#FF5A00] transition-all duration-300 disabled:opacity-40 disabled:bg-neutral-100 disabled:text-neutral-400 disabled:cursor-not-allowed group shadow-xs"
         >
           {loading ? (
             "Submitting..."
           ) : (
             <span className="flex items-center justify-center gap-2">
               Submit Feedback
-              <span className="transform group-hover:translate-x-1 transition-transform duration-300" />
             </span>
           )}
         </button>
