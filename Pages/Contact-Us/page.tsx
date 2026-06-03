@@ -72,7 +72,7 @@ const page = async () => {
         <div className="container mx-auto max-w-7xl relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             {/* Left: Contact Form */}
-            <div className="order-2 lg:order-1">
+            <div className="order-1">
               <div className="bg-white rounded-[2.5rem] p-8 md:p-12 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.05)] border border-gray-50">
                 <h2 className="text-3xl font-black text-[#1a1612] mb-8 tracking-tight">
                   Send us a <span className="text-[#FF5F1F]">Message</span>
@@ -82,7 +82,7 @@ const page = async () => {
             </div>
 
             {/* Right: Contact Info */}
-            <div className="order-1 lg:order-2 flex flex-col gap-8">
+            <div className="order-2 flex flex-col gap-8">
               <div className="space-y-4">
                 <h3 className="text-4xl font-black text-[#1a1612] uppercase tracking-tighter leading-none">
                   Need Help?

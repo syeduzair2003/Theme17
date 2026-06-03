@@ -113,7 +113,6 @@ const CategoryMerchantPage = async ({ params }: Props) => {
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
           <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-start">
-            
             {/* Left Sidebar */}
             <aside className="w-full lg:w-[30%] flex flex-col gap-8 order-2 lg:order-1 sticky top-24">
               {categories?.categories?.length > 0 && (
@@ -161,7 +160,6 @@ const CategoryMerchantPage = async ({ params }: Props) => {
                 mer_slug_type={c_data?.slug_type}
               />
             </div>
-
           </div>
         </div>
       </section>
