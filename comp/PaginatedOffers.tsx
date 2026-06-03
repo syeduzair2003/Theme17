@@ -46,7 +46,6 @@ export default function PaginatedOffers({
 
   return (
     <div className="space-y-12" key={`page-${currentPage}`}>
-      {/* Scroll Target */}
       <div ref={topRef} className="h-1" />
 
       <div className="space-y-6">

@@ -65,11 +65,7 @@ const OfferCard = async ({
 
   return (
     <div className="group relative flex flex-col w-full h-full bg-white rounded-xl p-3 border border-black/10 hover:border-[#FF5F1F]/40 transition-all duration-500 shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:shadow-[0_15px_30px_-10px_rgba(0,0,0,0.1)] overflow-hidden">
-      
-      {/* ── Ultra-Compact Image Container (Reduced Height) ── */}
       <div className="relative aspect-[16/8] w-full mb-3 bg-[#F9F9F9] rounded-lg overflow-hidden flex items-center justify-center p-2 group-hover:bg-white transition-colors duration-500 border border-black/[0.02]">
-        
-        {/* Compact Badge */}
         <div className="absolute top-1.5 right-1.5 z-20">
           {finalDiscountTag ? (
             <div className="bg-[#0D0D0D] text-white px-1.5 py-0.5 rounded text-[8px] font-black uppercase tracking-wider flex items-center gap-1 shadow-md group-hover:bg-[#FF5F1F] transition-colors duration-300">
@@ -84,7 +80,6 @@ const OfferCard = async ({
           )}
         </div>
 
-        {/* Scaled Image */}
         <div className="relative w-[70%] h-[70%] transform group-hover:scale-110 transition-transform duration-500 ease-out">
           <Image
             src={imageSrc}
@@ -97,16 +92,14 @@ const OfferCard = async ({
         </div>
       </div>
 
-      {/* ── Content Section ── */}
+      {/* Content Section */}
       <div className="flex flex-col flex-grow px-0.5">
-        {/* Increased Text Size for Merchant */}
         <Link href={merchantHref} className="no-underline">
           <span className="text-[9px] font-black text-gray-400 group-hover:text-[#FF5F1F] uppercase tracking-[0.1em] mb-1 block transition-colors">
             {offer?.merchant?.merchant_name}
           </span>
         </Link>
 
-        {/* Increased Text Size for Title */}
         <div className="h-10 mb-2 overflow-hidden">
           {product?.is_detail === 1 && productDetailUrl ? (
             <Link href={productDetailUrl} className="no-underline">
@@ -121,31 +114,34 @@ const OfferCard = async ({
           )}
         </div>
 
-        {/* Increased Price Size */}
         <div className="flex items-center justify-between mt-auto mb-3">
-            <div className="flex items-center gap-1 scale-[0.75] origin-left">
-              <RenderRating rating={rating} />
-              <span className="text-[10px] text-gray-400 font-bold">({rating})</span>
-            </div>
+          <div className="flex items-center gap-1 scale-[0.75] origin-left">
+            <RenderRating rating={rating} />
+            <span className="text-[10px] text-gray-400 font-bold">
+              ({rating})
+            </span>
+          </div>
 
-            {(isProduct || salePrice > 0 || originalPrice > 0) && (
-              <div className="flex items-center gap-1.5 leading-none">
-                {salePrice > 0 && (
-                  <span className="text-[12px] font-black text-[#0D0D0D]">
-                    {getCurrencySymbol(product?.currency)}{salePrice}
-                  </span>
-                )}
-                {originalPrice > 0 && (
-                  <span className="text-[9px] text-gray-400 line-through">
-                    {getCurrencySymbol(product?.currency)}{originalPrice}
-                  </span>
-                )}
-              </div>
-            )}
+          {(isProduct || salePrice > 0 || originalPrice > 0) && (
+            <div className="flex items-center gap-1.5 leading-none">
+              {salePrice > 0 && (
+                <span className="text-[12px] font-black text-[#0D0D0D]">
+                  {getCurrencySymbol(product?.currency)}
+                  {salePrice}
+                </span>
+              )}
+              {originalPrice > 0 && (
+                <span className="text-[9px] text-gray-400 line-through">
+                  {getCurrencySymbol(product?.currency)}
+                  {originalPrice}
+                </span>
+              )}
+            </div>
+          )}
         </div>
       </div>
 
-      {/* ── Footer Actions ── */}
+      {/* Footer Actions */}
       <div className="mt-auto pt-3 border-t border-black/[0.03] space-y-2">
         <div className="flex justify-center">
           <OfferDetailsToggle

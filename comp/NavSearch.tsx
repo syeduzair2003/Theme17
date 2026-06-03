@@ -126,7 +126,6 @@ const SearchBar = ({ companyId, mer_slug, slug_type, cat_slug }: Props) => {
     }
   };
 
-  // Click Outside to Close
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (

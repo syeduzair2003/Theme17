@@ -71,7 +71,7 @@ const NewsletterWithStores = ({
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* ── LEFT COLUMN: Newsletter ── */}
+          {/* LEFT COLUMN: Newsletter */}
           <div className="w-full">
             <div className="flex items-center gap-3 mb-6">
               <span className="h-[2px] w-8 bg-orange-500 rounded-full" />
@@ -155,7 +155,6 @@ const NewsletterWithStores = ({
           {/* RIGHT COLUMN */}
           {hasMerchants && (
             <div className="w-full relative group/container lg:pl-10 overflow-hidden">
-              {/* Header */}
               <div className="flex flex-col mb-8">
                 <div className="flex items-center gap-2 mb-2">
                   <div className="h-1.5 w-1.5 rounded-full bg-orange-500 animate-pulse"></div>
@@ -168,22 +167,20 @@ const NewsletterWithStores = ({
                 </h2>
               </div>
 
-              {/* The Carousel Container */}
               <div className="relative">
-                {/* Side Gradients for Premium Look */}
                 <div className="absolute left-0 top-0 bottom-0 w-20 z-20 bg-gradient-to-r from-white via-white/40 to-transparent pointer-events-none"></div>
                 <div className="absolute right-0 top-0 bottom-0 w-20 z-20 bg-gradient-to-l from-white via-white/40 to-transparent pointer-events-none"></div>
 
                 <motion.div
                   className="flex gap-6 w-max"
                   animate={{
-                    x: [0, -1800], // Adjust this based on your merchant count
+                    x: [0, -1800],
                   }}
                   transition={{
                     x: {
                       repeat: Infinity,
                       repeatType: "loop",
-                      duration: 40, // Increase for slower speed
+                      duration: 40,
                       ease: "linear",
                     },
                   }}
@@ -198,7 +195,6 @@ const NewsletterWithStores = ({
                       <div key={m} className="w-[280px] shrink-0 py-4">
                         <Link href={href} className="group block relative">
                           <div className="bg-slate-50/50 rounded-[2.5rem] border border-slate-100 p-8 transition-all duration-500 hover:bg-white hover:shadow-[0_20px_50px_-15px_rgba(0,0,0,0.1)] hover:-translate-y-2 hover:border-orange-500/20">
-                            {/* Merchant Logo & Offers Badge */}
                             <div className="flex justify-between items-start mb-6">
                               <div className="w-16 h-16 relative rounded-2xl bg-white border border-slate-100 flex items-center justify-center overflow-hidden p-3 shadow-sm group-hover:border-orange-500/50 transition-colors">
                                 {mer?.merchant_logo ? (

@@ -205,7 +205,7 @@ export default function MobileNavMenu({
       />
 
       <aside
-        onClick={(e) => e.stopPropagation()} // 🔥 Stops click from bubbling up to the backdrop close handler
+        onClick={(e) => e.stopPropagation()}
         className={`fixed top-0 left-0 w-[85%] max-w-[380px] h-full bg-[#110e0c] border-r border-zinc-900/60 shadow-[5px_0_50px_rgba(0,0,0,0.9)] z-[99995] pointer-events-auto transform transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] flex flex-col rounded-r-2xl ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         }`}

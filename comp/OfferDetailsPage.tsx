@@ -100,7 +100,6 @@ const OfferDetailsPage = async ({
             <div className="bg-white/90 backdrop-blur-sm rounded-3xl border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] overflow-hidden">
               <div className="p-5 md:p-8">
                 <div className="flex flex-col md:flex-row gap-6 items-start">
-                  {/* Product Image Wrapper */}
                   <div className="w-full md:w-[240px] aspect-square relative bg-gray-50/50 rounded-2xl p-4 border border-gray-100/50 group shrink-0">
                     <Image
                       src={getBaseImageUrl(
@@ -114,7 +113,6 @@ const OfferDetailsPage = async ({
                       className="object-contain p-2 transition-transform duration-500 group-hover:scale-105"
                       sizes="(max-width: 768px) 100vw, 240px"
                     />
-                    {/* Discount Badge */}
                     <div className="absolute top-3 right-3 h-8 w-8 bg-[#ff912f] rounded-full flex items-center justify-center shadow-lg transform rotate-12">
                       <span className="text-white text-[8px] font-black italic">
                         SAVE
@@ -122,7 +120,6 @@ const OfferDetailsPage = async ({
                     </div>
                   </div>
 
-                  {/* Title and Price Info */}
                   <div className="flex-1 min-w-0 py-2">
                     <h1 className="text-xl md:text-2xl font-bold text-gray-900 leading-snug mb-4">
                       {discardHTMLTags(response?.offer_title)}
@@ -160,7 +157,6 @@ const OfferDetailsPage = async ({
                       </div>
                     </div>
 
-                    {/* Call to Action */}
                     <div className="flex flex-col sm:flex-row items-center gap-4">
                       <OfferOutUrl
                         domain={companyDomain}
@@ -185,7 +181,6 @@ const OfferDetailsPage = async ({
               </div>
             </div>
 
-            {/* Offer Details Section */}
             {response?.offer_detail && (
               <div className="bg-white rounded-2xl border border-gray-100 p-6 md:p-8 shadow-sm">
                 <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
@@ -202,7 +197,6 @@ const OfferDetailsPage = async ({
 
           {/* Right Column - Sidebar */}
           <aside className="lg:col-span-4 space-y-6">
-            {/* Merchant Identity Card */}
             <div className="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm">
               <div className="flex items-center gap-4 mb-6">
                 <div className="relative w-16 h-16 bg-gray-50 rounded-xl p-2 flex items-center justify-center border border-gray-100 shrink-0">
@@ -245,7 +239,6 @@ const OfferDetailsPage = async ({
               </Link>
             </div>
 
-            {/* Rate Us Widget */}
             <div className="bg-gray-50 rounded-2xl border border-gray-100 p-6">
               <RateUs
                 offer_id={response?.unique_id || ""}
@@ -253,7 +246,6 @@ const OfferDetailsPage = async ({
               />
             </div>
 
-            {/* More Categories */}
             {cat?.length > 0 && (
               <div className="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm overflow-hidden relative">
                 {/* Decorative background decoration */}
@@ -292,7 +284,7 @@ const OfferDetailsPage = async ({
           </aside>
         </div>
 
-        {/* Bottom Section - Related Products */}
+        {/* Bottom Section */}
         {similarCategory?.length > 0 && (
           <section className="mt-16">
             <div className="flex items-center justify-between mb-8">

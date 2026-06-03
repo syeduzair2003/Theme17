@@ -71,12 +71,9 @@ const ParentPromotionPage = async ({ params }: { params: string }) => {
 
   return (
     <main className="min-h-screen bg-[#fcfdfa] pt-[65px] md:pt-[105px]">
-      {/* ─── PREMIUM HANGING DARK HERO SECTION WITH PATTERNS ─── */}
       <section className="relative w-full bg-[#fcfdfa] overflow-hidden">
         <div className="w-full">
           <div className="relative group bg-[#111318] rounded-t-none rounded-b-[7rem] md:rounded-b-[8rem] px-6 py-12 md:py-16 border-b border-white/5 flex flex-col items-center text-center overflow-hidden transition-all duration-500">
-            {/* ─── SIDE ORNAMENTS & PATTERNS ─── */}
-            {/* Left Side: Modern Dot Pattern */}
             <div className="absolute left-10 bottom-12 hidden lg:block opacity-20 pointer-events-none">
               <div className="grid grid-cols-4 gap-3">
                 {[...Array(12)].map((_, i) => (
@@ -94,7 +91,6 @@ const ParentPromotionPage = async ({ params }: { params: string }) => {
               <div className="w-24 h-[1px] bg-gradient-to-l from-transparent via-[#ff912f] to-transparent -rotate-45" />
             </div>
 
-            {/* 1. Centered Breadcrumbs */}
             <nav className="mb-6 relative z-10" aria-label="breadcrumb">
               <ol className="flex items-center justify-center space-x-2 text-[11px] uppercase tracking-[0.25em] font-black">
                 <li>
@@ -168,19 +164,15 @@ const ParentPromotionPage = async ({ params }: { params: string }) => {
               )}
             </div>
 
-            {/* Subtle Glow Overlay */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-white/[0.01] rounded-full blur-[100px] pointer-events-none" />
           </div>
         </div>
       </section>
-      {/* ─── SLEEK CENTERED SUB-PROMOTIONS HEADING ─── */}
       {subPromotions && subPromotions.length > 0 && (
         <section className="mt-16 pb-16 md:pb-6 overflow-hidden">
           <div className="container mx-auto px-4">
             <div className="flex flex-col gap-10 md:gap-12">
-              {/* Centered & Attractive Heading Section */}
               <div className="relative flex flex-col items-center text-center max-w-2xl mx-auto">
-                {/* Top Decorative Element */}
                 <div className="flex items-center gap-2 mb-3">
                   <div className="w-8 h-[2px] bg-gradient-to-r from-transparent to-[#ff912f] rounded-full" />
                   <div className="w-2 h-2 rounded-full bg-[#ff912f] shadow-[0_0_8px_#ff912f]" />
@@ -192,7 +184,6 @@ const ParentPromotionPage = async ({ params }: { params: string }) => {
                   <span className="text-[#ff912f]">by Category</span>
                 </h2>
 
-                {/* Modern Subtext with subtle divider */}
                 <div className="mt-4 flex flex-col items-center">
                   <p className="text-gray-400 text-[13px] md:text-sm font-medium tracking-wide">
                     Hand-picked specialized offers for the{" "}
@@ -205,7 +196,6 @@ const ParentPromotionPage = async ({ params }: { params: string }) => {
                 </div>
               </div>
 
-              {/* Slider Component */}
               <div className="relative group">
                 <SubPromotionSlider
                   subPromotions={subPromotions}
@@ -249,7 +239,6 @@ const ParentPromotionPage = async ({ params }: { params: string }) => {
               )}
             </div>
 
-            {/* Grid Container */}
             <div className="relative pt-4">
               <EventsGrid>
                 {allOffers.map((item, index) => (
@@ -279,7 +268,6 @@ const ParentPromotionPage = async ({ params }: { params: string }) => {
               </EventsGrid>
             </div>
 
-            {/* Premium Dark Empty State */}
             {allOffers.length === 0 && (
               <div className="bg-[#111318] rounded-[4rem] py-24 px-10 text-center border border-white/5 relative overflow-hidden shadow-2xl">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-[#ff912f]/5 blur-[120px] rounded-full pointer-events-none" />
@@ -305,7 +293,6 @@ const ParentPromotionPage = async ({ params }: { params: string }) => {
         </div>
       </section>
 
-      {/* TOP RATED MERCHANTS SECTION */}
       {promotion?.merchants && promotion.merchants.length > 0 && (
         <section className="pb-24 overflow-hidden">
           <div className="container mx-auto px-4">
@@ -336,36 +323,29 @@ const ParentPromotionPage = async ({ params }: { params: string }) => {
         </section>
       )}
 
-    {/* ─── BOTTOM DESCRIPTION SECTION ─── */}
- {isLongDescription && description && (
-  <section className="pb-16 pt-4">
-    <div className="container mx-auto px-4 max-w-4xl">
-      {/* Main Container: Centered & Sophisticated */}
-      <div className="relative bg-white rounded-[2rem] border border-gray-100 shadow-[0_10px_40px_rgba(0,0,0,0.02)] overflow-hidden">
-        
-        {/* Subtle Top Accent Line */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-20 h-1 bg-[#ff912f] rounded-b-full" />
+      {isLongDescription && description && (
+        <section className="pb-16 pt-4">
+          <div className="container mx-auto px-4 max-w-4xl">
+            <div className="relative bg-white rounded-[2rem] border border-gray-100 shadow-[0_10px_40px_rgba(0,0,0,0.02)] overflow-hidden">
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-20 h-1 bg-[#ff912f] rounded-b-full" />
 
-        <div className="relative z-10 p-8 md:p-12 flex flex-col items-center">
-          {/* Header Section: Centered & Refined */}
-          <div className="flex flex-col items-center text-center mb-10">
-            <div className="flex items-center gap-2 mb-2">
-              <span className="text-[10px] font-black uppercase tracking-[0.4em] text-[#ff912f]">
-                Premium Insights
-              </span>
-            </div>
-            
-            <h3 className="text-2xl md:text-3xl font-black text-[#111318] tracking-tight max-w-2xl">
-              More About {promotion?.promotion?.name}
-            </h3>
-            
-            {/* Minimalist Divider */}
-            <div className="mt-4 w-12 h-1 bg-gray-50 rounded-full" />
-          </div>
+              <div className="relative z-10 p-8 md:p-12 flex flex-col items-center">
+                <div className="flex flex-col items-center text-center mb-10">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-[10px] font-black uppercase tracking-[0.4em] text-[#ff912f]">
+                      Premium Insights
+                    </span>
+                  </div>
 
-          {/* Clean Editorial Typography */}
-          <div
-            className="text-gray-500 text-base leading-[1.8] font-medium 
+                  <h3 className="text-2xl md:text-3xl font-black text-[#111318] tracking-tight max-w-2xl">
+                    More About {promotion?.promotion?.name}
+                  </h3>
+
+                  <div className="mt-4 w-12 h-1 bg-gray-50 rounded-full" />
+                </div>
+
+                <div
+                  className="text-gray-500 text-base leading-[1.8] font-medium 
                        prose prose-slate max-w-none w-full
                        prose-p:mb-6 last:prose-p:mb-0
                        prose-headings:text-[#111318] prose-headings:font-black prose-headings:mb-3 prose-headings:text-center
@@ -373,16 +353,15 @@ const ParentPromotionPage = async ({ params }: { params: string }) => {
                        prose-ul:my-4 prose-li:mb-1
                        prose-a:text-[#ff912f] prose-a:font-semibold prose-a:no-underline hover:prose-a:underline
                        selection:bg-[#ff912f]/10 selection:text-[#ff912f]"
-            dangerouslySetInnerHTML={{ __html: cleanDesc }}
-          />
-        </div>
+                  dangerouslySetInnerHTML={{ __html: cleanDesc }}
+                />
+              </div>
 
-        {/* Subtle Background Glow */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-64 bg-[#ff912f]/[0.02] rounded-full blur-3xl pointer-events-none" />
-      </div>
-    </div>
-  </section>
-)}
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-64 bg-[#ff912f]/[0.02] rounded-full blur-3xl pointer-events-none" />
+            </div>
+          </div>
+        </section>
+      )}
 
       <ParentPromotionSchema
         companyId={companyData?.unique_id}

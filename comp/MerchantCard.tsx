@@ -29,7 +29,6 @@ const MerchantCard = ({
       <div className="absolute -top-12 -left-12 w-32 h-32 bg-[#ff912f]/5 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
 
       <div className="relative z-10 flex flex-col h-full w-full">
-        {/* Brand Logo Display Stage */}
         <div className="flex-1 flex items-center justify-center w-full mb-2">
           {merchant.merchant_logo ? (
             <div className="relative w-[85%] h-[95px] flex items-center justify-center transition-transform duration-500 group-hover:scale-[1.03]">

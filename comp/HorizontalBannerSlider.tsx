@@ -59,7 +59,6 @@ const HorizontalBannerSlider = ({
     sliderInViewRef.current = sliderInView;
   }, [sliderInView]);
 
-  // Keen slider configurations
   const [sliderRef, slider] = useKeenSlider<HTMLDivElement>({
     loop: true,
     slides: { perView: 1 },

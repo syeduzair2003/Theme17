@@ -83,15 +83,12 @@ const RateUs = ({ offer_id, company_id }: RatingProps) => {
   return (
     <div className="w-full bg-white p-1">
       <ToastContainer />
-      
-      {/* Premium Clean Title Element */}
+
       <h4 className="text-sm font-black text-neutral-950 mb-4 uppercase tracking-widest text-center sm:text-left">
         Rate This Offer
       </h4>
 
       <form onSubmit={handleRate} autoComplete="off" className="space-y-5">
-        
-        {/* Star Rating Section with Sync Accents */}
         <div className="space-y-1.5 flex flex-col items-center sm:items-start">
           <div className="flex items-center gap-1">
             {[...Array(5)].map((_, index) => (
@@ -117,7 +114,6 @@ const RateUs = ({ offer_id, company_id }: RatingProps) => {
           </p>
         </div>
 
-        {/* Comment Section with Minimalist Styling */}
         <div className="space-y-1.5">
           <label
             htmlFor="comment"
@@ -134,7 +130,6 @@ const RateUs = ({ offer_id, company_id }: RatingProps) => {
           />
         </div>
 
-        {/* Premium Action Button (Black to Orange Smooth Inversion) */}
         <button
           type="submit"
           disabled={loading || (hasRated && rating === 0 && comment === "")}

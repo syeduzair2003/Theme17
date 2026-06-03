@@ -36,7 +36,7 @@ const MerchantProductsPage = async ({
 
   return (
     <div className="bg-[#ffffff] min-h-screen pb-20">
-      {/* ─── BREADCRUMB ─── */}
+      {/* BREADCRUMB */}
       <BreadcrumbSection
         title={merRes?.merchant_name}
         breadcrumbs={[
@@ -46,7 +46,6 @@ const MerchantProductsPage = async ({
         ]}
       />
 
-      {/* CATEGORY NAVIGATION */}
       {cat?.length > 0 && (
         <div className="border-b border-gray-100 bg-white/80 backdrop-blur-md sticky top-0 z-40">
           <MerchantCategorySlider
@@ -58,22 +57,18 @@ const MerchantProductsPage = async ({
       )}
 
       <div className="max-w-[1320px] mx-auto px-4 sm:px-6 mt-16">
-        {/* ─── MINIMALIST SECTION HEADER ─── */}
         <div className="flex flex-col items-center text-center mb-16">
-          {/* Subtle Badge */}
           <div className="px-4 py-1.5 rounded-full bg-gray-50 border border-gray-100 mb-6">
             <span className="text-[10px] font-black uppercase tracking-[0.3em] text-[#111318]">
               Verified <span className="text-[#ff912f]">Inventory</span>
             </span>
           </div>
 
-          {/* Clean Centered Heading */}
           <h2 className="text-4xl md:text-5xl font-black text-[#111318] tracking-tight mb-4">
             {firstWord && <span className="text-[#ff912f]">{firstWord} </span>}
             {restWords || heading}
           </h2>
 
-          {/* Sophisticated Accent Line */}
           <div className="flex items-center gap-2">
             <div className="h-[2px] w-8 bg-[#ff912f] rounded-full" />
             <div className="h-[4px] w-4 bg-[#111318] rounded-full" />
@@ -86,7 +81,7 @@ const MerchantProductsPage = async ({
           </p>
         </div>
 
-        {/* ─── PRODUCTS GRID AREA ─── */}
+        {/* PRODUCTS GRID AREA */}
         <div className="relative">
           {products?.length > 0 ? (
             <EventsGrid>

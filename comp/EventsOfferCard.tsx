@@ -151,7 +151,6 @@ const EventsOfferCard = ({
             />
           </div>
 
-          {/* Main CTA */}
           {isCoupon ? (
             <OfferOutUrl
               unique_id={product?.unique_id}

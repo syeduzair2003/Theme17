@@ -34,10 +34,8 @@ const MerchantsCarousel = async ({
       className="relative w-full py-12 md:py-16 bg-[#F9F9F9] border-y border-black/[0.03]"
     >
       <div className="container relative z-10 mx-auto px-4 lg:px-6">
-        {/* ── Compact Header Row ── */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-10">
           <div className="max-w-xl">
-            {/* Minimal Eyebrow */}
             <div className="flex items-center gap-2 mb-2">
               <Zap size={12} className="text-[#FF5F1F] fill-[#FF5F1F]" />
               <span className="text-[9px] font-bold text-[#FF5F1F] uppercase tracking-[0.2em]">
@@ -45,7 +43,6 @@ const MerchantsCarousel = async ({
               </span>
             </div>
 
-            {/* Compact Heading */}
             <h2 className="text-2xl md:text-3xl font-black text-slate-800 tracking-tight m-0 uppercase leading-tight">
               {firstWord && (
                 <span className="text-[#FF5F1F]">{firstWord} </span>
@@ -53,7 +50,6 @@ const MerchantsCarousel = async ({
               <span className="text-slate-800">{restWords || heading}</span>
             </h2>
 
-            {/* Tight Sub-text */}
             {subText && (
               <p className="mt-2 text-[10px] text-gray-500 text-lg leading-relaxed max-w-3xl font-medium">
                 {subText}
@@ -61,7 +57,6 @@ const MerchantsCarousel = async ({
             )}
           </div>
 
-          {/* Action Button */}
           <div className="shrink-0">
             <Link
               href="/all-stores/A"
@@ -76,7 +71,6 @@ const MerchantsCarousel = async ({
           </div>
         </div>
 
-        {/* Content Grid */}
         <div className="relative">
           <TopMerchants
             merchantData={merchantList}

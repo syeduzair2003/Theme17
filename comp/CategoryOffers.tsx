@@ -37,7 +37,7 @@ const CategoryOffers = async ({
 
   return (
     <div className="w-full h-full flex flex-col">
-      {/* Verified Deals Banner */}
+      {/* Deals Banner */}
       {offers?.length > 0 && (
         <div className="group/banner mb-8 relative overflow-hidden bg-white border border-gray-100 rounded-[2rem] p-5 flex items-center gap-4 shadow-[0_15px_40px_rgba(0,0,0,0.02)] transition-all duration-500 hover:shadow-[0_20px_50px_rgba(255,95,31,0.05)]">
           <div className="absolute top-0 right-0 w-32 h-full bg-gradient-to-l from-[#FF5F1F]/5 to-transparent skew-x-12 translate-x-10 group-hover/banner:translate-x-0 transition-transform duration-1000" />

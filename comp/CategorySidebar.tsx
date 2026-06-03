@@ -30,8 +30,8 @@ const CategorySidebar = async ({
             </h4>
             <div className="w-8 h-1 bg-[#FF5A00] rounded-full mt-1.5 shadow-[0_2px_10px_rgba(255,90,0,0.3)]" />
           </div>
-          <Link 
-            href={`/category`} 
+          <Link
+            href={`/category`}
             className="px-4 py-1.5 bg-[#FFF5EF] border border-[#FF5A00]/20 rounded-full text-[10px] font-bold tracking-widest text-[#FF5A00] hover:bg-[#FF5A00] hover:text-white transition-all duration-200 uppercase"
           >
             VIEW ALL

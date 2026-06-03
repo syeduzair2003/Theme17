@@ -295,7 +295,6 @@ const OffersPage = async ({
               {similarMerchant && similarMerchant.length > 0 && (
                 <div className="bg-white rounded-xl p-5 border border-neutral-200/80 shadow-[0_2px_12px_rgba(0,0,0,0.03)]">
                   <div className="flex items-center justify-between mb-5 pb-3 border-b border-neutral-100">
-                    {/* Updated Header Style */}
                     <div className="flex flex-col">
                       <h3 className="text-lg font-black text-neutral-900">
                         Similar <span className="text-[#FF5A00]">Stores</span>

@@ -55,7 +55,6 @@ const RoundedMerchant = async ({ merchants, storeSlug, slugType }: Props) => {
 
         {/* Slider Component */}
         <div className="relative group">
-          {/* Floating slider */}
           <div className="absolute inset-0 bg-[#FF5F1F]/[0.01] rounded-[3rem] blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
 
           <div className="relative z-10">

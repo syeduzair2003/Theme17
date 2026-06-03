@@ -126,7 +126,6 @@ const LazyLoadingOffers = ({
 
   return (
     <>
-      {/* ─── ACTIVE OFFERS CONTEXT CANVAS ─── */}
       <section className="w-full py-8 md:py-12 bg-transparent">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col gap-6">
@@ -183,8 +182,7 @@ const LazyLoadingOffers = ({
                   </React.Fragment>
                 ) : null,
               )}
-              
-              {/* BRANDED PREMIUM LOW LATENCY SPINNER */}
+
               {loading && (
                 <div className="flex justify-center items-center py-10 w-full">
                   <div className="animate-spin rounded-full h-9 w-9 border-b-2 border-[#FF5A00]"></div>
@@ -195,7 +193,6 @@ const LazyLoadingOffers = ({
         </div>
       </section>
 
-      {/* ─── EXPIRED OFFERS SECTION (THEMED ACCENTS) ─── */}
       {expiredOffers?.length > 0 ? (
         <section className="w-full py-12 md:py-20 bg-neutral-50/60 border-t border-neutral-100">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -203,7 +200,9 @@ const LazyLoadingOffers = ({
               <div className="text-center mb-4">
                 <h2 className="text-2xl md:text-3xl font-black text-neutral-950 tracking-tight leading-tight">
                   Old deals & coupons that might still work for{" "}
-                  <span className="text-[#FF5A00] tracking-normal inline-block relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2px] after:bg-[#FF5A00]/10">{merchantName}</span>
+                  <span className="text-[#FF5A00] tracking-normal inline-block relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2px] after:bg-[#FF5A00]/10">
+                    {merchantName}
+                  </span>
                 </h2>
               </div>
               <div className="grid grid-cols-1 gap-6">
@@ -231,7 +230,6 @@ const LazyLoadingOffers = ({
         <></>
       )}
 
-      {/* SCHEMA ENGINES - 100% UNTOUCHED LOGIC */}
       <script
         type="application/ld+json"
         id="AggregateOffer"

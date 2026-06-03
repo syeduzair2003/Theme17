@@ -107,14 +107,15 @@ const CategoryMerchantPage = async ({ params }: Props) => {
 
       <section className="py-12 lg:py-20 relative w-full overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full pointer-events-none opacity-40">
-          <div className="absolute top-[10%] right-[-5%] w-[500px] h-[500px] bg-[#FF5F1F]/5 rounded-full blur-[120px]"></div>
+          <div className="absolute top-[10%] right-[-5%] w-[500px] h-[500px] bg-[#FF5A00]/5 rounded-full blur-[120px]"></div>
           <div className="absolute bottom-[10%] left-[-5%] w-[400px] h-[400px] bg-gray-200 rounded-full blur-[100px]"></div>
         </div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
           <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-start">
+            
             {/* Left Sidebar */}
-            <aside className="w-full lg:w-[30%] flex flex-col gap-8 order-1 sticky top-24">
+            <aside className="w-full lg:w-[30%] flex flex-col gap-8 order-2 lg:order-1 sticky top-24">
               {categories?.categories?.length > 0 && (
                 <div className="bg-white p-1 rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.03)] border border-gray-50 overflow-hidden transition-all duration-500">
                   <CategorySidebar
@@ -139,11 +140,11 @@ const CategoryMerchantPage = async ({ params }: Props) => {
             </aside>
 
             {/* Content Area */}
-            <div className="w-full lg:w-[70%] order-2">
+            <div className="w-full lg:w-[70%] order-1 lg:order-2">
               <div className="mb-8 flex items-center justify-between border-b border-gray-100 pb-6">
                 <div>
                   <h2 className="text-2xl md:text-3xl font-black text-[#1a1612] tracking-tight">
-                    Exclusive Offers <span className="text-[#FF5F1F]">.</span>
+                    Exclusive Offers <span className="text-[#FF5A00]">.</span>
                   </h2>
                   <p className="text-gray-400 text-sm mt-1 uppercase tracking-widest font-medium">
                     Verified deals in {catRes?.name}
@@ -160,6 +161,7 @@ const CategoryMerchantPage = async ({ params }: Props) => {
                 mer_slug_type={c_data?.slug_type}
               />
             </div>
+
           </div>
         </div>
       </section>

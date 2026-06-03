@@ -14,7 +14,6 @@ const OfferDuration = ({ endDate, className }: Props) => {
   return (
     <div className={`flex items-center gap-1.5 ${className ?? ""}`}>
       {isExpiring ? (
-        /* ─── EXPIRING STATE (VIBRANT PULSING ORANGE) ─── */
         <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-[#FF5A00]/10 border border-[#FF5A00]/20 animate-pulse">
           <FontAwesomeIcon
             icon={faCalendarDays}
@@ -25,7 +24,6 @@ const OfferDuration = ({ endDate, className }: Props) => {
           </span>
         </div>
       ) : (
-        /* ─── LIFE TIME STATE (CLEAN ORANGE ACCENT & HOVER REACTIVE) ─── */
         <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-[#FF5A00]/10 border border-[#FF5A00]/20 transition-all duration-300 group-hover/capsule:bg-neutral-900 group-hover/capsule:border-neutral-800">
           <FontAwesomeIcon
             icon={faCalendarDays}

@@ -180,20 +180,14 @@ const OfferModal = ({
       className="fixed inset-0 z-[50000] flex items-center justify-center p-4 bg-neutral-950/40 backdrop-blur-md transition-opacity duration-300"
       onClick={onClose}
     >
-      {/* ─── PREMIUM WIDE SYMMETRICAL CANVAS ─── */}
       <div
         className="relative w-full max-w-4xl bg-white rounded-2xl border border-neutral-200/80 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.15)] flex flex-col max-h-[90vh] overflow-hidden animate-in zoom-in-98 duration-200 text-neutral-900 pt-[3px]"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* TOP BRAND ACCENT BAR */}
         <div className="absolute top-0 left-0 right-0 h-[3px] bg-[#FF5A00] z-50" />
-        
-        {/* ─── HIGH-END SYMMETRICAL CENTERED HEADER BANNER ─── */}
+
         <div className="w-full flex items-center justify-center relative px-5 py-4 border-b border-neutral-100 bg-neutral-50/60 shrink-0 min-h-[72px]">
-          
-          {/* Centered Identity Pack */}
           <div className="flex items-center gap-3 justify-center text-center">
-            {/* Minimal Brand Thumbnail Grid */}
             <div className="w-10 h-10 bg-white rounded-lg border border-neutral-200 p-1 flex items-center justify-center shrink-0 shadow-3xs">
               <Image
                 src={imageSrc}
@@ -203,21 +197,19 @@ const OfferModal = ({
                 className="object-contain max-h-full"
               />
             </div>
-            
-            {/* Status Info Indicators */}
+
             <div className="flex items-center gap-2">
               <span className="flex items-center gap-1 px-2 py-0.5 rounded bg-orange-50 border border-orange-200 text-[9px] font-black uppercase tracking-wider text-[#FF5A00]">
-                <FontAwesomeIcon icon={faCheck} className="w-2.5 h-2.5" /> Verified
+                <FontAwesomeIcon icon={faCheck} className="w-2.5 h-2.5" />{" "}
+                Verified
               </span>
-              
-              {/* FIXED HIGH-CONTRAST BORDERLESS MATTE BADGE */}
+
               <span className="inline-flex items-center text-[10px] font-black uppercase tracking-wider text-white bg-neutral-950 px-3 py-1 rounded-md shadow-3xs h-6 overflow-hidden border-none outline-none lifetime-badge-override">
                 <OfferDuration endDate={data?.end_date} />
               </span>
             </div>
           </div>
 
-          {/* Dismiss Layout Anchor Button */}
           <button
             onClick={onClose}
             className="absolute right-5 w-8 h-8 flex items-center justify-center rounded-lg bg-white border border-neutral-200 text-neutral-400 hover:bg-red-500 hover:border-red-500 hover:text-white hover:shadow-3xs transition-all duration-200"
@@ -227,7 +219,6 @@ const OfferModal = ({
         </div>
 
         <div className="overflow-y-auto flex-grow custom-scrollbar px-6 pt-6 pb-8 space-y-6">
-          
           <div className="space-y-1">
             <span className="text-[9px] font-black uppercase tracking-[0.18em] text-[#FF5A00] block">
               ⚡ Exclusive Verified Offer
@@ -238,7 +229,6 @@ const OfferModal = ({
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-            
             <div className="lg:col-span-7 bg-neutral-50/70 border border-neutral-200/60 rounded-xl p-5 space-y-4">
               <div className="space-y-1">
                 <span className="text-[9px] font-bold uppercase tracking-widest text-neutral-400 block">
@@ -249,7 +239,6 @@ const OfferModal = ({
                 </p>
               </div>
 
-              {/* Direct Link */}
               {data.coupon_code ? (
                 <div className="pt-1">
                   <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between bg-white border border-neutral-200 rounded-lg p-1.5 gap-2.5 focus-within:border-neutral-950 transition-colors duration-200">
@@ -293,21 +282,18 @@ const OfferModal = ({
               )}
             </div>
 
-            {/* Right Box: Integrated RateUs Shared Grid Column */}
             <div className="lg:col-span-5 border border-neutral-200/80 rounded-xl p-5 bg-white shadow-3xs">
               <div className="w-full">
-                <RateUs offer_id={data?.unique_id || ""} company_id={companyId} />
+                <RateUs
+                  offer_id={data?.unique_id || ""}
+                  company_id={companyId}
+                />
               </div>
             </div>
-
           </div>
-
         </div>
 
-        {/* ─── OPTIMIZED SLIM LOW-PROFILE FOOTER ─── */}
         <div className="bg-neutral-50/90 border-t border-neutral-100 px-5 py-2 flex flex-row items-center justify-between gap-4 shrink-0 min-h-[48px]">
-          
-          {/* Feedback Thumbs Widget Row */}
           <div className="flex items-center gap-3">
             <span className="text-[9px] font-black uppercase tracking-widest text-neutral-400 hidden xxs:block">
               Was it helpful?
@@ -336,7 +322,6 @@ const OfferModal = ({
             </div>
           </div>
 
-          {/* Social Icons */}
           <div className="scale-90 origin-right flex items-center max-h-8 overflow-hidden whitespace-nowrap">
             <SocialMediaShare
               offerUrl={offerUrl}
@@ -347,7 +332,6 @@ const OfferModal = ({
             />
           </div>
         </div>
-
       </div>
 
       <style jsx>{`
@@ -364,7 +348,7 @@ const OfferModal = ({
         .custom-scrollbar::-webkit-scrollbar-thumb:hover {
           background: #cbd5e1;
         }
-        
+
         :global(.lifetime-badge-override) {
           background-color: #0a0a0a !important;
           border: none !important;

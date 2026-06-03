@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import OfferModal from "@/components/Theme-11/comp/OfferModal";
+import OfferModal from "@/components/Theme-17/comp/OfferModal";
 import { Offer, ProductData } from "@/services/dataTypes";
 import { getFinalDiscountTag } from "@/constants/hooks";
 import SimpleOfferModal from "./SimpleOfferModal";
@@ -27,7 +27,6 @@ const OfferDetailsToggle = ({
 }: Props) => {
   const [showModal, setShowModal] = useState(false);
 
-  // Prevent parent Link click when clicking this button
   const handleClick = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();

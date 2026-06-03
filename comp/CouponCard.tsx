@@ -86,7 +86,6 @@ const CouponCard = ({
           )}
         </div>
 
-        {/* Middle Content */}
         <div className="flex-1 flex flex-col justify-center min-w-0">
           <div className="flex items-center gap-2 mb-3">
             <span className="px-2 py-0.5 bg-indigo-500/10 border border-indigo-500/20 rounded text-[9px] font-bold text-indigo-400 uppercase tracking-widest">
@@ -124,7 +123,6 @@ const CouponCard = ({
 
         {/* Right Side */}
         <div className="w-full md:w-[220px] flex flex-col justify-center items-center md:items-end border-t md:border-t-0 md:border-l border-white/5 pt-5 md:pt-0 md:pl-6 gap-4">
-          {/* Price Section */}
           {salePrice > 0 || originalPrice > 0 ? (
             <div className="text-right flex flex-col items-center md:items-end">
               <span className="text-2xl font-black text-white tracking-tighter">
@@ -146,7 +144,6 @@ const CouponCard = ({
             </div>
           )}
 
-          {/* CTA Buttons */}
           {isCoupon ? (
             <OfferOutUrl
               unique_id={product?.unique_id}
@@ -182,7 +179,6 @@ const CouponCard = ({
         </div>
       </div>
 
-      {/* Bottom Accent Line */}
       <div className="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-indigo-500 via-purple-500 to-transparent group-hover:w-full transition-all duration-700" />
     </div>
   );
