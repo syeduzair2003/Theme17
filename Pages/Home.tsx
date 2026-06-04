@@ -12,6 +12,7 @@ import RoundedMerchantHome from "../comp/RoundedMerchantHome";
 import HomepageFAQs from "../comp/HomePageFaqs";
 import Blog from "../comp/Blog";
 import NewsletterWithStores from "../comp/NewsletterWithStores";
+import BrandedProductsHome from "../comp/BrandedProductsHome";
 
 const Home = async () => {
   const companyDomainObj = await cookieService.get("domain");
@@ -56,6 +57,7 @@ const Home = async () => {
         mer_slug={c_data?.store_slug}
         mer_slug_type={c_data?.slug_type}
       />
+      
 
       <RecentEvents
         companyId={c_data?.unique_id}
@@ -77,9 +79,10 @@ const Home = async () => {
         mer_slug={c_data?.store_slug}
       />
 
-      <HomepageFAQs
-        slug_type={c_data?.slug_type}
-        store_slug={c_data?.store_slug}
+      <BrandedProductsHome
+        companyId={c_data?.unique_id}
+        mer_slug_type={c_data?.slug_type}
+        mer_slug={c_data?.store_slug}
       />
 
       <NewsletterWithStores
@@ -93,6 +96,12 @@ const Home = async () => {
       {(c_data?.blog_title || c_data?.blog_url) && (
         <Blog companyId={c_data?.unique_id} blog_url={c_data?.blog_url} />
       )}
+      
+      <HomepageFAQs
+        slug_type={c_data?.slug_type}
+        store_slug={c_data?.store_slug}
+      />
+      
     </div>
   );
 };

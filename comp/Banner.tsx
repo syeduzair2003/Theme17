@@ -4,7 +4,6 @@ import { OffersMerchant, OffersOffer } from "@/services/dataTypes";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-// import Image from "@/components/shared/Image";
 
 interface Props {
   data: OffersOffer;

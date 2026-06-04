@@ -174,7 +174,7 @@ const EventsOfferCard = ({
               outUrl={product?.url}
               merchantHref={merchantHref}
               domain={domain}
-              customClass="w-full py-3 rounded-xl bg-[#111318] text-white text-[11px] font-black uppercase tracking-[0.2em] flex items-center justify-center gap-2 hover:bg-[#ff912f] transition-all duration-300 no-underline shadow-lg shadow-black/5"
+              customClass="w-full py-3 rounded-xl bg-[#111318] text-white text-[10px] font-black uppercase tracking-[0.1em] flex items-center justify-center gap-2 hover:bg-[#ff912f] transition-all duration-300 no-underline shadow-lg shadow-black/5"
             >
               {type === "product" ? "Add to Cart" : "Activate Deal"}
               <FontAwesomeIcon

@@ -2,7 +2,6 @@
 import { Offer, OffersOffer } from "@/services/dataTypes";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import RenderRating from "./RenderRating";
 import OfferModal from "./OfferModal";
 import {
   discardHTMLTags,
@@ -15,7 +14,6 @@ import {
 } from "@/constants/hooks";
 import { apiOfferDetails } from "@/apis/offers";
 import OfferOutUrl from "@/components/shared/OfferOutUrl";
-// import Image from "@/components/shared/Image";
 import OfferDuration from "./OfferDuration";
 import SocialMediaShare from "./SocialMediaShare";
 import SimpleOfferModal from "./SimpleOfferModal";

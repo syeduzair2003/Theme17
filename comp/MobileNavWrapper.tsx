@@ -178,7 +178,7 @@ export default function MobileNavWrapper({
 
       <aside
         onClick={(e) => e.stopPropagation()} // 🔥 Absolute Shield: Stops click from bubbling up
-        className={`fixed top-0 left-0 h-full w-[85vw] max-w-[340px] z-[99995] pointer-events-auto flex flex-col bg-[#110e0c] border-r border-zinc-900/60 shadow-[5px_0_50px_rgba(0,0,0,0.9)] transition-transform duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+        className={`fixed top-0 left-0 h-full w-[85vw] max-w-[430px] z-[99995] pointer-events-auto flex flex-col bg-[#110e0c] border-r border-zinc-900/60 shadow-[5px_0_50px_rgba(0,0,0,0.9)] transition-transform duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >

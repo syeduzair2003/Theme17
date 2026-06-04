@@ -10,7 +10,7 @@ import {
   getRandomRating,
   getRandomStoreSeoTitle,
 } from "@/constants/hooks";
-import RenderRating from "@/components/Theme-11/comp/RenderRating";
+import RenderRating from "@/components/Theme-17/comp/RenderRating";
 import { OffersOffer } from "@/services/dataTypes";
 import OfferOutUrl from "@/components/shared/OfferOutUrl";
 import cookieService from "@/services/CookiesService";

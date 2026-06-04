@@ -80,11 +80,14 @@ const NavbarSec = ({
       )}
 
       <ScrollNavbarWrapper>
-        <nav className="relative w-full bg-[#141414] border-b border-white/5 shadow-2xl">
+        <nav className="relative w-full bg-[#141414] border-b border-white/5 shadow-2xl overflow-visible">
           <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#FF5F1F]/40 to-transparent" />
 
-          <div className="max-w-[1400px] mx-auto px-4 lg:px-8 py-5 flex items-center">
-            <div className="flex-1 flex items-center justify-start z-[10005]">
+          {/* 🔹 RESPONSIVE FIX: px-4 lg:px-4 se layout stretch control mein rahega aur elements wrap ya crop nahi honge */}
+          <div className="max-w-[1400px] mx-auto px-4 lg:px-4 xl:px-8 py-5 flex items-center justify-between gap-2">
+            
+            {/* Logo Container */}
+            <div className="flex-shrink-0 flex items-center justify-start z-[10005]">
               <Link
                 href="/"
                 className="group relative transition-transform duration-300 hover:scale-105 flex-shrink-0"
@@ -94,17 +97,19 @@ const NavbarSec = ({
                   <Image
                     src={companyLogo}
                     alt="Logo"
-                    width={150}
-                    height={45}
-                    className="relative object-contain brightness-110 contrast-125 invert"
+                    width={140}
+                    height={40}
+                    className="relative object-contain brightness-110 contrast-125 invert max-w-[110px] sm:max-w-[140px]"
                     priority
                   />
                 )}
               </Link>
             </div>
 
-            <div className="hidden lg:flex flex-none items-center justify-center z-[10001] lg:mr-12">
-              <div className="bg-[#1A1A1A] rounded-2xl p-1 border border-white/10 hover:border-[#FF5F1F]/30 transition-all duration-300 shadow-sm">
+            {/* Centered Navigation Menu */}
+            {/* 🔹 RESPONSIVE FIX: scale-90 lg:scale-95 xl:scale-100 se 1024px screen par menu halka sa slim ho jaye ga taake space ban sake */}
+            <div className="hidden lg:flex flex-initial items-center justify-center z-[10001] mx-1 xl:mx-6 transform scale-95 xl:scale-100 transition-all duration-300">
+              <div className="bg-[#1A1A1A] rounded-2xl p-0.5 xl:p-1 border border-white/10 hover:border-[#FF5F1F]/30 shadow-sm max-w-full">
                 <NavigationPill
                   merchantData={merchantData}
                   categories={categories}
@@ -121,12 +126,14 @@ const NavbarSec = ({
               </div>
             </div>
 
-            <div className="flex-1 flex items-center justify-end gap-3 lg:gap-6 relative z-[10006]">
+            {/* Right Action Items (Search + Mobile Burger) */}
+            <div className="flex-shrink-0 flex items-center justify-end gap-2 relative z-[10006]">
               <div className="hidden lg:block relative">
-                <div className="relative group w-32 hover:w-[280px] focus-within:w-[280px] transition-all duration-500 ease-in-out flex justify-end">
+                {/* 🔹 RESPONSIVE FIX: Default width ko tight kiya taake 1024px par fits in ho sake aur dropdown perfectly right-0 par open ho */}
+                <div className="relative group w-28 xl:w-36 lg:hover:w-[240px] lg:focus-within:w-[240px] xl:hover:w-[280px] xl:focus-within:w-[280px] transition-all duration-500 ease-in-out flex justify-end">
                   <Suspense
                     fallback={
-                      <div className="w-32 h-11 rounded-2xl animate-pulse bg-white/5 border border-white/10" />
+                      <div className="w-28 h-11 rounded-2xl animate-pulse bg-white/5 border border-white/10" />
                     }
                   >
                     <div className="absolute -inset-[1px] bg-gradient-to-r from-[#FF5F1F]/30 via-orange-500/10 to-[#FF5F1F]/30 rounded-2xl opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-500 blur-[3px]" />
@@ -143,6 +150,7 @@ const NavbarSec = ({
                 </div>
               </div>
 
+              {/* Mobile Trigger */}
               <div className="lg:hidden flex items-center relative z-[20000] shrink-0">
                 <MobileNavWrapper
                   categories={categories || []}
@@ -161,6 +169,7 @@ const NavbarSec = ({
                 />
               </div>
             </div>
+
           </div>
         </nav>
       </ScrollNavbarWrapper>

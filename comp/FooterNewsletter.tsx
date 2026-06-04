@@ -50,13 +50,13 @@ const FooterNewsletter = ({ companyId }: Props) => {
   };
 
   return (
-    <div className="w-full">
+    <div className="w-full max-w-full overflow-hidden">
       {/* Header */}
-      <h3 className="text-white font-black uppercase tracking-[0.2em] text-[11px] mb-6 italic">
+      <h3 className="text-white font-black uppercase tracking-[0.2em] text-[11px] mb-4 md:mb-6 italic">
         Get Exclusive Deals
       </h3>
 
-      <p className="text-slate-400 text-[13px] mb-8 leading-relaxed font-medium italic">
+      <p className="text-slate-400 text-[13px] mb-5 md:mb-8 leading-relaxed font-medium italic">
         Join our elite list to receive verified updates and{" "}
         <span className="text-orange-500">exclusive codes</span> directly to
         your terminal.
@@ -76,16 +76,17 @@ const FooterNewsletter = ({ companyId }: Props) => {
           <input
             type="email"
             placeholder="ACCESS@DEALS.COM"
-            className="flex-1 bg-transparent border-none outline-none px-5 py-3 text-[11px] font-black uppercase tracking-widest text-slate-100 placeholder-slate-600 focus:ring-0 z-10"
+            className="flex-1 bg-transparent border-none outline-none px-3 md:px-5 py-3 text-[11px] font-black uppercase tracking-widest text-slate-100 placeholder-slate-600 focus:ring-0 z-10 min-w-0"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             disabled={isSubmitting}
           />
 
+          {/* Button Container */}
           <button
             type="submit"
             disabled={isSubmitting}
-            className="relative z-10 flex justify-center items-center rounded-xl w-12 h-12 bg-orange-600 hover:bg-orange-500 text-white transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed group shadow-[0_0_20px_rgba(249,115,22,0.2)] hover:shadow-[0_0_30px_rgba(249,115,22,0.4)] active:scale-95"
+            className="relative z-10 flex justify-center items-center rounded-xl w-11 h-11 md:w-12 md:h-12 bg-orange-600 hover:bg-orange-500 text-white transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed group shadow-[0_0_20px_rgba(249,115,22,0.2)] hover:shadow-[0_0_30px_rgba(249,115,22,0.4)] active:scale-95 flex-shrink-0"
             aria-label="Subscribe"
           >
             <FontAwesomeIcon
