@@ -90,7 +90,7 @@ const NewsletterWithStores = ({
             <p className="text-slate-500 text-sm md:text-base max-w-md font-medium mb-10 leading-relaxed italic">
               Stop hunting for expired codes. Join{" "}
               <span className="text-black font-bold">50,000+</span> smart
-              shoppers and get the internet's best hand-picked deals delivered
+              shoppers and get the internet&apos;s best hand-picked deals delivered
               to your inbox.
             </p>
 

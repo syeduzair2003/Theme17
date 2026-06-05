@@ -59,7 +59,7 @@ const page = async () => {
                 No Merchants Found
               </h3>
               <p className="text-gray-500 mt-4 max-w-xs mx-auto font-medium">
-                We're currently updating our catalog. Check back soon for new
+                We&apos;re currently updating our catalog. Check back soon for new
                 premium products!
               </p>
               <button className="mt-10 bg-white text-[#111318] px-10 py-3.5 rounded-2xl font-black text-xs uppercase tracking-[0.2em] hover:bg-[#ff912f] hover:text-white transition-all duration-500 shadow-xl shadow-black/20">

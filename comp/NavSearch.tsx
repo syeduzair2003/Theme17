@@ -202,7 +202,7 @@ const SearchBar = ({ companyId, mer_slug, slug_type, cat_slug }: Props) => {
       ref={searchWrapperRef}
       className="relative flex justify-end w-full max-w-full lg:max-w-[400px] xl:max-w-[450px] group"
     >
-      {/* Search Input Container */}
+      {/* Search Container */}
       <div
         className={`
           relative flex items-center h-[42px] rounded-xl transition-all duration-500 ease-in-out

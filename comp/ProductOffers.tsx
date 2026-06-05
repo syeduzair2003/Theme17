@@ -97,7 +97,7 @@ const ProductOffers = async ({
               </h3>
 
               <p className="text-gray-400 max-w-sm mx-auto text-sm font-medium leading-relaxed">
-                We couldn't find any offers in this category. Try exploring our
+                We couldn&apos;t find any offers in this category. Try exploring our
                 other premium collections or check back later.
               </p>
 

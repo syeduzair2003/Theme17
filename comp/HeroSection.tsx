@@ -75,7 +75,7 @@ const HeroSection = ({ keywords, mer_slug, cat_slug }: Props) => {
 
             <p className="text-zinc-400 text-xs md:text-sm mb-8 leading-relaxed font-medium">
               Unlock verified corporate rates and hidden discount codes for the
-              world's most prestigious hotel chains and luxury apartment
+              world&apos;s most prestigious hotel chains and luxury apartment
               rentals.
             </p>
 

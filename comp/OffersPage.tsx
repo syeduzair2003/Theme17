@@ -283,7 +283,7 @@ const OffersPage = async ({
                       NO ACTIVE COUPONS
                     </h3>
                     <p className="text-neutral-500 text-xs max-w-xs mx-auto font-medium">
-                      We couldn't find any verified discounts for this store
+                      We couldn&apos;t find any verified discounts for this store
                       right now.
                     </p>
                   </div>
