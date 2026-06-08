@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import {
   apiCompanyUpdatedData,
   apiGetAllPromotion,
@@ -13,6 +13,7 @@ import {
 import cookieService from "@/services/CookiesService";
 import { ToastContainer } from "react-toastify";
 import Navbar from "./comp/Navbar";
+import PageLoader from "./comp/PageLoader";
 import Footer from "./comp/Footer";
 
 interface Props {
@@ -20,7 +21,7 @@ interface Props {
   c_data: CompanyData;
 }
 
-const theme11Layout = async ({ children }: Props) => {
+const theme17Layout = async ({ children }: Props) => {
   const companyDomain = await cookieService.get("domain");
   const c_data = (await apiCompanyUpdatedData(companyDomain)).data;
   const [
@@ -53,6 +54,11 @@ const theme11Layout = async ({ children }: Props) => {
   };
 
   return (
+    <>
+    <Suspense fallback={null}>
+            <PageLoader logo={c_data?.company_logo || ""} />
+          </Suspense>
+
     <div>
       <Navbar
         unique_id={c_data.unique_id}
@@ -80,7 +86,9 @@ const theme11Layout = async ({ children }: Props) => {
         socialLinks={socialLinks}
       />
     </div>
+    <ToastContainer />
+     </>
   );
 };
 
-export default theme11Layout;
+export default theme17Layout;
