@@ -344,7 +344,7 @@ const OffersPage = async ({
                 </div>
               )}
               {navCategories.length > 0 && (
-                <div className="bg-white rounded-xl border border-neutral-200/80 p-2 shadow-[0_2px_12px_rgba(0,0,0,0.03)]">
+                <div className="bg-white rounded-xl border border-neutral-200/80 shadow-[0_2px_12px_rgba(0,0,0,0.03)]">
                   <CategorySidebar
                     categories={navCategories}
                     parentCategory={merchant_details?.data?.merchant_name}
@@ -353,7 +353,7 @@ const OffersPage = async ({
               )}
 
               {filteredVerticalBanners.length > 0 && (
-                <div className="rounded-xl overflow-hidden border border-neutral-200/80 shadow-[0_2px_12px_rgba(0,0,0,0.03)] bg-white">
+                <div>
                   <VerticalOfferBanner
                     bannerResponse={filteredVerticalBanners}
                     domain={companyDomain}

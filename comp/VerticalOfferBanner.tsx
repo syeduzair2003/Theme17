@@ -92,7 +92,7 @@ const VerticalOfferBanner = ({
     <div className="relative group/sidebar mb-10">
       <div className="absolute -inset-0.5 bg-gradient-to-br from-[#FF5A0020] to-[#00000010] rounded-[2.5rem] blur opacity-50 group-hover/sidebar:opacity-100 transition duration-1000 -z-10" />
 
-      <div className="relative bg-white/90 backdrop-blur-xl rounded-[2.5rem] p-8 lg:p-10 shadow-[0_10px_40px_rgba(0,0,0,0.05)] border border-neutral-100 overflow-hidden text-center">
+      <div className="relative bg-white/90 backdrop-blur-xl rounded-xl p-8 lg:p-10 shadow-[0_10px_40px_rgba(0,0,0,0.05)] border border-neutral-100 overflow-hidden text-center">
         <div className="absolute top-0 right-0 w-32 h-32 bg-[#FF5A0008] rounded-full blur-3xl -mr-16 -mt-16" />
 
         {/* Header section */}

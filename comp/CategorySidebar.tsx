@@ -17,7 +17,7 @@ const CategorySidebar = async ({
   return (
     <div className="relative group/sidebar w-full">
       {/* Card Container */}
-      <div className="relative bg-white border border-neutral-200/80 rounded-[2rem] p-6 lg:p-8 shadow-[0_10px_40px_rgba(0,0,0,0.03)] overflow-hidden">
+      <div className="relative p-5">
         <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-[#FF5A00]/5 to-transparent rounded-full -mr-8 -mt-8 blur-2xl" />
         <div className="absolute bottom-0 left-0 w-16 h-16 bg-gradient-to-tr from-neutral-50 to-transparent rounded-full -ml-4 -mb-4 blur-xl" />
 
