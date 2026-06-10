@@ -110,7 +110,7 @@ const TrendingProductsCard = async ({
 
         {/* Action Footer */}
         <div className="mt-auto border-t border-white/5 pt-3.5 flex items-center justify-between gap-2">
-          <div className="text-[10px] sm:text-[11px] text-zinc-400 font-bold hover:text-orange-500 transition-colors whitespace-nowrap flex-shrink-0 cursor-pointer">
+          <div className="text-[10px] sm:text-[11px] text-white font-bold hover:text-orange-500 transition-colors whitespace-nowrap flex-shrink-0 cursor-pointer">
             <OfferDetailsToggle
               domain={companyDomain.domain}
               imageSrc={product?.product_image}

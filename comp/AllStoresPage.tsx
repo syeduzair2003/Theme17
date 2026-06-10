@@ -81,7 +81,7 @@ const AllStoresPage = async ({
 
       <div className="container mx-auto px-4 max-w-7xl mt-12 relative z-10">
         <div className="flex justify-center mb-12 w-full px-2">
-          <div className="group relative flex items-center justify-center w-full max-w-[240px] hover:max-w-3xl min-h-[85px] hover:min-h-[190px] p-4 bg-gradient-to-b from-[#161920]/80 to-[#0b0d11]/90 border border-gray-800/60 rounded-[2rem] backdrop-blur-xl shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9)] hover:shadow-[0_0_50px_rgba(255,145,47,0.08)] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] overflow-hidden cursor-pointer">
+          <div className="group relative flex items-center justify-center w-full max-w-[160px] hover:max-w-3xl max-h-20 hover:min-h-[190px] p-4 bg-gradient-to-b from-[#161920]/80 to-[#0b0d11]/90 border border-gray-800/60 rounded-2xl backdrop-blur-xl shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9)] hover:shadow-[0_0_50px_rgba(255,145,47,0.08)] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] overflow-hidden cursor-pointer">
             <div className="absolute inset-0 flex flex-col items-center justify-center transition-all duration-500 ease-out group-hover:opacity-0 group-hover:scale-90 group-hover:pointer-events-none">
               <span className="text-[9px] tracking-[0.35em] uppercase text-[#ff912f] font-black opacity-80 mb-1">
                 BRAND DIRECTORY

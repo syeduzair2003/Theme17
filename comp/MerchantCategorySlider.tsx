@@ -151,7 +151,7 @@ const MerchantCategorySlider: React.FC<Props> = ({
                 href={`/products/${slug}/${item.slug}`}
                 className="group/card flex-shrink-0 snap-start no-underline"
               >
-                <div className="relative w-[160px] md:w-[190px] h-[220px] md:h-[250px] flex flex-col items-center justify-between p-6 bg-[#fcfcfc] border border-gray-100 rounded-[2.5rem] group-hover/card:bg-white group-hover/card:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] group-hover/card:border-[#ff912f]/40 group-hover/card:-translate-y-2 transition-all duration-500 overflow-hidden">
+                <div className="relative w-[160px] md:w-[190px] h-[220px] md:h-[250px] flex flex-col items-center justify-between p-6 bg-[#fcfcfc] border border-[#ff912f]/40 rounded-[2.5rem] group-hover/card:bg-white group-hover/card:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] group-hover/card:border-[#FF5A00]/70 group-hover/card:-translate-y-2 transition-all duration-500 overflow-hidden">
                   <div className="w-16 h-16 rounded-full bg-white border-2 border-gray-50 flex items-center justify-center shadow-inner group-hover/card:border-[#ff912f]/20 transition-all">
                     <span className="text-lg font-black text-[#ff912f]/30 group-hover/card:text-[#ff912f] transition-colors">
                       {item.name.charAt(0)}
@@ -159,7 +159,7 @@ const MerchantCategorySlider: React.FC<Props> = ({
                   </div>
 
                   <div className="text-center">
-                    <span className="text-[9px] font-black text-gray-300 uppercase tracking-widest mb-1 block">
+                    <span className="text-[9px] font-black text-gray-400 uppercase tracking-widest mb-1 block">
                       Collection
                     </span>
                     <h4 className="text-[14px] md:text-[16px] font-black text-[#111318] uppercase tracking-tight leading-tight group-hover/card:text-[#ff912f] transition-colors">

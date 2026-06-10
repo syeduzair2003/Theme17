@@ -53,13 +53,13 @@ const ProductCard = ({
       {/* IMAGE SECTION */}
       <div className="relative w-full h-[155px] bg-[#fcfcfc] overflow-hidden flex items-center justify-center border-b border-gray-50/50">
         <div className="absolute top-2.5 left-2.5 z-20">
-          <span className="bg-[#111318] text-white text-[8px] font-black px-2 py-1 rounded-md tracking-tighter uppercase">
+          <span className="bg-[#111318] text-white text-[9px] font-black px-2 py-1 rounded-md tracking-tighter uppercase">
             {calculateOfferDuration(product?.end_date)}
           </span>
         </div>
 
         {finalDiscountTag && (
-          <div className="absolute top-2.5 right-2.5 bg-white text-[#ff912f] text-[9px] font-bold px-2 py-1 rounded-md shadow-sm border border-gray-50 flex items-center gap-1 z-20">
+          <div className="absolute top-2.5 right-2.5 bg-white text-[#ff912f] text-[10px] font-bold px-2 py-1 rounded-md shadow-sm border border-gray-50 flex items-center gap-1 z-20">
             <FontAwesomeIcon icon={faFire} className="w-2.5 h-2.5" />
             {finalDiscountTag}
           </div>
@@ -79,7 +79,7 @@ const ProductCard = ({
       {/* INFO SECTION */}
       <div className="p-4 flex flex-col flex-grow">
         <div className="flex justify-between items-center mb-2 gap-2">
-          <span className="text-[9px] font-black text-gray-400 uppercase tracking-widest truncate">
+          <span className="text-[9px] font-black text-gray-500 uppercase tracking-widest truncate">
             {merchant_name || "Store"}
           </span>
           <div className="flex items-center gap-1.5 shrink-0">
@@ -87,7 +87,7 @@ const ProductCard = ({
               ${(salePrice || originalPrice).toFixed(2)}
             </span>
             {salePrice > 0 && originalPrice > 0 && (
-              <span className="text-[10px] text-gray-300 line-through font-medium">
+              <span className="text-[10px] text-gray-400 line-through font-medium">
                 ${originalPrice.toFixed(2)}
               </span>
             )}

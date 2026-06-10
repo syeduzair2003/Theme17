@@ -52,7 +52,7 @@ const OfferDetailsToggle = ({
       {type === "anchor" ? (
         <span
           onClick={handleClick}
-          className={`text-[11px] font-bold text-gray-400 hover:text-[#ff912f] cursor-pointer transition-colors duration-300 underline underline-offset-4 ${buttonClass || ""}`}
+          className={`text-[11px] font-bold text-gray-500 hover:text-[#ff912f] cursor-pointer transition-colors duration-300 underline underline-offset-4 ${buttonClass || ""}`}
         >
           View Details
         </span>

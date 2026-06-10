@@ -86,13 +86,17 @@ const ProductsLayout = async ({
             <div className="w-full lg:w-[30%] flex flex-col gap-10 order-2 lg:order-1">
               {/* CATEGORY SIDEBAR */}
               {categories?.length > 0 && (
-                <CategorySidebar
-                  categories={categories}
-                  pageSlug="all-products"
-                  parentCategory={categoryName}
-                />
+                <div className="bg-white rounded-[2rem] p-2 shadow-[0_20px_60px_rgba(0,0,0,0.03)] border border-gray-100 overflow-hidden relative">
+                  <div className="absolute -top-10 -right-10 w-24 h-24 bg-[#FF5A00]/[0.03] rounded-full blur-2xl" />
+                  <CategorySidebar
+                    categories={categories}
+                    pageSlug="all-products"
+                    parentCategory={categoryName}
+                  />
+                </div>
               )}
 
+              {/* SIMILAR STORES */}
               {suggestedMerchants && suggestedMerchants.length > 0 && (
                 <div className="bg-white rounded-[2rem] p-7 shadow-[0_20px_60px_rgba(0,0,0,0.03)] border border-gray-100 overflow-hidden relative">
                   <div className="absolute -top-10 -right-10 w-24 h-24 bg-[#FF5A00]/[0.03] rounded-full blur-2xl" />
@@ -143,6 +147,7 @@ const ProductsLayout = async ({
               )}
             </div>
 
+            {/* PRODUCT OFFERS */}
             <div className="w-full lg:w-[70%] order-1 lg:order-2">
               <ProductOffers
                 category_id={categoryId}

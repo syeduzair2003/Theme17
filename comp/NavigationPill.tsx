@@ -141,7 +141,7 @@ export default function NavigationPill({
                     href={`/${item?.url}`}
                     className="flex items-center gap-3 w-full hover:bg-white/5 p-2 rounded-2xl transition-all group/cat border border-transparent hover:border-white/5"
                   >
-                    <span className="w-9 h-9 rounded-xl flex items-center justify-center bg-white/5 border border-white/10 group-hover/cat:border-[#FF5F1F]/30 transition-colors p-1.5 flex-shrink-0">
+                    <span className="w-9 h-9 rounded-xl flex items-center justify-center bg-white border border-white/10 group-hover/cat:border-[#FF5F1F]/30 transition-colors p-1.5 flex-shrink-0">
                       <Image
                         src={getBaseImageUrl(
                           companyDomain,
@@ -151,7 +151,7 @@ export default function NavigationPill({
                         alt={item?.name}
                         height={22}
                         width={22}
-                        className="object-contain brightness-200"
+                        className="object-cover"
                       />
                     </span>
                     <span className="text-[13px] font-bold text-white/80 group-hover/cat:text-[#FF5F1F] truncate tracking-tight">
@@ -231,7 +231,7 @@ export default function NavigationPill({
                   <Link
                     key={i}
                     href={getEventsHref(item, "slug")}
-                    className="hover:bg-[#FF5F1F] hover:text-white p-3 rounded-xl transition-all text-[13px] font-bold text-white/80"
+                    className="hover:bg-white/5 hover:text-[#FF5F1F] p-3 rounded-xl transition-all text-[13px] font-bold text-white/80 border border-transparent hover:border-white/5"
                   >
                     {item.name}
                   </Link>
@@ -270,7 +270,7 @@ export default function NavigationPill({
                   <Link
                     key={i}
                     href={getPromotionHref(item, promo_slug)}
-                    className="hover:bg-[#FF5F1F] hover:text-white p-3 rounded-xl transition-all text-[13px] font-bold text-white/80"
+                    className="hover:bg-white/5 hover:text-[#FF5F1F] p-3 rounded-xl transition-all text-[13px] font-bold text-white/80 border border-transparent hover:border-white/5"
                   >
                     {item.name}
                   </Link>
@@ -281,7 +281,7 @@ export default function NavigationPill({
                 href={`/${promo_slug}`}
                 className="w-fit mx-auto px-5 py-2 text-center text-[11px] font-black uppercase tracking-widest text-white bg-[#FF5F1F] hover:bg-[#ff783e] transition-all duration-300 rounded-xl shadow-[0_4px_15px_rgba(255,95,31,0.2)] flex items-center justify-center gap-2 group/btn mt-1"
               >
-                View All Deals{" "}
+                View All Promotion{" "}
                 <span className="text-white group-hover/btn:translate-x-1 transition-all duration-300">
                   →
                 </span>

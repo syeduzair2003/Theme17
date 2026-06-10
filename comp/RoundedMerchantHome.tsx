@@ -123,7 +123,7 @@ const RoundedMerchantHome = async ({
                         <div className="relative w-24 h-24 sm:w-28 sm:h-28 mb-5 group-hover/card:-translate-y-2 transition-transform duration-300">
                           <div className="absolute inset-0 rounded-full bg-[#FF5722]/15 blur-2xl opacity-0 group-hover/card:opacity-100 transition-opacity" />
 
-                          <div className="relative w-full h-full rounded-tr-[1.5rem] rounded-bl-[1.5rem] border border-white/10 bg-[#241f1a] flex items-center justify-center p-5 group-hover/card:border-[#FF5722]/50 transition-all shadow-2xl">
+                          <div className="relative w-full h-full bg-white rounded-tr-[1.5rem] rounded-bl-[1.5rem] border border-white/10 box-shadow-2xl flex items-center justify-center p-5 group-hover/card:border-[#FF5722]/50 transition-all shadow-2xl">
                             {merchantLogo ? (
                               <Image
                                 src={getBaseImageUrl(
@@ -133,7 +133,7 @@ const RoundedMerchantHome = async ({
                                 )}
                                 alt={merchantName}
                                 fill
-                                className="object-contain p-5 sm:p-6 brightness-110 group-hover/card:scale-110 transition-all duration-500"
+                                className="object-contain p-3 card:scale-110 transition-all duration-500"
                                 unoptimized
                               />
                             ) : (

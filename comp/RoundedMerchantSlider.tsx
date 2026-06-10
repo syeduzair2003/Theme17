@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useRef, useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -120,24 +121,25 @@ const RoundedMerchantSlider: React.FC<Props> = ({
             <Link
               key={i}
               href={href}
-              className="group flex flex-col items-center w-[110px] sm:w-[130px] md:w-[150px] shrink-0 snap-start no-underline"
+              className="group/card flex flex-col items-center w-[110px] sm:w-[130px] md:w-[150px] shrink-0 snap-start no-underline"
             >
-              {/* Merchant  */}
+              {/* Merchant Card */}
               <div className="relative w-[90px] h-[90px] sm:w-[110px] sm:h-[110px] md:w-[130px] md:h-[130px] mb-5">
-                <div className="absolute inset-0 rounded-tr-[1.5rem] rounded-bl-[1.5rem] border border-dashed border-[#FF5F1F]/0 group-hover:border-[#FF5F1F]/40 group-hover:rotate-180 transition-all duration-1000"></div>
+                {/* Dashed Border */}
+                <div className="absolute inset-0 rounded-tr-[1.5rem] rounded-bl-[1.5rem] border border-dashed border-[#FF5F1F]/0 group-hover/card:border-[#FF5F1F]/40 group-hover/card:rotate-180 transition-all duration-1000"></div>
 
                 {/* Inner Card Container */}
-                <div className="absolute inset-1 rounded-tr-[1.5rem] rounded-bl-[1.5rem] bg-white shadow-[0_10px_40px_rgba(0,0,0,0.04)] border border-gray-100 flex items-center justify-center p-4 sm:p-6 transition-all duration-500 group-hover:shadow-[0_15px_45px_rgba(255,95,31,0.15)] group-hover:border-[#FF5F1F]/20 group-hover:-translate-y-1 overflow-hidden bg-gradient-to-br from-white to-[#fcfcfc]">
+                <div className="absolute inset-1 rounded-tr-[1.5rem] rounded-bl-[1.5rem] bg-white shadow-[0_10px_40px_rgba(0,0,0,0.04)] border border-gray-100 flex items-center justify-center p-4 sm:p-6 transition-all duration-500 group-hover/card:shadow-[0_15px_45px_rgba(255,95,31,0.15)] group-hover/card:border-[#FF5F1F] card:border-[#FF5F1F]/20 group-hover/card:-translate-y-1 overflow-hidden bg-gradient-to-br from-white to-[#fcfcfc]">
                   {merchantLogo ? (
                     <Image
                       src={getBaseImageUrl(companyDomain, merchantLogo, "")}
                       alt={merchantName || "Merchant"}
                       fill
-                      className="object-contain p-5 transition-all duration-500 group-hover:scale-110 filter grayscale group-hover:grayscale-0"
+                      className="object-contain p-5 transition-all duration-500 group-hover/card:scale-110 filter"
                       sizes="(max-width: 768px) 110px, 130px"
                     />
                   ) : (
-                    <div className="w-full h-full flex items-center justify-center text-[#FF5F1F] font-black text-3xl transition-transform duration-500 group-hover:scale-110">
+                    <div className="w-full h-full flex items-center justify-center text-[#FF5F1F] font-black text-3xl transition-transform duration-500 group-hover/card:scale-110">
                       {merchantName?.[0]}
                     </div>
                   )}
@@ -146,10 +148,10 @@ const RoundedMerchantSlider: React.FC<Props> = ({
 
               {/* Merchant Name */}
               <div className="text-center px-1">
-                <span className="block text-[13px] md:text-[14px] font-bold text-gray-400 group-hover:text-[#1a1612] transition-colors duration-300 line-clamp-1 tracking-tight">
+                <span className="block text-[13px] md:text-[14px] font-bold text-[#1a1612] transition-colors duration-300 line-clamp-1 tracking-tight">
                   {merchantName}
                 </span>
-                <div className="mt-1.5 h-0.5 w-0 bg-[#FF5F1F] mx-auto group-hover:w-8 transition-all duration-500 rounded-full"></div>
+                <div className="mt-1.5 h-0.5 w-0 bg-[#FF5F1F] mx-auto group-hover/card:w-8 transition-all duration-500 rounded-full"></div>
               </div>
             </Link>
           );

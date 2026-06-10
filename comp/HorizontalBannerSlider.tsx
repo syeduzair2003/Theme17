@@ -196,9 +196,11 @@ const HorizontalBannerSlider = ({
   return (
     <section
       ref={sliderSectionRef}
-      className="max-w-7xl mx-auto px-6 py-6 selection:bg-orange-100"
+      className="max-w-7xl mx-auto px-6 pt-10 pb-6 selection:bg-orange-100"
     >
-      <div className="relative group rounded-[2.5rem] overflow-hidden bg-white border border-slate-100 shadow-[0_30px_70px_rgba(0,0,0,0.035)] hover:shadow-[0_35px_80px_rgba(255,95,31,0.045)] transition-all duration-500">
+      <div className="w-full h-[1.5px] bg-gradient-to-r from-transparent via-[#FF5F1F]/40 to-transparent mb-10" />
+
+      <div className="relative group rounded-[2.5rem] overflow-hidden transition-all duration-500">
         {offers?.length > 0 ? (
           <>
             <div ref={sliderRef} className="keen-slider">
@@ -207,7 +209,7 @@ const HorizontalBannerSlider = ({
                 return (
                   <div
                     key={i}
-                    className="keen-slider__slide flex items-center justify-center h-[200px] sm:h-[320px] bg-gradient-to-b from-slate-50/40 to-white relative overflow-hidden"
+                    className="keen-slider__slide flex items-center justify-center h-[200px] sm:h-[320px] relative overflow-hidden"
                   >
                     <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-transparent to-orange-500/[0.015] pointer-events-none" />
 

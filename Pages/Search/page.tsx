@@ -28,21 +28,13 @@ const page = async ({ searchParams }: Props) => {
 
   return (
     <div className="bg-[#fcfcfc] min-h-screen pb-24 pt-20 lg:pt-28 selection:bg-orange-100 selection:text-orange-900 antialiased">
-      <div className="bg-white border-b border-slate-100/60 pb-2">
-        <HorizontalBannerSlider
-          companyId={c_data?.unique_id}
-          slug_type={c_data?.slug_type}
-          mer_slug={c_data?.store_slug}
-          domain={companyDomain.domain}
-        />
-      </div>
-
+      {/* Title Section */}
       <div className="relative bg-white overflow-hidden border-b border-slate-100/80 shadow-[0_2px_20px_rgba(0,0,0,0.01)]">
         <div className="absolute inset-0 bg-gradient-to-b from-orange-500/[0.005] to-transparent pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-6 py-12 sm:py-16 relative z-10">
           <div className="flex flex-col items-center text-center gap-4 max-w-2xl mx-auto">
-            <nav className="flex items-center justify-center gap-2.5 text-[11px] font-black tracking-[0.25em] uppercase text-slate-400 font-mono">
+            <nav className="flex items-center justify-center gap-2.5 text-[11px] font-black tracking-[0.25em] uppercase text-slate-500">
               <Link
                 href="/"
                 className="hover:text-orange-500 transition-colors duration-200"
@@ -51,10 +43,10 @@ const page = async ({ searchParams }: Props) => {
               </Link>
               <ChevronRight
                 size={10}
-                className="text-slate-300"
+                className="text-slate-600"
                 strokeWidth={3}
               />
-              <span className="text-slate-900/60">Search Queries</span>
+              <span className="text-slate-900/80">Search Queries</span>
             </nav>
 
             <div className="space-y-2">
@@ -149,6 +141,15 @@ const page = async ({ searchParams }: Props) => {
             </div>
           </main>
         </div>
+      </div>
+
+      <div className="pt-6 mt-16 pb-2">
+        <HorizontalBannerSlider
+          companyId={c_data?.unique_id}
+          slug_type={c_data?.slug_type}
+          mer_slug={c_data?.store_slug}
+          domain={companyDomain.domain}
+        />
       </div>
     </div>
   );

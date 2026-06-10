@@ -67,8 +67,7 @@ const TopMerchants = async ({
                   src={logoSrc}
                   alt={`${merchant.merchant_name} coupons and deals`}
                   fill
-                  sizes="(max-width: 768px) 80px, 120px"
-                  className="object-contain filter grayscale group-hover:grayscale-0 opacity-70 group-hover:opacity-100 transition-all duration-500"
+                  className="object-contain transition-all duration-500"
                   loading="lazy"
                 />
               </div>

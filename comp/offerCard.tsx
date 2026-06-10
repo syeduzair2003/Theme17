@@ -73,7 +73,7 @@ const OfferCard = async ({
               {finalDiscountTag}
             </div>
           ) : (
-            <div className="bg-white/90 backdrop-blur-sm text-emerald-600 border border-emerald-100 px-1.5 py-0.5 rounded text-[7px] font-black uppercase tracking-wider flex items-center gap-1">
+            <div className="bg-white/90 backdrop-blur-sm text-emerald-600 border border-emerald-100 px-1.5 py-0.5 rounded text-[9px] font-black uppercase tracking-wider flex items-center gap-1">
               <FontAwesomeIcon icon={faCheck} className="w-1.5 h-1.5" />
               Verified
             </div>

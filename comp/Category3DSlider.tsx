@@ -81,7 +81,7 @@ const Category3DSlider = ({ categories, companyDomain }: SliderProps) => {
           >
             <div
               className={`group relative flex flex-col items-center justify-center w-[160px] md:w-[220px] aspect-[3/4] p-5 bg-white rounded-[2rem] border transition-all duration-500 overflow-hidden
-                                ${isCenter ? "border-[#FF5722]/40 shadow-2xl shadow-[#FF5722]/10" : "border-slate-100 shadow-sm cursor-pointer hover:border-[#FF5722]/20"}
+                                ${isCenter ? "border-[#FF5722] shadow-2xl shadow-[#FF5722]/10" : "border-slate-100 shadow-sm cursor-pointer hover:border-[#FF5722]/20"}
                             `}
             >
               {/* Background */}

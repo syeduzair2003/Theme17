@@ -1,7 +1,8 @@
 "use client";
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname, useSearchParams } from "next/navigation";
 import { getMerchantHref, getPromotionHref } from "@/constants/hooks";
 import { FontAwesomeIcon } from "@/constants/icons";
 import { faChevronDown, faTimes } from "@fortawesome/free-solid-svg-icons";
@@ -40,6 +41,9 @@ export default function MobileNavWrapper({
   const [isOpen, setIsOpen] = useState(false);
   const [openSection, setOpenSection] = useState<string | null>(null);
 
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+
   const toggle = useCallback(() => {
     const next = !isOpen;
     setIsOpen(next);
@@ -55,6 +59,10 @@ export default function MobileNavWrapper({
     setOpenSection(null);
     document.body.style.overflow = "";
   }, []);
+
+  useEffect(() => {
+    closeMenu();
+  }, [pathname, searchParams, closeMenu]);
 
   const renderSection = (
     title: string,
@@ -177,7 +185,7 @@ export default function MobileNavWrapper({
       />
 
       <aside
-        onClick={(e) => e.stopPropagation()} // 🔥 Absolute Shield: Stops click from bubbling up
+        onClick={(e) => e.stopPropagation()}
         className={`fixed top-0 left-0 h-full w-[85vw] max-w-[430px] z-[99995] pointer-events-auto flex flex-col bg-[#110e0c] border-r border-zinc-900/60 shadow-[5px_0_50px_rgba(0,0,0,0.9)] transition-transform duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         }`}

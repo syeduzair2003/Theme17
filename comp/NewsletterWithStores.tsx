@@ -154,7 +154,7 @@ const NewsletterWithStores = ({
 
           {/* RIGHT COLUMN */}
           {hasMerchants && (
-            <div className="w-full relative group/container lg:pl-10 overflow-hidden">
+            <div className="w-full relative group/container overflow-hidden">
               <div className="flex flex-col mb-8">
                 <div className="flex items-center gap-2 mb-2">
                   <div className="h-1.5 w-1.5 rounded-full bg-orange-500 animate-pulse"></div>

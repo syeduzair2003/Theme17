@@ -58,7 +58,7 @@ const NavbarSec = ({
         <div className="w-full bg-[#0D0D0D] border-b border-white/5 hidden md:block relative z-[10020]">
           <div className="max-w-[1400px] mx-auto flex justify-center items-center py-2.5 overflow-hidden whitespace-nowrap">
             <div className="flex items-center gap-1">
-              <span className="text-[10px] uppercase tracking-[0.3em] font-medium text-white/30 px-3">
+              <span className="text-[10px] uppercase tracking-[0.3em] font-medium text-white/60 px-3">
                 Featured Luxury Partners:
               </span>
               {headerPromoMerchant.slice(0, 5).map((item, i) => (
@@ -84,7 +84,6 @@ const NavbarSec = ({
           <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#FF5F1F]/40 to-transparent" />
 
           <div className="max-w-[1400px] mx-auto px-4 lg:px-4 xl:px-8 py-5 flex items-center justify-between gap-2">
-            
             {/* Logo Container */}
             <div className="flex-shrink-0 flex items-center justify-start z-[10005]">
               <Link
@@ -98,14 +97,14 @@ const NavbarSec = ({
                     alt="Logo"
                     width={140}
                     height={40}
-                    className="relative object-contain brightness-110 contrast-125 invert max-w-[110px] sm:max-w-[140px]"
+                    className="relative object-contain bg-white/70 rounded-2xl p-2 max-w-[110px] sm:max-w-[140px]"
                     priority
                   />
                 )}
               </Link>
             </div>
 
-            {/* Centered Navigation Menu */}
+            {/* Navigation Menu */}
             <div className="hidden lg:flex flex-initial items-center justify-center z-[10001] mx-1 xl:mx-6 transform scale-95 xl:scale-100 transition-all duration-300">
               <div className="bg-[#1A1A1A] rounded-2xl p-0.5 xl:p-1 border border-white/10 hover:border-[#FF5F1F]/30 shadow-sm max-w-full">
                 <NavigationPill
@@ -166,7 +165,6 @@ const NavbarSec = ({
                 />
               </div>
             </div>
-
           </div>
         </nav>
       </ScrollNavbarWrapper>

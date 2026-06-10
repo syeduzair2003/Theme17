@@ -36,7 +36,7 @@ const Pagination = ({ currentPage, totalPages, baseUrl }: PaginationProps) => {
               clipRule="evenodd"
             />
           </svg>
-          <span className="text-[11px] font-black uppercase tracking-widest">
+          <span className="text-[11px] text-white font-black uppercase tracking-widest">
             Prev
           </span>
         </Link>

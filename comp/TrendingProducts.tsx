@@ -48,7 +48,7 @@ const TrendingProducts = async ({
             {/* Merchant Logo */}
             {sectionData?.merchant?.merchant_logo && (
               <div className="flex-shrink-0 w-14 h-14 sm:w-16 sm:h-16 bg-[#14110e] rounded-xl p-2.5 border border-white/5 shadow-md relative overflow-hidden group/logo ring-1 ring-orange-500/10">
-                <div className="absolute inset-0 bg-orange-500/5 group-hover/logo:bg-orange-500/10 transition-colors duration-500" />
+                <div className="absolute inset-0 bg-white transition-colors duration-500" />
                 <Image
                   src={getBaseImageUrl(
                     companyDomain.domain,

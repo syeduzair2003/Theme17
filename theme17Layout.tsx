@@ -55,39 +55,39 @@ const theme17Layout = async ({ children }: Props) => {
 
   return (
     <>
-    <Suspense fallback={null}>
-            <PageLoader logo={c_data?.company_logo || ""} />
-          </Suspense>
+      <Suspense fallback={null}>
+        <PageLoader logo={c_data?.company_logo || ""} />
+      </Suspense>
 
-    <div>
-      <Navbar
-        unique_id={c_data.unique_id}
-        merchantData={merchantResponse.data}
-        headerPromoMerchant={headerPromoMerchantResponse}
-        categories={categories?.data}
-        companyDomain={companyDomain.domain}
-        mer_slug={c_data.store_slug}
-        mer_slug_type={c_data.slug_type}
-        cat_slug={c_data.category_slug}
-        promo_slug={c_data.promotion_slug}
-        company_logo={c_data?.company_logo}
-        blog_title={c_data.blog_title}
-        blog_url={c_data.blog_url}
-        events={events}
-        promotions={promotions}
-      />
-      {children}
-      <Footer
-        companyFooterLogo={c_data?.company_footer_logo}
-        companyName={c_data?.company_legal_name || c_data?.company_name}
-        company_id={c_data?.unique_id}
-        blog_title={c_data.blog_title}
-        blog_url={c_data.blog_url}
-        socialLinks={socialLinks}
-      />
-    </div>
-    <ToastContainer />
-     </>
+      <div>
+        <Navbar
+          unique_id={c_data.unique_id}
+          merchantData={merchantResponse.data}
+          headerPromoMerchant={headerPromoMerchantResponse}
+          categories={categories?.data}
+          companyDomain={companyDomain.domain}
+          mer_slug={c_data.store_slug}
+          mer_slug_type={c_data.slug_type}
+          cat_slug={c_data.category_slug}
+          promo_slug={c_data.promotion_slug}
+          company_logo={c_data?.company_logo}
+          blog_title={c_data.blog_title}
+          blog_url={c_data.blog_url}
+          events={events}
+          promotions={promotions}
+        />
+        {children}
+        <Footer
+          companyFooterLogo={c_data?.company_footer_logo}
+          companyName={c_data?.company_legal_name || c_data?.company_name}
+          company_id={c_data?.unique_id}
+          blog_title={c_data.blog_title}
+          blog_url={c_data.blog_url}
+          socialLinks={socialLinks}
+        />
+      </div>
+      <ToastContainer />
+    </>
   );
 };
 
