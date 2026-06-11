@@ -60,7 +60,8 @@ export default function NavigationPill({
         <div
           className={`cursor-pointer ${getNavClass(pathname.startsWith("/all-stores"))}`}
         >
-          Stores
+          {" "}
+          Stores{" "}
           <FontAwesomeIcon
             icon={faChevronDown}
             className="w-2.5 h-2.5 transition-transform duration-300 group-hover:rotate-180"
@@ -68,13 +69,13 @@ export default function NavigationPill({
         </div>
         <div className="absolute left-1/2 -translate-x-1/2 top-full pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 w-max z-[100]">
           <div className="bg-[#1A1A1A] rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.7)] border border-white/10 p-5 w-[500px] flex flex-col gap-4 backdrop-blur-2xl">
-            <div className="grid grid-cols-2 gap-x-4 gap-y-1.5">
+            <div className="grid grid-cols-2 gap-x-4 gap-y-2">
               {merchantData?.length > 0 ? (
                 merchantData.slice(0, 10).map((item, i) => (
                   <Link
                     key={i}
                     href={getMerchantHref(item, mer_slug, mer_slug_type)}
-                    className="flex items-center gap-3 w-full hover:bg-white/5 p-2 rounded-2xl transition-all group/item border border-transparent hover:border-white/5"
+                    className="flex items-center gap-3 w-full bg-white/[0.02] hover:bg-white/5 p-2 rounded-2xl transition-all group/item border-b border-white/[0.06] hover:border-b-[#FF5F1F]/50"
                   >
                     <span className="w-10 h-10 bg-white rounded-xl shadow-sm overflow-hidden flex-shrink-0 relative flex items-center justify-center group-hover/item:scale-105 transition-transform">
                       {item?.merchant_logo ? (
@@ -125,7 +126,8 @@ export default function NavigationPill({
         <div
           className={`cursor-pointer ${getNavClass(pathname.includes(`/${cat_slug}`))}`}
         >
-          Categories
+          {" "}
+          Categories{" "}
           <FontAwesomeIcon
             icon={faChevronDown}
             className="w-2.5 h-2.5 transition-transform duration-300 group-hover:rotate-180"
@@ -133,13 +135,13 @@ export default function NavigationPill({
         </div>
         <div className="absolute left-1/2 -translate-x-1/2 top-full pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 w-max z-[100]">
           <div className="bg-[#1A1A1A] rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.7)] border border-white/10 p-5 w-[500px] flex flex-col gap-4 backdrop-blur-2xl">
-            <div className="grid grid-cols-2 gap-x-4 gap-y-1.5">
+            <div className="grid grid-cols-2 gap-x-4 gap-y-2">
               {categories?.length > 0 ? (
                 categories.slice(0, 10).map((item: any, i: number) => (
                   <Link
                     key={i}
                     href={`/${item?.url}`}
-                    className="flex items-center gap-3 w-full hover:bg-white/5 p-2 rounded-2xl transition-all group/cat border border-transparent hover:border-white/5"
+                    className="flex items-center gap-3 w-full bg-white/[0.02] hover:bg-white/5 p-2 rounded-2xl transition-all group/cat border-b border-white/[0.06] hover:border-b-[#FF5F1F]/50"
                   >
                     <span className="w-9 h-9 rounded-xl flex items-center justify-center bg-white border border-white/10 group-hover/cat:border-[#FF5F1F]/30 transition-colors p-1.5 flex-shrink-0">
                       <Image
@@ -184,7 +186,8 @@ export default function NavigationPill({
         <div
           className={`cursor-pointer ${getNavClass(pathname.startsWith("/all-products") || pathname.startsWith("/products"))}`}
         >
-          Products
+          {" "}
+          Products{" "}
           <FontAwesomeIcon
             icon={faChevronDown}
             className="w-2.5 h-2.5 transition-transform duration-300 group-hover:rotate-180"
@@ -194,7 +197,7 @@ export default function NavigationPill({
           <div className="bg-[#1A1A1A] rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.7)] border border-white/10 p-3 flex flex-col gap-2 min-w-[240px] backdrop-blur-2xl">
             <Link
               href="/products"
-              className="hover:bg-white/5 hover:text-[#FF5F1F] p-3 rounded-xl transition-all text-[13px] font-bold text-white/80 border border-transparent hover:border-white/5"
+              className="bg-white/[0.02] hover:bg-white/5 hover:text-[#FF5F1F] p-3 rounded-xl transition-all text-[13px] font-bold text-white/80 border-b border-white/[0.06] hover:border-b-[#FF5F1F]/50"
             >
               Brands Products
             </Link>
@@ -218,7 +221,8 @@ export default function NavigationPill({
           <div
             className={`cursor-pointer ${getNavClass(pathname.startsWith("/events"))}`}
           >
-            Events
+            {" "}
+            Events{" "}
             <FontAwesomeIcon
               icon={faChevronDown}
               className="w-2.5 h-2.5 transition-transform duration-300 group-hover:rotate-180"
@@ -226,12 +230,12 @@ export default function NavigationPill({
           </div>
           <div className="absolute left-1/2 -translate-x-1/2 top-full pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 w-max z-[100]">
             <div className="bg-[#1A1A1A] rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.7)] border border-white/10 p-3 flex flex-col gap-2 min-w-[240px] backdrop-blur-2xl">
-              <div className="flex flex-col gap-1">
+              <div className="flex flex-col gap-1.5">
                 {events.slice(0, 5).map((item, i) => (
                   <Link
                     key={i}
                     href={getEventsHref(item, "slug")}
-                    className="hover:bg-white/5 hover:text-[#FF5F1F] p-3 rounded-xl transition-all text-[13px] font-bold text-white/80 border border-transparent hover:border-white/5"
+                    className="bg-white/[0.02] hover:bg-white/5 hover:text-[#FF5F1F] p-3 rounded-xl transition-all text-[13px] font-bold text-white/80 border-b border-white/[0.06] hover:border-b-[#FF5F1F]/50"
                   >
                     {item.name}
                   </Link>
@@ -257,7 +261,8 @@ export default function NavigationPill({
           <div
             className={`cursor-pointer ${getNavClass(pathname.includes(`/${promo_slug}`))}`}
           >
-            Promotions
+            {" "}
+            Promotions{" "}
             <FontAwesomeIcon
               icon={faChevronDown}
               className="w-2.5 h-2.5 transition-transform duration-300 group-hover:rotate-180"
@@ -265,12 +270,12 @@ export default function NavigationPill({
           </div>
           <div className="absolute left-1/2 -translate-x-1/2 top-full pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 w-max z-[100]">
             <div className="bg-[#1A1A1A] rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.7)] border border-white/10 p-3 flex flex-col gap-2 min-w-[240px] backdrop-blur-2xl">
-              <div className="flex flex-col gap-1">
+              <div className="flex flex-col gap-1.5">
                 {promotions.slice(0, 5).map((item, i) => (
                   <Link
                     key={i}
                     href={getPromotionHref(item, promo_slug)}
-                    className="hover:bg-white/5 hover:text-[#FF5F1F] p-3 rounded-xl transition-all text-[13px] font-bold text-white/80 border border-transparent hover:border-white/5"
+                    className="bg-white/[0.02] hover:bg-white/5 hover:text-[#FF5F1F] p-3 rounded-xl transition-all text-[13px] font-bold text-white/80 border-b border-white/[0.06] hover:border-b-[#FF5F1F]/50"
                   >
                     {item.name}
                   </Link>

@@ -47,12 +47,9 @@ const CategorySidebar = async ({
               className="group flex items-center justify-between py-3 px-3 rounded-xl bg-neutral-100 border border-neutral-100/80 hover:bg-neutral-700 hover:border-neutral-900 transition-all duration-500 relative hover:-translate-y-0.5 shadow-[0_4px_12px_rgba(0,0,0,0.01)] hover:shadow-[0_12px_24px_rgba(0,0,0,0.08)]"
             >
               <div className="flex items-center gap-3">
-                {/* Bullet Diamond */}
                 <div className="relative w-2 h-2">
                   <div className="absolute inset-0 bg-[#FF5A00] rounded-sm rotate-45 group-hover:bg-white group-hover:rotate-180 transition-all duration-500" />
                 </div>
-
-                {/* Category Name */}
                 <span className="text-[13px] font-bold text-neutral-800 group-hover:text-[#FF5A00] transition-colors duration-300">
                   {category?.name}
                 </span>

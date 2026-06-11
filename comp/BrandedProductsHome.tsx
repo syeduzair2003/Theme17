@@ -47,7 +47,7 @@ const BrandedProductsHome = async ({
       <div className="absolute -bottom-[40px] -left-[40px] w-[160px] h-[160px] rounded-full bg-[radial-gradient(circle,rgba(0,0,0,0.03)_0%,transparent_70%)] pointer-events-none" />
 
       <div className="container mx-auto px-4">
-        {/* Section Header */}
+        {/* Header Section */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-9 gap-4">
           <div className="flex flex-col gap-1.5">
             <span className="inline-flex items-center gap-1.5 bg-black text-[#ff912f] text-[11px] font-black uppercase tracking-widest px-3.5 py-1.5 rounded-full w-fit shadow-sm">

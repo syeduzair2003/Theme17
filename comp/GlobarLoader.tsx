@@ -8,18 +8,20 @@ interface GlobalLoaderProps {
 }
 
 const GlobalLoader = ({ logo }: GlobalLoaderProps) => {
-  // Function to ensure path is always absolute
   const formatLogoPath = (path?: string) => {
     if (!path) return "/logo.png";
-    if (path.startsWith("http://") || path.startsWith("https://") || path.startsWith("/")) {
+    if (
+      path.startsWith("http://") ||
+      path.startsWith("https://") ||
+      path.startsWith("/")
+    ) {
       return path;
     }
-    return `/${path}`; // Prepend slash if it's a relative path
+    return `/${path}`;
   };
 
   const [imgSrc, setImgSrc] = useState<string>(formatLogoPath(logo));
 
-  // Sync state if the logo prop changes dynamically
   useEffect(() => {
     setImgSrc(formatLogoPath(logo));
   }, [logo]);
@@ -63,7 +65,6 @@ const GlobalLoader = ({ logo }: GlobalLoaderProps) => {
                 priority
                 unoptimized
                 onError={() => {
-                  // If the provided logo fails to load, fallback to default immediately
                   setImgSrc("/logo.png");
                 }}
               />

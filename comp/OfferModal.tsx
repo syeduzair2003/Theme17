@@ -186,25 +186,26 @@ const OfferModal = ({
       >
         <div className="absolute top-0 left-0 right-0 h-[3px] bg-[#FF5A00] z-50" />
 
-        <div className="w-full flex items-center justify-center relative px-5 py-4 border-b border-neutral-100 bg-neutral-50/60 shrink-0 min-h-[72px]">
-          <div className="flex items-center gap-3 justify-center text-center">
-            <div className="w-10 h-10 bg-white rounded-lg border border-neutral-200 p-1 flex items-center justify-center shrink-0 shadow-3xs">
+        {/* HEADER SECTION */}
+        <div className="w-full flex items-center justify-center relative px-5 py-4 border-b border-neutral-100 bg-neutral-50/60 shrink-0 min-h-[84px]">
+          <div className="flex items-center gap-3.5 justify-center text-center">
+            <div className="w-16 h-16 bg-white rounded-xl border border-neutral-200 p-1.5 flex items-center justify-center shrink-0 shadow-3xs">
               <Image
                 src={imageSrc}
                 alt="merchant logo"
-                width={32}
-                height={32}
+                width={64}
+                height={64}
                 className="object-contain max-h-full"
               />
             </div>
 
-            <div className="flex items-center gap-2">
+            <div className="flex flex-col items-start gap-1">
               <span className="flex items-center gap-1 px-2 py-0.5 rounded bg-orange-50 border border-orange-200 text-[9px] font-black uppercase tracking-wider text-[#FF5A00]">
                 <FontAwesomeIcon icon={faCheck} className="w-2.5 h-2.5" />{" "}
                 Verified
               </span>
 
-              <span className="inline-flex items-center text-[10px] font-black uppercase tracking-wider text-white bg-neutral-950 px-3 py-1 rounded-md shadow-3xs h-6 overflow-hidden border-none outline-none lifetime-badge-override">
+              <span className="inline-flex items-center text-[9px] font-black uppercase tracking-wider text-white bg-neutral-950 py-1 rounded-md shadow-3xs h-6 overflow-hidden border-none outline-none lifetime-badge-override">
                 <OfferDuration endDate={data?.end_date} />
               </span>
             </div>

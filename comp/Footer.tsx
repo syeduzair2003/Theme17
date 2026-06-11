@@ -46,7 +46,6 @@ const Footer = async ({
   const companyDomain = await cookieService.get("domain");
   const disclaimer = (await apiGetDisclaimer(companyDomain.domain)).data;
 
-  // Updated array with clean SVG components
   const socialMediaPlatforms = [
     {
       key: "twitter",

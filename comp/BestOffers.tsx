@@ -80,7 +80,7 @@ const BestOffers = async ({ companyId, mer_slug_type, mer_slug }: Props) => {
         </div>
       </div>
 
-      {/* Bottom Section Line */}
+      {/* Bottom Section */}
       <div className="absolute bottom-0 left-0 w-full h-px bg-black/[0.05]" />
     </section>
   );

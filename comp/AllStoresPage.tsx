@@ -18,7 +18,7 @@ interface Props {
 }
 
 const ALPHABETS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
-const PAGE_SIZE = 36; // Multiples of 4 are better for grid-cols-4
+const PAGE_SIZE = 36;
 
 const AllStoresPage = async ({
   store_slug,
@@ -136,7 +136,7 @@ const AllStoresPage = async ({
           }}
         ></div>
 
-        {/* STORES DISPLAY GRID */}
+        {/* STORES GRID */}
         {paginatedMerchants.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8 pb-12">
             {paginatedMerchants.map((item, i) => (

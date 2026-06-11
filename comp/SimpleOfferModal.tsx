@@ -150,7 +150,7 @@ const SimpleOfferModal = ({
           <div className="pt-10 pb-5 flex justify-center relative">
             <div className="relative w-24 h-24 bg-white rounded-2xl border border-gray-100 shadow-[0_8px_30px_rgba(0,0,0,0.04)] p-4 flex items-center justify-center group">
               {finalDiscountTag && (
-                <div className="absolute -top-3 -right-3 z-20 bg-[#1a1612] text-white px-3.5 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest shadow-lg border-2 border-white transition-transform duration-300 group-hover:scale-105">
+                <div className="absolute -top-5 -right-6 z-20 bg-[#1a1612] text-white px-2.5 py-1.5 rounded-full text-[9px] font-black uppercase tracking-widest shadow-lg border-2 border-white transition-transform duration-300 group-hover:scale-105">
                   {finalDiscountTag}
                 </div>
               )}
