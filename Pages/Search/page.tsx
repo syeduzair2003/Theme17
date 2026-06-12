@@ -27,7 +27,7 @@ const page = async ({ searchParams }: Props) => {
   const all_tags = (await apiGetAllKeywords(c_data?.unique_id))?.data;
 
   return (
-    <div className="bg-[#fcfcfc] min-h-screen pb-24 pt-20 lg:pt-28 selection:bg-orange-100 selection:text-orange-900 antialiased">
+    <div className="bg-[#fcfcfc] min-h-screen pb-24 pt-32 selection:bg-orange-100 selection:text-orange-900 antialiased">
       {/* Title Section */}
       <div className="relative bg-white overflow-hidden border-b border-slate-100/80 shadow-[0_2px_20px_rgba(0,0,0,0.01)]">
         <div className="absolute inset-0 bg-gradient-to-b from-orange-500/[0.005] to-transparent pointer-events-none" />

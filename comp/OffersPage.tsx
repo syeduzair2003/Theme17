@@ -101,7 +101,7 @@ const OffersPage = async ({
 
   return (
     <main className="min-h-screen bg-[#F4F4F4] text-neutral-900 antialiased selection:bg-[#FF5A00] selection:text-white">
-      <section className="relative bg-neutral-950 text-white pt-32 md:pt-36 pb-16 overflow-hidden border-b border-neutral-900">
+      <section className="relative bg-neutral-950 text-white pt-40 md:pt-48 pb-16 overflow-hidden border-b border-neutral-900">
         <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#FF5A00] to-transparent opacity-90" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_25%,rgba(255,90,0,0.05),transparent_45%)] pointer-events-none" />
 
@@ -283,8 +283,8 @@ const OffersPage = async ({
                       NO ACTIVE COUPONS
                     </h3>
                     <p className="text-neutral-500 text-xs max-w-xs mx-auto font-medium">
-                      We couldn&apos;t find any verified discounts for this store
-                      right now.
+                      We couldn&apos;t find any verified discounts for this
+                      store right now.
                     </p>
                   </div>
                 )}

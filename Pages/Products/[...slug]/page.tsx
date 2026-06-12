@@ -57,12 +57,11 @@ const page = async ({ params }: { params: Props }) => {
       );
     }
   } else if (slug.length === 3) {
-    // /products/merchant/category/offer-detail
     const merRes = await apiGetMerchantUniqueId(slug[0], companyData.unique_id);
     const merchantId = merRes?.data?.unique_id;
     if (!merchantId) return notFound();
 
-    const productId = extractTrailingId(slug[2]); // slug[2] is the offer, slug[1] is the category
+    const productId = extractTrailingId(slug[2]);
     if (!productId) return notFound();
 
     return (

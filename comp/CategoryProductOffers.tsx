@@ -53,20 +53,23 @@ const CategoryProductOffers = async ({
       />
 
       <div className="max-w-[1320px] mx-auto px-4 mt-8">
-        <div className="flex flex-col mb-8 relative">
-          <div className="flex items-center gap-2 mb-2">
-            <span
-              className="w-1 h-5 rounded-full bg-[#8bc94a]"
-              aria-hidden="true"
-            />
-            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#ff912f]">
-              Special Offers
+        <div className="flex flex-col items-center text-center mb-16">
+          <div className="px-4 py-1.5 rounded-full bg-gray-50 border border-gray-100 mb-6">
+            <span className="text-[10px] font-black uppercase tracking-[0.3em] text-[#111318]">
+              Special <span className="text-[#ff912f]">Offers</span>
             </span>
           </div>
-          <h2 className="text-2xl md:text-3xl font-extrabold text-gray-900 leading-tight">
-            {firstWord && <span className="text-[#8bc94a]">{firstWord} </span>}
-            <span className="text-gray-800">{restWords || heading}</span>
+
+          <h2 className="text-4xl md:text-5xl font-black text-[#111318] tracking-tight mb-4">
+            {firstWord && <span className="text-[#ff912f]">{firstWord} </span>}
+            {restWords || heading}
           </h2>
+
+          <div className="flex items-center gap-2">
+            <div className="h-[2px] w-8 bg-[#ff912f] rounded-full" />
+            <div className="h-[4px] w-4 bg-[#111318] rounded-full" />
+            <div className="h-[2px] w-8 bg-[#ff912f] rounded-full" />
+          </div>
         </div>
       </div>
 
