@@ -27,7 +27,7 @@ const page = async () => {
         <div className="container mx-auto max-w-4xl relative z-10">
           <div className="bg-white rounded-[2rem] p-8 md:p-12 border border-gray-100 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.05)] relative overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-1 bg-gray-50">
-              <div className="w-16 h-full bg-[#FF5F1F]"></div>
+              <div className="w-full h-full bg-[#FF5F1F]"></div>
             </div>
 
             <div

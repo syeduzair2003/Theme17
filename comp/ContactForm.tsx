@@ -14,11 +14,15 @@ const ContactForm = ({ domain }: Props) => {
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
+  // Validation logic checking required fields
+  const isFormInvalid = !name.trim() || !email.trim() || !message.trim();
+  const isBtnDisabled = loading || isFormInvalid;
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!name.trim() || !number.trim() || !email.trim() || !message.trim()) {
-      toast.error("All fields are required.", { autoClose: 2000 });
+    if (isFormInvalid) {
+      toast.error("Required fields are missing.", { autoClose: 2000 });
       return;
     }
 
@@ -113,10 +117,19 @@ const ContactForm = ({ domain }: Props) => {
         <div className="pt-4">
           <button
             type="submit"
-            disabled={loading}
-            className="group/btn relative w-full md:w-auto overflow-hidden bg-[#1a1612] text-white font-black px-14 py-4 rounded-full transition-all duration-500 hover:shadow-[0_15px_30px_-10px_rgba(255,95,31,0.4)] active:scale-95 disabled:opacity-70"
+            disabled={isBtnDisabled}
+            className={`group/btn relative w-full md:w-auto overflow-hidden bg-[#1a1612] text-white font-black px-14 py-4 rounded-full transition-all duration-500 disabled:opacity-70 disabled:cursor-not-allowed ${
+              isBtnDisabled
+                ? ""
+                : "hover:shadow-[0_15px_30px_-10px_rgba(255,95,31,0.4)] active:scale-95"
+            }`}
           >
-            <div className="absolute inset-0 w-0 bg-[#FF5F1F] transition-all duration-500 ease-out group-hover/btn:w-full" />
+            {/* Background slider animation only plays when form is valid */}
+            <div
+              className={`absolute inset-0 w-0 bg-[#FF5F1F] transition-all duration-500 ease-out ${
+                isBtnDisabled ? "" : "group-hover/btn:w-full"
+              }`}
+            />
 
             <span className="relative z-10 uppercase tracking-widest text-xs">
               {loading ? "Sending..." : "Send Message"}
