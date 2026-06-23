@@ -29,11 +29,12 @@ const Home = async () => {
   const storesData = storesRes?.data ?? [];
 
   return (
-    <div className="theme-11">
+    <div className="theme-17">
       <HeroSection
         keywords={keywords}
         mer_slug={c_data?.store_slug}
         cat_slug={c_data?.category_slug}
+        companyId={c_data?.unique_id}
       />
 
       {c_data?.popular_deals_status == 1 && (

@@ -107,7 +107,7 @@ const BrandedProductsHome = async ({
             return (
               <div
                 key={product.id || index}
-                className="group relative flex flex-col bg-white rounded-tr-[2.5rem] rounded-bl-[2.5rem] rounded-tl-none rounded-br-none overflow-hidden border border-zinc-200/70 transition-all duration-300 hover:border-[#ff912f] hover:shadow-[0_12px_30px_rgba(255,145,47,0.06)]"
+                className="group relative flex flex-col bg-white rounded-tr-[2.5rem] rounded-bl-[2.5rem] rounded-tl-none rounded-br-none overflow-hidden border border-zinc-400/90 transition-all duration-300 hover:border-[#ff912f] hover:shadow-[0_12px_30px_rgba(255,145,47,0.06)]"
               >
                 {finalDiscountTag !== null && (
                   <div className="absolute top-5 left-4 z-10 flex items-center gap-1 bg-black text-[#ff912f] text-[10px] md:text-[11px] font-black tracking-tight py-1.5 px-2.5 rounded-lg shadow-sm">
@@ -116,7 +116,7 @@ const BrandedProductsHome = async ({
                   </div>
                 )}
 
-                <div className="relative bg-[#f8f8f6] rounded-tr-[2rem] rounded-bl-[2rem] m-3 p-4 flex items-center justify-center min-height-[120px] md:min-h-[180px] overflow-hidden">
+                <div className="relative bg-[#f8f8f6] rounded-tr-[2rem] rounded-bl-[2rem] border-b-2 border-zinc-300/90 m-3 p-4 flex items-center justify-center min-height-[120px] md:min-h-[180px] overflow-hidden">
                   <div className="w-full h-[90px] md:h-[140px] flex items-center justify-center transition-transform duration-500 group-hover:scale-105">
                     <Image
                       src={imageSrc}

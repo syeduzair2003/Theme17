@@ -30,6 +30,10 @@ import CategorySidebar from "./CategorySidebar";
 import VerticalOfferBanner from "./VerticalOfferBanner";
 import LazyLoadingOffers from "./LazyLoadingOffers";
 
+// FAQs Integration Imports
+import MerchantFaqsAccordion from "./MerchantFaqsAccordion";
+import Accordion from "react-bootstrap/Accordion";
+
 interface Props {
   merchant_id: string;
   slug: string[];
@@ -243,6 +247,7 @@ const OffersPage = async ({
       <section className="py-12 lg:py-16 bg-neutral-50 text-neutral-900">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+            {/* MAIN LEFT COLUMN */}
             <div className="lg:col-span-8 space-y-6">
               <div className="flex flex-wrap items-center justify-between gap-4 bg-white px-6 py-4 rounded-xl border border-neutral-200/80 shadow-[0_2px_12px_rgba(0,0,0,0.03)]">
                 <div className="flex items-center gap-3">
@@ -289,8 +294,47 @@ const OffersPage = async ({
                   </div>
                 )}
               </div>
+
+              {/* FAQs SECTION */}
+              {merchant_details?.data?.faqs &&
+                merchant_details.data.faqs.length > 0 && (
+                  <div className="bg-white rounded-xl p-6 md:p-8 border border-neutral-200/80 shadow-[0_2px_12px_rgba(0,0,0,0.03)] space-y-6">
+                    <div className="flex flex-col items-center text-center pb-6 border-b border-neutral-100">
+                      <div className="inline-flex items-center gap-2 bg-orange-50 border border-orange-100/60 px-3 py-1 rounded-full mb-3 select-none">
+                        <span className="w-1.5 h-1.5 bg-[#FF5A00] rounded-full animate-pulse" />
+                        <span className="text-[9px] font-black uppercase tracking-[0.25em] text-orange-600">
+                          FAQ CENTRE
+                        </span>
+                      </div>
+
+                      {/* Dynamic Title */}
+                      <h2 className="text-base md:text-lg font-black uppercase tracking-tight text-neutral-950">
+                        Questions &{" "}
+                        <span className="text-[#FF5A00]">Expert Insights</span>
+                      </h2>
+
+                      <div className="w-10 h-[3px] bg-[#FF5A00] rounded-full mt-2.5" />
+                    </div>
+
+                    {/* Accordion Component */}
+                    <div className="custom-accordion-wrapper elite-accordion dynamic-faq-orange">
+                      <Accordion defaultActiveKey="0" flush>
+                        {merchant_details.data.faqs.map(
+                          (faq: any, i: number) => (
+                            <MerchantFaqsAccordion
+                              key={i}
+                              faq={faq}
+                              index={i}
+                            />
+                          ),
+                        )}
+                      </Accordion>
+                    </div>
+                  </div>
+                )}
             </div>
 
+            {/* SIDEBAR RIGHT COLUMN */}
             <div className="lg:col-span-4 space-y-6">
               {similarMerchant && similarMerchant.length > 0 && (
                 <div className="bg-white rounded-xl p-5 border border-neutral-200/80 shadow-[0_2px_12px_rgba(0,0,0,0.03)]">
@@ -343,6 +387,7 @@ const OffersPage = async ({
                   </div>
                 </div>
               )}
+
               {navCategories.length > 0 && (
                 <div className="bg-white rounded-xl border border-neutral-200/80 shadow-[0_2px_12px_rgba(0,0,0,0.03)]">
                   <CategorySidebar
