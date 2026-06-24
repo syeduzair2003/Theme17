@@ -57,9 +57,9 @@ const EventsOfferCard = ({
   const isCoupon = !!product?.coupon_code;
 
   return (
-    <div className="flex flex-col h-[420px] w-full bg-white border border-gray-100 rounded-tl-[3rem] rounded-br-[3rem] rounded-tr-lg rounded-bl-lg hover:border-[#ff912f]/40 transition-all duration-500 group overflow-hidden shadow-sm hover:shadow-[0_15px_40px_-15px_rgba(255,145,47,0.2)]">
+    <div className="group relative flex flex-col bg-white rounded-tr-[2.5rem] rounded-bl-[2.5rem] rounded-tl-none rounded-br-none overflow-hidden border border-zinc-400/90 transition-all duration-300 hover:border-[#ff912f] hover:shadow-[0_12px_30px_rgba(255,145,47,0.06)]">
       {/* IMAGE SECTION */}
-      <div className="relative h-44 m-2 rounded-tl-[2.5rem] rounded-br-[2.5rem] rounded-tr-md rounded-bl-md bg-[#fafafa] flex items-center justify-center p-6 overflow-hidden">
+      <div className="relative h-44 m-2 rounded-tr-[2rem] rounded-bl-[2rem] border-b-2 border-zinc-300/90 bg-[#fafafa] flex items-center justify-center p-6 overflow-hidden">
         {finalDiscountTag && (
           <div className="absolute top-3 right-3 z-20">
             <span className="px-2.5 py-1 text-[10px] font-black uppercase text-white bg-[#111318] rounded-full shadow-lg">
@@ -138,7 +138,7 @@ const EventsOfferCard = ({
           </div>
         </div>
 
-        {/* BUTTONS */}
+        {/* BUTTON */}
         <div className="mt-auto space-y-2.5">
           <div className="flex justify-center border-t border-gray-50 pt-2.5">
             <OfferDetailsToggle
