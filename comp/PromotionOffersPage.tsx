@@ -70,7 +70,7 @@ const PromotionOffersPage = async ({ params }: { params: string }) => {
   ]);
   const suggestedCategories = promoCategories?.selected_categories;
 
-  const suggestedPromotions = suggestedPromo?.filter(
+  const fancySuggestedPromotions = suggestedPromo?.filter(
     (promo) => promo.slug !== slug,
   );
 
@@ -125,27 +125,30 @@ const PromotionOffersPage = async ({ params }: { params: string }) => {
           },
         ]}
       />
-      <section className={isLongDescription ? "pb-12" : "pb-24"}>
+      <section
+        className={`pt-10 md:pt-16 ${isLongDescription ? "pb-12" : "pb-24"}`}
+      >
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
             {/* Main Content Area */}
             <div className="lg:col-span-8 flex flex-col gap-10">
               {/* Section Header */}
-              <div className="flex flex-wrap items-center justify-between gap-6 bg-white p-6 md:p-10 rounded-[2.5rem] border border-gray-100 shadow-[0_20px_50px_rgba(0,0,0,0.02)]">
+              <div className="flex flex-wrap items-center justify-between gap-6 bg-white p-6 md:p-10 rounded-[2.5rem] border border-neutral-100 shadow-[0_20px_50px_rgba(0,0,0,0.015)]">
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-[#8bc94a15] rounded-2xl flex items-center justify-center">
+                  <div className="w-12 h-12 bg-[#ff6b00]/10 rounded-2xl flex items-center justify-center">
                     <FontAwesomeIcon
                       icon={faBolt}
-                      className="text-[#8bc94a] text-xl"
+                      className="text-[#ff6b00] text-xl"
                     />
                   </div>
                   <div className="flex flex-col">
-                    <h2 className="text-2xl md:text-3xl font-black text-[#222e48]">
-                      Verified Offers & Deals
-                    </h2>
-                    <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#ff912f]">
+                    <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#ff6b00] mb-1">
                       Today&apos;s Featured Savings
                     </span>
+                    <h2 className="text-2xl md:text-3xl font-black text-black">
+                      <span className="text-black">{firstWord}</span>{" "}
+                      <span className="text-[#ff6b00]">{restWords}</span>
+                    </h2>
                   </div>
                 </div>
               </div>
@@ -179,17 +182,17 @@ const PromotionOffersPage = async ({ params }: { params: string }) => {
               </EventsGrid>
 
               {allOffers.length === 0 && (
-                <div className="bg-white rounded-[3rem] py-24 px-10 text-center border border-dashed border-gray-200">
-                  <div className="w-24 h-24 bg-gray-50 rounded-full flex items-center justify-center mx-auto mb-8">
+                <div className="bg-white rounded-[3rem] py-24 px-10 text-center border border-dashed border-neutral-200">
+                  <div className="w-24 h-24 bg-neutral-50 rounded-full flex items-center justify-center mx-auto mb-8">
                     <FontAwesomeIcon
                       icon={faBolt}
-                      className="text-gray-200 text-4xl"
+                      className="text-neutral-300 text-4xl"
                     />
                   </div>
-                  <h3 className="text-2xl font-black text-[#222e48] mb-4">
+                  <h3 className="text-2xl font-black text-black mb-4">
                     No Active Offers Found
                   </h3>
-                  <p className="text-gray-400 max-w-sm mx-auto font-medium">
+                  <p className="text-neutral-400 max-w-sm mx-auto font-medium">
                     We&apos;re currently refreshing our database with new deals.
                     Please check back shortly!
                   </p>
@@ -199,35 +202,44 @@ const PromotionOffersPage = async ({ params }: { params: string }) => {
 
             {/* Sidebar Area */}
             <aside className="lg:col-span-4 flex flex-col gap-10">
-              {/* Suggested Categories */}
               {suggestedCategories?.length > 0 && (
-                <div className="relative group/sidebar">
-                  <div className="absolute -inset-0.5 bg-gradient-to-br from-[#8bc94a20] to-[#ff912f10] rounded-[2.5rem] blur opacity-50 group-hover/sidebar:opacity-100 transition duration-1000 -z-10" />
-                  <div className="relative bg-white/90 backdrop-blur-xl rounded-[2.5rem] p-8 lg:p-10 shadow-[0_10px_40px_rgba(0,0,0,0.02)] border border-white/50 overflow-hidden">
-                    <h4 className="text-xl font-black text-[#222e48] mb-8 pb-4 border-b border-gray-50">
-                      Suggested Categories
-                    </h4>
-                    <div className="flex flex-col gap-1">
-                      {suggestedCategories.map((cat, i) => (
-                        <Link
-                          key={i}
-                          href={`/${cat?.url}`}
-                          className="group flex items-center justify-between py-3.5 px-2 rounded-xl hover:bg-white hover:shadow-[0_4px_15px_rgba(0,0,0,0.02)] transition-all duration-500 relative overflow-hidden"
-                        >
-                          <div className="absolute left-0 top-1/2 -translate-y-1/2 w-0.5 h-0 bg-[#8bc94a] group-hover:h-3 transition-all duration-300 rounded-full" />
-                          <div className="flex items-center gap-4 pl-0 group-hover:pl-2 transition-all duration-300">
-                            <div className="w-1.5 h-1.5 rounded-full bg-[#222e4815] group-hover:bg-[#ff912f] transition-colors duration-300" />
-                            <span className="text-sm font-bold text-[#222e4870] group-hover:text-[#222e48] transition-colors duration-300">
-                              {cat?.category_name}
-                            </span>
-                          </div>
-                          <FontAwesomeIcon
-                            icon={faAngleRight}
-                            className="text-[10px] text-[#222e4810] group-hover:text-[#8bc94a] group-hover:translate-x-0.5 transition-all duration-300"
-                          />
-                        </Link>
-                      ))}
+                <div className="bg-white rounded-[2.5rem] p-6 md:p-8 shadow-[0_10px_40px_rgba(0,0,0,0.015)] border border-neutral-100 overflow-hidden">
+                  <div className="flex items-center justify-between mb-6 relative">
+                    <div className="flex flex-col">
+                      <h4 className="text-lg font-black text-black tracking-tight">
+                        Suggested{" "}
+                        <span className="text-[#ff6b00]">Categories</span>
+                      </h4>
+                      <div className="w-6 h-1 bg-[#ff6b00] rounded-full mt-1.5" />
                     </div>
+
+                    <Link
+                      href={`/${companyData?.store_slug || ""}`}
+                      className="px-4 py-1.5 rounded-full border border-[#ff6b00]/20 bg-[#ff6b00]/5 text-[10px] font-black uppercase tracking-wider text-[#ff6b00] hover:bg-[#ff6b00] hover:text-white hover:border-[#ff6b00] transition-all duration-300"
+                    >
+                      View All
+                    </Link>
+                  </div>
+
+                  <div className="flex flex-col gap-3">
+                    {suggestedCategories.map((cat, i) => (
+                      <Link
+                        key={i}
+                        href={`/${cat?.url}`}
+                        className="group flex items-center justify-between py-3.5 px-4 bg-neutral-50 hover:bg-[#2d2d2d] rounded-2xl transition-all duration-300"
+                      >
+                        <div className="flex items-center gap-3">
+                          <div className="w-2 h-2 bg-[#ff6b00] rotate-45 group-hover:bg-white group-hover:rotate-0 group-hover:rounded-sm transition-all duration-300 shrink-0" />
+                          <span className="text-xs font-bold text-neutral-800 group-hover:text-[#ff6b00] transition-colors duration-300">
+                            {cat?.category_name}
+                          </span>
+                        </div>
+                        <FontAwesomeIcon
+                          icon={faAngleRight}
+                          className="text-[11px] text-[#ff6b00] group-hover:text-white transition-colors duration-300"
+                        />
+                      </Link>
+                    ))}
                   </div>
                 </div>
               )}
@@ -243,22 +255,27 @@ const PromotionOffersPage = async ({ params }: { params: string }) => {
               )}
 
               {/* Promotions */}
-              {suggestedPromotions?.length > 0 && (
+              {fancySuggestedPromotions?.length > 0 && (
                 <div className="relative group/sidebar">
-                  <div className="absolute -inset-0.5 bg-gradient-to-br from-[#ff912f15] to-[#8bc94a10] rounded-[2.5rem] blur opacity-50 group-hover/sidebar:opacity-100 transition duration-1000 -z-10" />
-                  <div className="relative bg-white/90 backdrop-blur-xl rounded-[2.5rem] p-8 lg:p-10 shadow-[0_10px_40px_rgba(0,0,0,0.02)] border border-white/50 overflow-hidden">
-                    <h4 className="text-xl font-black text-[#222e48] mb-8 pb-4 border-b border-gray-50">
-                      You May Also Like
-                    </h4>
+                  <div className="absolute -inset-0.5 bg-gradient-to-br from-neutral-200/50 to-[#ff6b00]/10 rounded-[2.5rem] blur opacity-40 group-hover/sidebar:opacity-80 transition duration-700 -z-10" />
+                  <div className="relative bg-white rounded-[2.5rem] p-6 md:p-8 shadow-[0_10px_40px_rgba(0,0,0,0.015)] border border-neutral-100 overflow-hidden">
+                    <div className="flex flex-col mb-6">
+                      <h4 className="text-lg font-black text-black tracking-tight">
+                        You May Also{" "}
+                        <span className="text-[#ff6b00]">Like</span>
+                      </h4>
+                      <div className="w-6 h-1 bg-[#ff6b00] rounded-full mt-1.5" />
+                    </div>
+
                     <div className="flex flex-wrap gap-3">
-                      {suggestedPromotions.map((suggestedPromotion, i) => (
+                      {fancySuggestedPromotions.map((suggestedPromotion, i) => (
                         <Link
                           key={i}
                           href={getPromotionHref(
                             suggestedPromotion,
                             companyData?.promotion_slug,
                           )}
-                          className="px-5 py-2.5 rounded-full bg-[#f8fafc] border border-gray-100 text-xs font-bold text-[#222e48] hover:bg-[#ff912f] hover:text-white hover:border-[#ff912f] hover:shadow-lg hover:shadow-[#ff912f]/20 transition-all duration-300 truncate max-w-full"
+                          className="px-5 py-2.5 rounded-full bg-neutral-50 border border-neutral-200/60 text-xs font-bold text-neutral-700 hover:bg-[#ff6b00] hover:text-white hover:border-[#ff6b00] hover:shadow-[0_8px_25px_rgba(255,107,0,0.25)] hover:-translate-y-0.5 transition-all duration-300 truncate max-w-full"
                         >
                           {suggestedPromotion?.name}
                         </Link>
@@ -271,15 +288,19 @@ const PromotionOffersPage = async ({ params }: { params: string }) => {
           </div>
         </div>
       </section>
+      {/* Top Brands Section */}
       {promotion?.merchants && promotion.merchants.length > 0 && (
         <section className="pb-24">
           <div className="container mx-auto px-4">
-            <div className="flex flex-col gap-10">
-              <div className="flex items-center gap-4 border-b border-gray-100 pb-8">
-                <div className="w-1.5 h-8 bg-[#8bc94a] rounded-full" />
-                <h2 className="text-2xl md:text-3xl font-black text-[#222e48]">
-                  Top Brands in {promotion?.promotion?.name}
+            <div className="flex flex-col gap-12">
+              <div className="flex flex-col border-b border-neutral-100/80 pb-6">
+                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#ff6b00] mb-2">
+                  Curated Partners
+                </span>
+                <h2 className="text-2xl md:text-3xl font-black text-black tracking-tight">
+                  Top <span className="text-[#ff6b00]">Brands</span>{" "}
                 </h2>
+                <div className="w-8 h-1 bg-[#ff6b00] rounded-full mt-3" />
               </div>
 
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
@@ -291,23 +312,28 @@ const PromotionOffersPage = async ({ params }: { params: string }) => {
                       companyData?.store_slug,
                       companyData?.slug_type,
                     )}
-                    className="group bg-white rounded-3xl p-6 border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center gap-4"
+                    className="group relative bg-white rounded-[2rem] p-5 border border-neutral-100 shadow-[0_8px_30px_rgba(0,0,0,0.01)] hover:shadow-[0_20px_50px_rgba(255,107,0,0.07)] hover:border-[#ff6b00]/20 hover:-translate-y-1.5 transition-all duration-500 flex flex-col items-center gap-4 overflow-hidden"
                   >
-                    <div className="relative w-full h-16">
-                      <Image
-                        src={getBaseImageUrl(
-                          companyData?.domain,
-                          merchant.merchant_logo,
-                          "",
-                        )}
-                        alt={merchant.merchant_name}
-                        fill
-                        unoptimized
-                        className="object-contain group-hover:scale-110 transition-transform duration-500"
-                        sizes="120px"
-                      />
+                    <div className="absolute top-0 left-0 right-0 h-[3px] bg-[#ff6b00] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-center" />
+
+                    <div className="relative w-full h-20 bg-neutral-50/60 group-hover:bg-white rounded-2xl p-3 flex items-center justify-center transition-all duration-500">
+                      <div className="relative w-full h-full">
+                        <Image
+                          src={getBaseImageUrl(
+                            companyData?.domain,
+                            merchant.merchant_logo,
+                            "",
+                          )}
+                          alt={merchant.merchant_name}
+                          fill
+                          unoptimized
+                          className="object-contain group-hover:scale-105 transition-transform duration-500"
+                          sizes="140px"
+                        />
+                      </div>
                     </div>
-                    <span className="text-xs font-black text-[#222e48] text-center line-clamp-1 group-hover:text-[#8bc94a] transition-colors uppercase tracking-wider">
+
+                    <span className="text-[11px] font-black text-neutral-500 text-center line-clamp-1 group-hover:text-[#ff6b00] transition-colors duration-300 uppercase tracking-widest mt-1">
                       {merchant.merchant_name}
                     </span>
                   </Link>
