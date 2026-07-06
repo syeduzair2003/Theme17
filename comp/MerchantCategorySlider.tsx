@@ -23,7 +23,6 @@ const MerchantCategorySlider: React.FC<Props> = ({
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [showSliders, setShowSliders] = useState(false);
 
-  // New Heading as per your request
   const heading = `Browse Categories by ${merchantName}`;
   const [firstWord, restWords] = splitHeading(heading);
 

@@ -77,12 +77,6 @@ export default function MobileNavWrapper({
     return (
       <li className="border-b border-zinc-900/40 last:border-0 relative transition-all duration-300">
         <div
-          className={`absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-[#FF5F1F] to-[#e07d24] transition-all duration-300 transform origin-left pointer-events-none ${
-            isSectionOpen ? "scale-x-100 opacity-100" : "scale-x-0 opacity-0"
-          }`}
-        />
-
-        <div
           className={`flex justify-between items-center py-4 px-5 w-full text-left font-bold transition-all cursor-pointer select-none ${
             isSectionOpen
               ? "bg-white/[0.02] text-[#FF5F1F]"
@@ -94,29 +88,18 @@ export default function MobileNavWrapper({
             {title}
           </span>
           <div
-            className={`w-6 h-6 rounded-full flex items-center justify-center border transition-all duration-300 ${
-              isSectionOpen
-                ? "bg-[#FF5F1F] text-black border-transparent shadow-lg shadow-[#FF5F1F]/20 scale-105"
-                : "bg-zinc-950 text-zinc-500 border-zinc-800/80"
-            }`}
+            className={`w-6 h-6 rounded-full flex items-center justify-center border transition-all duration-300 ${isSectionOpen ? "bg-[#FF5F1F] text-black border-transparent" : "bg-zinc-950 text-zinc-500 border-zinc-800/80"}`}
           >
             <FontAwesomeIcon
               icon={faChevronDown}
-              className={`w-2.5 h-2.5 transition-transform duration-300 ease-out ${
-                isSectionOpen ? "rotate-180" : ""
-              }`}
+              className={`w-2.5 h-2.5 transition-transform duration-300 ease-out ${isSectionOpen ? "rotate-180" : ""}`}
             />
           </div>
         </div>
-
         <div
-          className={`overflow-hidden transition-all duration-300 ease-in-out bg-black/30 border-l border-zinc-900 ${
-            isSectionOpen
-              ? "max-h-[480px] opacity-100 pointer-events-auto"
-              : "max-h-0 opacity-0 pointer-events-none"
-          }`}
+          className={`overflow-hidden transition-all duration-300 ease-in-out bg-black/20 ${isSectionOpen ? "max-h-[800px] opacity-100 border-t border-zinc-900/50" : "max-h-0 opacity-0 pointer-events-none"}`}
         >
-          <ul className="py-2.5 pl-6 pr-4 flex flex-col gap-1">
+          <ul className="p-3 flex flex-col gap-2">
             {items.slice(0, 10).map((item, i) => {
               const { href, label } = renderLink(item);
               return (
@@ -124,24 +107,27 @@ export default function MobileNavWrapper({
                   <Link
                     href={href}
                     onClick={closeMenu}
-                    className="block py-2 text-[13px] font-medium text-zinc-400 hover:text-white hover:translate-x-1 transition-all truncate no-underline"
+                    className="flex items-center justify-between py-3 px-4 rounded-xl bg-zinc-900/40 border border-zinc-800/60 hover:border-[#FF5F1F]/40 hover:bg-zinc-800/60 transition-all group no-underline"
                   >
-                    {label}
+                    <span className="flex items-center gap-3 text-[13px] font-medium text-zinc-300 group-hover:text-white transition-colors">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#FF5F1F]" />
+                      {label}
+                    </span>
+                    <span className="text-zinc-600 group-hover:text-[#FF5F1F] transition-colors text-[10px]">
+                      &rarr;
+                    </span>
                   </Link>
                 </li>
               );
             })}
             {viewAllHref && (
-              <li className="mt-1.5 pt-1.5 border-t border-zinc-900/60">
+              <li className="mt-1">
                 <Link
                   href={viewAllHref}
                   onClick={closeMenu}
-                  className="inline-flex items-center gap-1 text-[11px] font-black text-[#FF5F1F] hover:text-[#e07d24] transition-colors uppercase tracking-wider no-underline"
+                  className="flex items-center justify-center py-3 w-full text-[11px] font-black text-[#FF5F1F] hover:text-white bg-[#FF5F1F]/5 hover:bg-[#FF5F1F] transition-all rounded-lg uppercase tracking-wider no-underline border border-[#FF5F1F]/20"
                 >
                   View All {title}
-                  <span className="text-xs transform translate-y-[-0.5px]">
-                    &rarr;
-                  </span>
                 </Link>
               </li>
             )}
@@ -176,79 +162,52 @@ export default function MobileNavWrapper({
       </button>
 
       <div
-        className={`fixed inset-0 z-[99990] bg-black/70 backdrop-blur-md transition-all duration-500 ease-in-out ${
-          isOpen
-            ? "opacity-100 visible pointer-events-auto"
-            : "opacity-0 invisible pointer-events-none"
-        }`}
+        className={`fixed inset-0 z-[99990] bg-black/70 backdrop-blur-md transition-all duration-500 ease-in-out ${isOpen ? "opacity-100 visible pointer-events-auto" : "opacity-0 invisible pointer-events-none"}`}
         onClick={closeMenu}
       />
 
       <aside
         onClick={(e) => e.stopPropagation()}
-        className={`fixed top-0 left-0 h-full w-[85vw] max-w-[430px] z-[99995] pointer-events-auto flex flex-col bg-[#110e0c] border-r border-zinc-900/60 shadow-[5px_0_50px_rgba(0,0,0,0.9)] transition-transform duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-          isOpen ? "translate-x-0" : "-translate-x-full"
-        }`}
+        className={`fixed top-0 left-0 h-full w-[85vw] max-w-[430px] z-[99995] pointer-events-auto flex flex-col bg-[#110e0c] border-r border-zinc-900/60 shadow-[5px_0_50px_rgba(0,0,0,0.9)] transition-transform duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] ${isOpen ? "translate-x-0" : "-translate-x-full"}`}
       >
         <div className="flex items-center justify-between p-5 border-b border-zinc-900/50 bg-[#161412] relative">
-          <div className="absolute inset-x-0 bottom-0 h-[1px] bg-gradient-to-r from-transparent via-[#FF5F1F]/10 to-transparent" />
-
           <Link
             href="/"
             onClick={closeMenu}
-            className="block relative h-9 w-28 transition-transform active:scale-95"
+            className="block relative h-9 w-28"
           >
             <Image
               src={companyLogo || "/themes/Theme_3/images/logo.png"}
               alt="Logo"
               fill
-              className="object-contain object-left filter brightness-[0.95]"
+              className="object-contain object-left"
               sizes="(max-width: 768px) 100vw, 33vw"
               priority
             />
           </Link>
-
           <button
             onClick={closeMenu}
-            className="w-9 h-9 flex items-center justify-center rounded-xl bg-zinc-900/80 text-zinc-400 hover:bg-zinc-800 hover:text-white active:scale-90 hover:rotate-90 transition-all duration-300 border border-zinc-800/40"
-            aria-label="Close menu"
+            className="w-9 h-9 flex items-center justify-center rounded-xl bg-zinc-900/80 text-zinc-400 hover:bg-zinc-800 hover:text-white border border-zinc-800/40"
           >
             <FontAwesomeIcon icon={faTimes} className="w-3.5 h-3.5" />
           </button>
         </div>
 
-        {isOpen && (
-          <div className="p-4 pb-3 bg-black/10 border-b border-zinc-900/30 relative z-[1200]">
-            <div className="w-full relative">
-              <React.Suspense
-                fallback={
-                  <div className="w-full h-10 bg-zinc-900/60 animate-pulse rounded-xl border border-zinc-800/30" />
-                }
-              >
-                <LazyNavSearch
-                  companyId={companyId}
-                  mer_slug={mer_slug}
-                  slug_type={mer_slug_type}
-                  cat_slug={cat_slug}
-                />
-              </React.Suspense>
-            </div>
-          </div>
-        )}
-
         <div className="flex-1 overflow-y-auto custom-scrollbar bg-transparent">
           <nav className="p-3 pt-5 pb-8">
             <ul className="flex flex-col bg-[#161412] border border-zinc-900/80 rounded-2xl overflow-hidden shadow-xl shadow-black/40">
-              <li className="border-b border-zinc-900/40 relative group">
+              {/* HOME LINK - Styled same as other headers */}
+              <li className="border-b border-zinc-900/40">
                 <Link
                   href="/"
                   onClick={closeMenu}
-                  className="block py-4 px-5 text-[13px] font-extrabold tracking-widest uppercase text-zinc-300 hover:text-[#FF5F1F] hover:bg-white/[0.01] transition-all no-underline"
+                  className="block py-4 px-5 text-zinc-300 hover:text-[#FF5F1F] hover:bg-white/[0.01] transition-all no-underline text-[13px] tracking-widest uppercase font-extrabold"
                 >
                   Home
                 </Link>
               </li>
 
+              {/* DYNAMIC SECTIONS */}
               {renderSection(
                 "Stores",
                 "stores",
@@ -259,7 +218,6 @@ export default function MobileNavWrapper({
                 }),
                 "/all-stores/A",
               )}
-
               {renderSection(
                 "Categories",
                 "categories",
@@ -270,18 +228,13 @@ export default function MobileNavWrapper({
                 }),
                 `/${cat_slug}`,
               )}
-
               {renderSection(
                 "Events",
                 "events",
                 events,
-                (e) => ({
-                  href: `/${e?.slug || "events"}`,
-                  label: e.name,
-                }),
+                (e) => ({ href: `/${e?.slug || "events"}`, label: e.name }),
                 "/events",
               )}
-
               {renderSection(
                 "Promotions",
                 "promotions",
@@ -293,67 +246,46 @@ export default function MobileNavWrapper({
                 `/${promo_slug}`,
               )}
 
-              <li className="border-b border-zinc-900/40 last:border-0 relative">
+              {/* PRODUCTS SECTION */}
+              <li className="border-b border-zinc-900/40 relative">
                 <div
-                  className={`absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-[#FF5F1F] to-[#e07d24] transition-all duration-300 transform origin-left pointer-events-none ${
-                    openSection === "products"
-                      ? "scale-x-100 opacity-100"
-                      : "scale-x-0 opacity-0"
-                  }`}
-                />
-                <div
-                  className={`flex justify-between items-center py-4 px-5 w-full text-left font-bold transition-all cursor-pointer select-none ${
-                    openSection === "products"
-                      ? "bg-white/[0.02] text-[#FF5F1F]"
-                      : "text-zinc-300 hover:bg-white/[0.01] hover:text-[#FF5F1F]"
-                  }`}
+                  className={`flex justify-between items-center py-4 px-5 w-full text-left font-bold transition-all cursor-pointer select-none ${openSection === "products" ? "bg-white/[0.02] text-[#FF5F1F]" : "text-zinc-300 hover:bg-white/[0.01] hover:text-[#FF5F1F]"}`}
                   onClick={() => handleToggleSection("products")}
                 >
                   <span className="text-[13px] tracking-widest uppercase font-extrabold">
                     Products
                   </span>
                   <div
-                    className={`w-6 h-6 rounded-full flex items-center justify-center border transition-all duration-300 ${
-                      openSection === "products"
-                        ? "bg-[#FF5F1F] text-black border-transparent shadow-lg shadow-[#FF5F1F]/20 scale-105"
-                        : "bg-zinc-950 text-zinc-500 border-zinc-800/80"
-                    }`}
+                    className={`w-6 h-6 rounded-full flex items-center justify-center border transition-all duration-300 ${openSection === "products" ? "bg-[#FF5F1F] text-black border-transparent" : "bg-zinc-950 text-zinc-500 border-zinc-800/80"}`}
                   >
                     <FontAwesomeIcon
                       icon={faChevronDown}
-                      className={`w-2.5 h-2.5 transition-transform duration-300 ease-out ${
-                        openSection === "products" ? "rotate-180" : ""
-                      }`}
+                      className={`w-2.5 h-2.5 transition-transform duration-300 ${openSection === "products" ? "rotate-180" : ""}`}
                     />
                   </div>
                 </div>
                 <div
-                  className={`overflow-hidden transition-all duration-300 ease-in-out bg-black/30 border-l border-zinc-900 ${
-                    openSection === "products"
-                      ? "max-h-[200px] opacity-100 pointer-events-auto"
-                      : "max-h-0 opacity-0 pointer-events-none"
-                  }`}
+                  className={`overflow-hidden transition-all duration-300 ease-in-out bg-black/20 ${openSection === "products" ? "max-h-[200px] opacity-100 border-t border-zinc-900/50" : "max-h-0 opacity-0 pointer-events-none"}`}
                 >
-                  <ul className="py-2.5 pl-6 pr-4 flex flex-col gap-1">
+                  <ul className="p-3 flex flex-col gap-2">
                     <li>
                       <Link
                         href="/products"
                         onClick={closeMenu}
-                        className="block py-2 text-[13px] font-medium text-zinc-400 hover:text-white hover:translate-x-1 transition-all no-underline"
+                        className="flex items-center justify-between py-3 px-4 rounded-xl bg-zinc-900/40 border border-zinc-800/60 hover:border-[#FF5F1F]/40 hover:bg-zinc-800/60 transition-all group no-underline"
                       >
-                        Brands Products
+                        <span className="text-[13px] font-medium text-zinc-300 group-hover:text-white">
+                          Brands Products
+                        </span>
                       </Link>
                     </li>
-                    <li className="mt-1.5 pt-1.5 border-t border-zinc-900/60">
+                    <li>
                       <Link
                         href="/all-products"
                         onClick={closeMenu}
-                        className="inline-flex items-center gap-1 text-[11px] font-black text-[#FF5F1F] hover:text-[#e07d24] transition-colors uppercase tracking-wider no-underline"
+                        className="flex items-center justify-center py-3 w-full text-[11px] font-black text-[#FF5F1F] hover:text-white bg-[#FF5F1F]/5 hover:bg-[#FF5F1F] transition-all rounded-lg uppercase tracking-wider no-underline border border-[#FF5F1F]/20"
                       >
-                        View All Products{" "}
-                        <span className="text-xs transform translate-y-[-0.5px]">
-                          &rarr;
-                        </span>
+                        View All Products
                       </Link>
                     </li>
                   </ul>
@@ -374,16 +306,6 @@ export default function MobileNavWrapper({
               </div>
             )}
           </nav>
-        </div>
-
-        <div className="p-5 bg-[#161412] border-t border-zinc-900/50 flex flex-col items-center justify-center gap-1 relative">
-          <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-[#FF5F1F]/10 to-transparent" />
-          <span className="text-[9px] tracking-[0.3em] font-black text-[#FF5F1F]/60 uppercase">
-            100% VERIFIED SAVINGS
-          </span>
-          <p className="text-[10px] text-zinc-500 m-0 font-medium">
-            Your premium lifestyle savings gateway
-          </p>
         </div>
       </aside>
     </>

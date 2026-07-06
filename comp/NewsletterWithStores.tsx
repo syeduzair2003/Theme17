@@ -90,8 +90,8 @@ const NewsletterWithStores = ({
             <p className="text-slate-500 text-sm md:text-base max-w-md font-medium mb-10 leading-relaxed italic">
               Stop hunting for expired codes. Join{" "}
               <span className="text-black font-bold">50,000+</span> smart
-              shoppers and get the internet&apos;s best hand-picked deals delivered
-              to your inbox.
+              shoppers and get the internet&apos;s best hand-picked deals
+              delivered to your inbox.
             </p>
 
             <form
@@ -252,7 +252,7 @@ const NewsletterWithStores = ({
                 </motion.div>
               </div>
 
-              {/* View All Button below carousel */}
+              {/* View All Button */}
               <div className="mt-4 px-4">
                 <Link
                   href={`/${store_slug}`}

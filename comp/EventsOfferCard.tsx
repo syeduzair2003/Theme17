@@ -139,7 +139,7 @@ const EventsOfferCard = ({
           </div>
         </div>
 
-        {/* BUTTONS - Slimmer padding */}
+        {/* BUTTONS */}
         <div className="mt-auto space-y-2">
           <div className="flex justify-center border-t border-gray-50 pt-2">
             <OfferDetailsToggle

@@ -45,7 +45,6 @@ const MerchantFaqsAccordion = ({ faq, index }: { faq: any; index: number }) => {
         }`}
       >
         <div className="px-5 pb-5 text-slate-600 leading-relaxed font-medium">
-          {/* Top Divider with subtle opacity exactly like homepage */}
           <div
             className="pt-4 border-t border-slate-200/50 text-[13px] md:text-[14px]"
             dangerouslySetInnerHTML={{ __html: faq.answer }}

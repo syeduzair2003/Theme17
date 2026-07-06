@@ -199,7 +199,7 @@ export default function NavigationPill({
               href="/products"
               className="bg-white/[0.02] hover:bg-white/5 hover:text-[#FF5F1F] p-3 rounded-xl transition-all text-[13px] font-bold text-white/80 border-b border-white/[0.06] hover:border-b-[#FF5F1F]/50"
             >
-              Brands Products
+              Branded Products
             </Link>
 
             <Link

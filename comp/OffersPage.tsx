@@ -30,7 +30,6 @@ import CategorySidebar from "./CategorySidebar";
 import VerticalOfferBanner from "./VerticalOfferBanner";
 import LazyLoadingOffers from "./LazyLoadingOffers";
 
-// FAQs Integration Imports
 import MerchantFaqsAccordion from "./MerchantFaqsAccordion";
 import Accordion from "react-bootstrap/Accordion";
 

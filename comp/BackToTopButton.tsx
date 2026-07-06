@@ -32,7 +32,7 @@ const BackToTopButton = () => {
   };
 
   const radius = 24;
-  const circumference = 2 * Math.PI * radius; // ~150.8
+  const circumference = 2 * Math.PI * radius;
   const strokeDashoffset =
     circumference - (scrollProgress / 100) * circumference;
 

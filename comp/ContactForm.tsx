@@ -124,7 +124,6 @@ const ContactForm = ({ domain }: Props) => {
                 : "hover:shadow-[0_15px_30px_-10px_rgba(255,95,31,0.4)] active:scale-95"
             }`}
           >
-            {/* Background slider animation only plays when form is valid */}
             <div
               className={`absolute inset-0 w-0 bg-[#FF5F1F] transition-all duration-500 ease-out ${
                 isBtnDisabled ? "" : "group-hover/btn:w-full"

@@ -25,7 +25,7 @@ function LoaderContent({ logo }: PageLoaderProps) {
       setLoading(true);
       const timer = setTimeout(() => {
         setLoading(false);
-      }, 700); 
+      }, 700);
       return () => clearTimeout(timer);
     }
   }, [pathname, searchParams]);
@@ -45,7 +45,7 @@ function LoaderContent({ logo }: PageLoaderProps) {
 
   return (
     <div className="fixed inset-0 z-[10000]">
-      <GlobalLoader logo={logo} /> 
+      <GlobalLoader logo={logo} />
     </div>
   );
 }
