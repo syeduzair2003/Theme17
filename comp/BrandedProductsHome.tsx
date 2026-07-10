@@ -67,7 +67,7 @@ const BrandedProductsHome = async ({
           <div className="hidden md:flex items-center">
             <Link
               href="/products"
-              className="group relative inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-wider px-7 py-3.5 rounded-full bg-[#1a1612] text-white hover:bg-[#FF5722] transition-all duration-300 shadow-[0_10px_20px_rgba(0,0,0,0.1)]"
+              className="group relative inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-wider px-7 py-3.5 rounded-lg bg-[#1a1612] text-white hover:bg-[#FF5722] transition-all duration-300 shadow-[0_10px_20px_rgba(0,0,0,0.1)]"
             >
               <span>View All</span>
               <ArrowRight

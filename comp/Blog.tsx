@@ -33,10 +33,10 @@ const BlogShow = ({ data }: { data: FooterResponse }) => {
           <Link
             href={data.link}
             target="_blank"
-            className="inline-flex items-center gap-3 text-[11px] font-black no-underline transition-all group/link py-2.5 px-5 rounded-xl bg-white/5 border border-white/10 hover:bg-orange-500 hover:text-[#1a1612] hover:border-orange-500"
+            className="inline-flex items-center gap-3 text-[11px] font-black no-underline transition-all group/link py-2.5 px-5 rounded-xl bg-white/5 border border-white/10 hover:bg-orange-500 hover:text-white hover:border-orange-500"
             style={{ color: "#94a3b8" }}
           >
-            <span className="group-hover/link:text-[#1a1612] transition-colors uppercase tracking-[0.2em]">
+            <span className="group-hover/link:text-white transition-colors uppercase tracking-[0.2em]">
               Read Article
             </span>
             <svg

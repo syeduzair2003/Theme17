@@ -42,7 +42,7 @@ const HomepageFAQs = async ({ store_slug, slug_type }: Props) => {
           {allFaqs.map((faq: any, index: number) => (
             <details
               key={index}
-              className="group bg-slate-50 border border-slate-200 rounded-xl overflow-hidden transition-all duration-200 hover:border-orange-200 hover:bg-white hover:shadow-md"
+              className="group bg-white border border-orange-200 shadow-md rounded-xl overflow-hidden transition-all duration-200 hover:bg-gray-50 hover:border-orange-200 hover:shadow-none"
             >
               <summary className="list-none flex justify-between items-center p-5 cursor-pointer select-none">
                 <span className="font-extrabold text-black pr-4 group-open:text-orange-600 transition-colors text-sm md:text-[15px] uppercase tracking-tight">

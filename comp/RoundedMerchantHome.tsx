@@ -86,7 +86,7 @@ const RoundedMerchantHome = async ({
             <div className="shrink-0">
               <Link
                 href={`/${mer_slug}`}
-                className="group relative inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-wider px-6 py-3 rounded-full bg-[#FF5722] text-white hover:bg-white hover:text-[#1a1612] transition-all duration-300 shadow-lg"
+                className="group relative inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-wider px-6 py-3 rounded-lg bg-[#FF5722] text-white hover:bg-white hover:text-[#1a1612] transition-all duration-300 shadow-lg"
               >
                 <span className="relative z-10">View All Stores</span>
                 <ArrowRight

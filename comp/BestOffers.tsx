@@ -39,7 +39,7 @@ const BestOffers = async ({ companyId, mer_slug_type, mer_slug }: Props) => {
       <div className="container relative z-10 mx-auto px-4 lg:px-6">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-10">
-          <div className="max-w-xl">
+          <div className="max-w-3xl">
             <div className="flex items-center gap-2 mb-3">
               <span className="w-8 h-[1px] bg-[#FF5F1F]" />
               <span className="text-[9px] font-black text-[#FF5F1F] uppercase tracking-[0.3em]">
@@ -56,7 +56,7 @@ const BestOffers = async ({ companyId, mer_slug_type, mer_slug }: Props) => {
             </h2>
 
             {subText && (
-              <p className="mt-3 text-[10px] text-gray-500 text-lg leading-relaxed max-w-4xl font-medium">
+              <p className="text-[10px] text-gray-500 text-lg leading-relaxed max-w-3xl font-medium line-clamp-3 mt-3">
                 {subText}
               </p>
             )}

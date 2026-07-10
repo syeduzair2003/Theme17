@@ -56,7 +56,7 @@ const FooterNewsletter = ({ companyId }: Props) => {
         Get Exclusive Deals
       </h3>
 
-      <p className="text-slate-400 text-[13px] mb-5 md:mb-8 leading-relaxed font-medium italic">
+      <p className="text-zinc-300 text-[13px] mb-5 md:mb-8 leading-relaxed font-medium italic">
         Join our elite list to receive verified updates and{" "}
         <span className="text-orange-500">exclusive codes</span> directly to
         your terminal.
@@ -75,8 +75,8 @@ const FooterNewsletter = ({ companyId }: Props) => {
 
           <input
             type="email"
-            placeholder="ACCESS@DEALS.COM"
-            className="flex-1 bg-transparent border-none outline-none px-3 md:px-5 py-3 text-[11px] font-black uppercase tracking-widest text-slate-100 placeholder-slate-600 focus:ring-0 z-10 min-w-0"
+            placeholder="access@deals.com"
+            className="flex-1 bg-transparent border-none outline-none px-3 md:px-5 py-3 text-[13px] font-bold tracking-widest text-slate-100 placeholder-zinc-600 focus:ring-0 z-10 min-w-0"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             disabled={isSubmitting}

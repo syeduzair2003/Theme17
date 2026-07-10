@@ -36,19 +36,19 @@ const HomeCategories = async ({ companyId, cat_slug, slug_type }: Props) => {
 
         <div className="container mx-auto px-4 relative z-10">
           {/* Section Header */}
-          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-5 mb-10">
-            <div className="flex-1 min-w-0">
-              <div className="flex items-center gap-2 mb-2.5">
-                <span
-                  className="w-8 h-[1.5px] rounded-full bg-[#FF5722]"
-                  aria-hidden="true"
-                />
-                <span className="text-[11px] font-bold uppercase tracking-[0.15em] text-[#FF5722]">
-                  Browse by niche
-                </span>
-              </div>
+          <div className="mb-10">
+            <div className="flex items-center gap-2 mb-4">
+              <span
+                className="w-8 h-[1.5px] rounded-full bg-[#FF5722]"
+                aria-hidden="true"
+              />
+              <span className="text-[11px] font-bold uppercase tracking-[0.15em] text-[#FF5722]">
+                Browse by niche
+              </span>
+            </div>
 
-              {/* Heading */}
+            {/* Heading and Button Row */}
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-5 mb-5">
               <h2 className="text-2xl md:text-3xl font-[900] text-white tracking-tight leading-[1.1] m-0">
                 {firstWord && (
                   <span className="text-[#FF5722] mr-2 uppercase italic">
@@ -60,28 +60,30 @@ const HomeCategories = async ({ companyId, cat_slug, slug_type }: Props) => {
                 </span>
               </h2>
 
-              {subText && (
-                <p className="mt-3 text-[10px] text-gray-500 text-lg leading-relaxed max-w-3xl font-medium">
-                  {subText}
-                </p>
-              )}
+              {/* View All Button */}
+              <div className="shrink-0">
+                <Link
+                  href={`/${cat_slug}`}
+                  className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-wider px-6 py-2.5 rounded-lg border border-black/5 text-white bg-[#0D0D0D] hover:bg-[#FF5F1F] transition-all duration-300 group"
+                >
+                  <span>View All</span>
+                  <FontAwesomeIcon
+                    icon={faArrowRight}
+                    size="lg"
+                    className="group-hover:translate-x-1 transition-transform"
+                  />
+                </Link>
+              </div>
             </div>
 
-            {/* View All Button */}
-            <div className="shrink-0">
-              <Link
-                href={`/${cat_slug}`}
-                className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-wider px-6 py-2.5 rounded-lg border border-black/5 text-white bg-[#0D0D0D] hover:bg-[#FF5F1F] transition-all duration-300 group"
-              >
-                <span>View All</span>
-                <FontAwesomeIcon
-                  icon={faArrowRight}
-                  size="lg"
-                  className="group-hover:translate-x-1 transition-transform"
-                />
-              </Link>
-            </div>
+            {/* Description */}
+            {subText && (
+              <p className="text-[10px] text-gray-500 text-lg leading-relaxed max-w-3xl font-medium line-clamp-3 m-0">
+                {subText}
+              </p>
+            )}
           </div>
+
           <Category3DSlider
             categories={topCategoriesResponse.categories}
             companyDomain={companyDomain}

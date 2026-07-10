@@ -51,10 +51,10 @@ const TrendingProductsCard = async ({
     (discountPercent ? `${discountPercent}% Off` : null);
 
   return (
-    <div className="group relative flex flex-col bg-[#1a1612] rounded-[1.5rem] overflow-hidden transition-all duration-500 hover:-translate-y-1.5 w-full h-full border border-white/5 hover:border-orange-500/40 flex-grow shadow-2xl">
+    <div className="group/card relative flex flex-col bg-[#1a1612] rounded-[1.5rem] overflow-hidden transition-all duration-500 hover:-translate-y-1.5 w-full h-full border border-white/5 hover:border-orange-500/40 flex-grow shadow-2xl">
       {/* Top Image Section */}
       <div className="relative w-full h-[170px] sm:h-[190px] bg-[#14110e] flex-shrink-0 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-orange-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-b from-orange-500/5 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 z-10" />
 
         <div className="absolute top-3 left-3 bg-[#1a1612]/90 backdrop-blur-md border border-white/10 text-orange-500 text-[9px] font-bold px-2.5 py-1 rounded-lg z-20 shadow-md uppercase tracking-tight">
           {calculateOfferDuration(product?.end_date)}
@@ -71,7 +71,7 @@ const TrendingProductsCard = async ({
           src={imageSrc}
           alt={product?.offer_title || "Offer"}
           fill
-          className="object-contain p-7 z-0 transition-transform duration-700 group-hover:scale-105"
+          className="object-contain p-7 z-0 transition-transform duration-700 group-hover/card:scale-105"
           sizes="(max-width: 480px) 80vw, (max-width: 768px) 45vw, (max-width: 1024px) 30vw, 20vw"
         />
       </div>
@@ -93,12 +93,10 @@ const TrendingProductsCard = async ({
 
           {/* Prices */}
           <div className="flex items-center gap-2 mb-4">
-            {salePrice > 0 && (
-              <span className="text-base sm:text-lg font-black text-orange-500 tracking-tight">
-                {getCurrencySymbol(product?.currency)}
-                {salePrice.toFixed(2)}
-              </span>
-            )}
+            <span className="text-base sm:text-lg font-black text-orange-500 tracking-tight">
+              {getCurrencySymbol(product?.currency)}
+              {salePrice > 0 ? salePrice.toFixed(2) : "0.00"}
+            </span>
             {originalPrice > 0 && (
               <span className="text-[10px] font-semibold text-zinc-500 line-through decoration-zinc-700">
                 {getCurrencySymbol(product?.currency)}
@@ -142,7 +140,7 @@ const TrendingProductsCard = async ({
         </div>
       </div>
 
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-orange-500 group-hover:w-full transition-all duration-500 ease-in-out" />
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-orange-500 group-hover/card:w-full transition-all duration-500 ease-in-out" />
     </div>
   );
 };

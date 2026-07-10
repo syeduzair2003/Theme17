@@ -45,7 +45,7 @@ export default function NavigationPill({
     return `flex items-center gap-1.5 px-4 py-2 rounded-xl text-[13px] font-bold transition-all duration-300 ${
       isActive
         ? "bg-[#FF5F1F] text-white shadow-[0_0_20px_rgba(255,95,31,0.3)] border border-orange-400/20"
-        : "text-white/60 hover:text-white hover:bg-white/5"
+        : "text-white hover:text-white hover:bg-white/5"
     }`;
   };
 

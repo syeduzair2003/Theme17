@@ -195,7 +195,7 @@ const Footer = async ({
                 alt="logo"
               />
             </Link>
-            <p className="text-slate-400 text-[13px] leading-relaxed max-w-sm italic font-medium">
+            <p className="text-zinc-300 text-[13px] leading-relaxed max-w-sm italic font-medium">
               Your premium destination for{" "}
               <span className="text-orange-500 font-black">
                 verified savings
@@ -216,17 +216,17 @@ const Footer = async ({
                         className="w-3.5 h-3.5"
                       />
                     </div>
-                    <span className="text-xs font-black tracking-tighter text-slate-400 group-hover:text-white transition-colors uppercase italic">
+                    <span className="text-sm font-bold text-zinc-300 group-hover:text-white transition-colors italic">
                       {disclaimer.CompanyContactUs.email}
                     </span>
                   </li>
                 )}
                 {disclaimer?.CompanyContactUs?.phone_no && (
                   <li className="flex items-center gap-4 group cursor-pointer">
-                    <div className="flex justify-center items-center w-10 h-10 rounded-2xl bg-white/5 text-slate-400 group-hover:text-[#0a0a0a] group-hover:bg-orange-500 border border-white/5 transition-all duration-300">
+                    <div className="flex justify-center items-center w-10 h-10 rounded-2xl bg-white/5 text-zinc-300 group-hover:text-[#0a0a0a] group-hover:bg-orange-500 border border-white/5 transition-all duration-300">
                       <FontAwesomeIcon icon={faPhone} className="w-3.5 h-3.5" />
                     </div>
-                    <span className="text-xs font-black tracking-tighter text-slate-400 group-hover:text-white transition-colors uppercase italic">
+                    <span className="text-sm font-bold text-zinc-300 group-hover:text-white transition-colors italic">
                       {disclaimer.CompanyContactUs.phone_no}
                     </span>
                   </li>
@@ -253,7 +253,7 @@ const Footer = async ({
                     <li key={idx}>
                       <Link
                         href={hrefs[idx]}
-                        className="text-slate-400 text-[11px] font-black hover:text-orange-500 transition-all uppercase tracking-[0.15em] flex items-center gap-2 group italic"
+                        className="text-zinc-300 text-[13px] font-bold hover:text-orange-500 transition-all flex items-center gap-2"
                       >
                         <span className="w-0 h-[1.5px] bg-orange-500 group-hover:w-4 transition-all duration-300" />{" "}
                         {label}
@@ -266,7 +266,7 @@ const Footer = async ({
                 <li>
                   <Link
                     href={blog_url}
-                    className="text-slate-400 text-[11px] font-black hover:text-orange-500 transition-all uppercase tracking-[0.15em] flex items-center gap-2 group italic"
+                    className="text-zinc-300 text-[13px] font-bold hover:text-orange-500 transition-all flex items-center gap-2"
                   >
                     <span className="w-0 h-[1.5px] bg-orange-500 group-hover:w-4 transition-all duration-300" />{" "}
                     {blog_title}
@@ -285,7 +285,7 @@ const Footer = async ({
                 <li key={i}>
                   <Link
                     href={`/${item?.url}`}
-                    className="text-slate-400 text-[11px] font-black hover:text-orange-500 transition-all uppercase tracking-[0.15em] flex items-center gap-2 group italic"
+                    className="text-zinc-300 text-[13px] font-bold hover:text-orange-500 transition-all flex items-center gap-2"
                   >
                     <span className="w-0 h-[1.5px] bg-orange-500 group-hover:w-4 transition-all duration-300" />{" "}
                     {item.name}
@@ -300,7 +300,7 @@ const Footer = async ({
             <h3 className="text-white font-black uppercase tracking-[0.3em] text-[10px] mb-4 italic">
               Exclusive Feed
             </h3>
-            <p className="text-slate-400 text-[11px] mb-6 font-medium">
+            <p className="text-zinc-300 text-[11px] mb-6 font-medium">
               Join our inner circle for real-time deal drops.
             </p>
             <FooterNewsletter companyId={company_id} />
@@ -367,7 +367,7 @@ const Footer = async ({
         {/* Affiliate Link Disclosure */}
         {disclaimer?.disclaimer?.disclaimer && (
           <div
-            className="text-center text-[10px] font-bold text-slate-400 max-w-5xl mx-auto leading-relaxed border-t border-white/5 pt-8 italic tracking-wide uppercase opacity-60"
+            className="text-center text-[12px] font-bold text-zinc-300 max-w-5xl mx-auto leading-relaxed border-t border-white/5 pt-8 italic opacity-80"
             dangerouslySetInnerHTML={{
               __html: disclaimer?.disclaimer?.disclaimer || "",
             }}

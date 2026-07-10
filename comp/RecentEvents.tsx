@@ -58,16 +58,17 @@ const RecentEvents = async ({ companyId, mer_slug, mer_slug_type }: Props) => {
 
       <div className="container relative z-10 mx-auto px-4">
         {/* Header Section */}
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 mb-12">
-          <div className="flex-1 min-w-0">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="flex items-center gap-1.5 px-3 py-1 bg-white border border-[#FF5722]/20 rounded-full text-[10px] font-black text-[#FF5722] uppercase tracking-[0.2em] shadow-sm">
-                <Sparkles size={12} className="fill-[#FF5722]" />
-                Featured Events
-              </div>
-              <div className="h-px w-10 bg-slate-200" />
+        <div className="mb-12">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="flex items-center gap-1.5 px-3 py-1 bg-white border border-[#FF5722]/20 rounded-full text-[10px] font-black text-[#FF5722] uppercase tracking-[0.2em] shadow-sm">
+              <Sparkles size={12} className="fill-[#FF5722]" />
+              Featured Events
             </div>
+            <div className="h-px w-10 bg-slate-200" />
+          </div>
 
+          {/* Heading and Button Row */}
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-6">
             <h2 className="text-2xl md:text-3xl font-black text-[#1a1612] tracking-tight m-0 uppercase italic leading-tight">
               {firstWord && (
                 <span className="text-[#FF5722]">{firstWord} </span>
@@ -75,25 +76,26 @@ const RecentEvents = async ({ companyId, mer_slug, mer_slug_type }: Props) => {
               <span className="text-slate-800">{restWords || heading}</span>
             </h2>
 
-            {subText && (
-              <p className="mt-3 text-[10px] text-gray-500 text-lg leading-relaxed max-w-3xl font-medium">
-                {subText}
-              </p>
-            )}
+            <div className="shrink-0">
+              <Link
+                href={getEventsHref(event, mer_slug_type)}
+                className="group relative inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-wider px-7 py-3.5 rounded-lg bg-[#1a1612] text-white hover:bg-[#FF5722] transition-all duration-300 shadow-[0_10px_20px_rgba(0,0,0,0.1)]"
+              >
+                <span className="relative z-10">Explore All</span>
+                <ArrowRight
+                  size={14}
+                  className="relative z-10 group-hover:translate-x-1 transition-transform"
+                />
+              </Link>
+            </div>
           </div>
 
-          <div className="shrink-0">
-            <Link
-              href={getEventsHref(event, mer_slug_type)}
-              className="group relative inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-wider px-7 py-3.5 rounded-full bg-[#1a1612] text-white hover:bg-[#FF5722] transition-all duration-300 shadow-[0_10px_20px_rgba(0,0,0,0.1)]"
-            >
-              <span className="relative z-10">Explore All</span>
-              <ArrowRight
-                size={14}
-                className="relative z-10 group-hover:translate-x-1 transition-transform"
-              />
-            </Link>
-          </div>
+          {/* Description */}
+          {subText && (
+            <p className="text-[10px] text-gray-500 text-lg leading-relaxed max-w-3xl font-medium line-clamp-3 m-0">
+              {subText}
+            </p>
+          )}
         </div>
 
         {/* Cards Grid */}

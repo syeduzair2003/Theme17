@@ -157,7 +157,7 @@ const SearchBar = ({ companyId, mer_slug, slug_type, cat_slug }: Props) => {
     <Link
       key={merchant.merchant_name}
       href={getMerchantHref<SearchMerchant>(merchant, mer_slug, slug_type)}
-      className="flex flex-col items-center justify-center p-1.5 border border-white/5 rounded-xl bg-[#1A1A1A] hover:bg-[#FF5F1F]/10 hover:border-[#FF5F1F]/40 transition-all w-full h-[85px] group/item"
+      className="flex flex-col items-center justify-center p-1.5 border border-white/10 rounded-xl bg-[#1A1A1A] hover:bg-[#FF5F1F]/10 hover:border-[#FF5F1F]/40 transition-all w-full h-[85px] group/item"
     >
       <div className="h-[40px] w-full flex items-center justify-center mb-1 p-1">
         {merchant.merchant_logo ? (
@@ -214,7 +214,7 @@ const SearchBar = ({ companyId, mer_slug, slug_type, cat_slug }: Props) => {
       >
         <span
           className={`
-            absolute left-4 text-[11px] font-black text-white/40 tracking-[0.2em] pointer-events-none transition-all duration-300 uppercase hidden lg:block
+            absolute left-4 text-[11px] font-black text-zinc-300 tracking-[0.2em] pointer-events-none transition-all duration-300 uppercase hidden lg:block
             lg:group-hover:opacity-0 lg:group-hover:-translate-x-4 lg:group-focus-within:opacity-0 lg:group-focus-within:-translate-x-4
             ${search.length > 0 || isDropdownVisible ? "opacity-0 -translate-x-4" : "opacity-100"}
           `}
@@ -245,7 +245,7 @@ const SearchBar = ({ companyId, mer_slug, slug_type, cat_slug }: Props) => {
 
         <button
           type="button"
-          className="absolute right-0 top-0 bottom-0 w-10 flex items-center justify-center text-white/30 lg:text-white/30 group-hover:text-[#FF5F1F] group-focus-within:text-[#FF5F1F] transition-all z-20"
+          className="absolute right-0 top-0 bottom-0 w-10 flex items-center justify-center text-zinc-300 lg:text-text-zinc-300 group-hover:text-[#FF5F1F] group-focus-within:text-[#FF5F1F] transition-all z-20"
           onClick={submitSearchNow}
         >
           <FontAwesomeIcon icon={faSearch} className="w-3.5 h-3.5" />
