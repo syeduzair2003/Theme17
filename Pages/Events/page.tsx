@@ -10,7 +10,7 @@ const page = async () => {
   const events = (await apiGetAllEvents(companyDomain)).data;
 
   return (
-    <div className="bg-[#110e0c] min-h-screen text-white font-sans">
+    <div className="bg-[#fafafa] min-h-screen text-slate-800 font-sans">
       <BreadcrumbSection
         title="Events"
         breadcrumbs={[
@@ -20,9 +20,8 @@ const page = async () => {
       />
 
       <section className="py-12 md:py-16 px-4 relative">
-        {/* Background */}
-        <div className="absolute top-1/4 left-0 w-64 h-64 bg-[#FF5F1F]/5 rounded-full blur-[100px] pointer-events-none"></div>
-        <div className="absolute bottom-1/4 right-0 w-64 h-64 bg-[#FF5F1F]/5 rounded-full blur-[100px] pointer-events-none"></div>
+        <div className="absolute top-1/4 left-0 w-64 h-64 bg-[#FF5F1F]/[0.02] rounded-full blur-[100px] pointer-events-none"></div>
+        <div className="absolute bottom-1/4 right-0 w-64 h-64 bg-[#FF5F1F]/[0.02] rounded-full blur-[100px] pointer-events-none"></div>
 
         <div className="container mx-auto max-w-4xl">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-y-6 md:gap-y-10 gap-x-8 lg:gap-x-12">
@@ -38,18 +37,19 @@ const page = async () => {
                       href={getEventsHref(event, "slug")}
                       className="group block relative"
                     >
-                      <span className="absolute -top-5 left-1 text-3xl font-black text-white/5 group-hover:text-[#FF5F1F]/20 transition-all duration-500">
+                      <span className="absolute -top-5 left-1 text-3xl font-black text-black/[0.04] group-hover:text-[#FF5F1F]/15 transition-all duration-500">
                         {index + 1 < 10 ? `0${index + 1}` : index + 1}
                       </span>
 
-                      <div className="relative bg-[#141210] border border-white/5 rounded-[2.5rem] overflow-hidden p-7 md:p-9 transition-all duration-500 hover:border-[#FF5F1F]/30 shadow-2xl">
+                      {/* Layout Event Card */}
+                      <div className="relative bg-white border border-slate-200 rounded-[2.5rem] overflow-hidden p-7 md:p-9 transition-all duration-500 hover:border-[#FF5F1F]/60 hover:shadow-[0_20px_45px_rgba(0,0,0,0.06)] shadow-sm">
                         <div className="w-10 h-1 bg-[#FF5F1F] mb-8 group-hover:w-20 transition-all duration-700"></div>
 
                         <div className="space-y-4">
-                          <h3 className="text-xl md:text-3xl font-black tracking-tighter leading-tight group-hover:text-[#FF5F1F] transition-colors duration-300">
+                          <h3 className="text-xl md:text-3xl font-black tracking-tighter leading-tight text-slate-800 group-hover:text-[#FF5F1F] transition-colors duration-300">
                             {event?.name}
                           </h3>
-                          <p className="text-gray-500 text-xs md:text-sm max-w-[220px] leading-relaxed opacity-80">
+                          <p className="text-slate-500 text-xs md:text-sm max-w-[220px] leading-relaxed opacity-90">
                             Exclusive affiliate offers and verified deals
                             curated for this event.
                           </p>
@@ -61,7 +61,7 @@ const page = async () => {
                             <div className="w-10 h-[1px] bg-[#FF5F1F]"></div>
                           </div>
 
-                          <div className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-500">
+                          <div className="w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center text-slate-600 group-hover:bg-[#FF5F1F] group-hover:text-white group-hover:border-[#FF5F1F] transition-all duration-500">
                             <svg
                               className="w-4 h-4"
                               fill="none"
@@ -78,7 +78,7 @@ const page = async () => {
                           </div>
                         </div>
 
-                        <div className="absolute inset-0 bg-gradient-to-tr from-[#FF5F1F]/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                        <div className="absolute inset-0 bg-gradient-to-tr from-[#FF5F1F]/[0.02] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                       </div>
                     </Link>
                   </div>
@@ -86,7 +86,7 @@ const page = async () => {
               })
             ) : (
               <div className="col-span-full py-20 text-center">
-                <h3 className="text-xl text-gray-700 font-bold tracking-widest uppercase">
+                <h3 className="text-xl text-slate-400 font-bold tracking-widest uppercase">
                   Stay Tuned
                 </h3>
               </div>

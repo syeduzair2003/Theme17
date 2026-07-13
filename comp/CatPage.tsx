@@ -12,9 +12,9 @@ const CatPage = async ({ company_id }: Props) => {
 
   if (!categoryData || categoryData?.length === 0) {
     return (
-      <section className="py-24 flex justify-center items-center min-h-[50vh] bg-[#1a1612]">
-        <div className="text-center p-12 bg-white/[0.03] backdrop-blur-xl shadow-2xl rounded-3xl border border-white/10 max-w-md w-full relative overflow-hidden group">
-          <div className="w-20 h-20 mx-auto mb-6 bg-white/5 text-[#FF5F1F] rounded-full flex items-center justify-center border border-white/10 transition-colors duration-300">
+      <section className="py-24 flex justify-center items-center min-h-[50vh] bg-[#fafafa]">
+        <div className="text-center p-12 bg-white shadow-xl rounded-3xl border border-slate-200 max-w-md w-full relative overflow-hidden group">
+          <div className="w-20 h-20 mx-auto mb-6 bg-slate-50 text-[#FF5F1F] rounded-full flex items-center justify-center border border-slate-200 transition-colors duration-300">
             <svg
               className="w-10 h-10"
               fill="none"
@@ -30,10 +30,10 @@ const CatPage = async ({ company_id }: Props) => {
               />
             </svg>
           </div>
-          <h3 className="text-2xl font-bold text-white mb-3">
+          <h3 className="text-2xl font-bold text-slate-800 mb-3">
             No Categories Found
           </h3>
-          <p className="text-white/50 leading-relaxed text-sm">
+          <p className="text-slate-500 leading-relaxed text-sm">
             It looks like there are no categories available right now. Please
             check back later.
           </p>
@@ -64,17 +64,17 @@ const CatPage = async ({ company_id }: Props) => {
 
     return (
       <ul
-        className={`flex flex-col gap-1.5 ${depth > 0 ? "ml-4 mt-1.5 pl-4 border-l border-white/5" : "mt-2"}`}
+        className={`flex flex-col gap-1.5 ${depth > 0 ? "ml-4 mt-1.5 pl-4 border-l border-slate-200" : "mt-2"}`}
       >
         {sortedChildren?.map((child, idx) => {
           if (typeof child === "string") {
             return (
               <li
                 key={idx}
-                className="group/link flex items-center text-[14px] text-white/50 hover:text-[#FF5F1F] transition-all duration-300 py-1"
+                className="group/link flex items-center text-[14px] text-slate-600 hover:text-[#FF5F1F] transition-all duration-300 py-1"
               >
                 <span className="relative flex items-center justify-center w-4 h-4 mr-2 shrink-0">
-                  <span className="absolute w-1 h-1 rounded-full bg-white/20 transition-all duration-200 group-hover/link:scale-0"></span>
+                  <span className="absolute w-1 h-1 rounded-full bg-slate-300 transition-all duration-200 group-hover/link:scale-0"></span>
                   <svg
                     className="absolute w-3.5 h-3.5 text-[#FF5F1F] opacity-0 scale-50 transition-all duration-300 group-hover/link:opacity-100 group-hover/link:scale-100"
                     fill="none"
@@ -100,10 +100,10 @@ const CatPage = async ({ company_id }: Props) => {
             <li key={idx} className="flex flex-col">
               <Link
                 href={child?.url || "#"}
-                className="group/link flex items-center text-[14px] text-white/50 hover:text-[#FF5F1F] transition-all duration-300 py-1"
+                className="group/link flex items-center text-[14px] text-slate-600 hover:text-[#FF5F1F] transition-all duration-300 py-1"
               >
                 <span className="relative flex items-center justify-center w-4 h-4 mr-2 shrink-0">
-                  <span className="absolute w-1 h-1 rounded-full bg-white/20 transition-all duration-200 group-hover/link:scale-0"></span>
+                  <span className="absolute w-1 h-1 rounded-full bg-slate-300 transition-all duration-200 group-hover/link:scale-0"></span>
                   <svg
                     className="absolute w-3.5 h-3.5 text-[#FF5F1F] opacity-0 scale-50 transition-all duration-300 group-hover/link:opacity-100 group-hover/link:scale-100"
                     fill="none"
@@ -132,9 +132,9 @@ const CatPage = async ({ company_id }: Props) => {
   };
 
   return (
-    <section className="py-12 lg:py-20 bg-[#110e0c] min-h-screen relative overflow-hidden">
-      <div className="absolute top-1/4 left-0 w-96 h-96 bg-[#FF5F1F]/[0.02] rounded-full blur-[100px] pointer-events-none"></div>
-      <div className="absolute bottom-1/4 right-0 w-80 h-80 bg-[#FF5F1F]/[0.02] rounded-full blur-[100px] pointer-events-none"></div>
+    <section className="py-12 lg:py-20 bg-[#fafafa] min-h-screen relative overflow-hidden text-slate-800">
+      <div className="absolute top-1/4 left-0 w-96 h-96 bg-[#FF5F1F]/[0.03] rounded-full blur-[100px] pointer-events-none"></div>
+      <div className="absolute bottom-1/4 right-0 w-80 h-80 bg-[#FF5F1F]/[0.03] rounded-full blur-[100px] pointer-events-none"></div>
 
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="columns-1 md:columns-2 lg:columns-3 xl:columns-4 gap-6 sm:gap-8 space-y-6 sm:space-y-8">
@@ -144,20 +144,21 @@ const CatPage = async ({ company_id }: Props) => {
 
             return (
               <div className="break-inside-avoid" key={idx}>
-                <div className="relative group bg-white/[0.03] backdrop-blur-md rounded-2xl shadow-2xl border border-white/5 hover:border-[#FF5F1F]/30 pt-8 p-6 sm:px-7 sm:pb-8 transition-all duration-500 overflow-hidden transform hover:-translate-y-2">
-                  <div className="absolute top-0 left-0 w-full h-[3px] bg-white/5 overflow-hidden">
+                {/* Prominent Layout Cards */}
+                <div className="relative group bg-white rounded-2xl shadow-sm border border-slate-200 hover:border-[#FF5F1F]/60 pt-8 p-6 sm:px-7 sm:pb-8 transition-all duration-500 overflow-hidden transform hover:-translate-y-2">
+                  <div className="absolute top-0 left-0 w-full h-[3px] bg-slate-100 overflow-hidden">
                     <div className="w-full h-full bg-gradient-to-r from-transparent via-[#FF5F1F] to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-in-out"></div>
                   </div>
 
                   <div className="relative z-10">
                     <Link href={cat?.category?.url || "#"}>
-                      <div className="flex items-center gap-4 mb-6 pb-5 border-b border-white/5 group/title cursor-pointer">
-                        <div className="w-12 h-12 shrink-0 rounded-xl bg-white/5 text-white/70 border border-white/10 group-hover/title:bg-[#FF5F1F] group-hover/title:text-white group-hover/title:border-[#FF5F1F] group-hover/title:shadow-[0_0_15px_rgba(255,95,31,0.4)] transition-all duration-500 flex items-center justify-center">
+                      <div className="flex items-center gap-4 mb-6 pb-5 border-b border-slate-100 group/title cursor-pointer">
+                        <div className="w-12 h-12 shrink-0 rounded-xl bg-slate-50 text-slate-700 border border-slate-200 group-hover/title:bg-[#FF5F1F] group-hover/title:text-white group-hover/title:border-[#FF5F1F] group-hover/title:shadow-[0_0_15px_rgba(255,95,31,0.4)] transition-all duration-500 flex items-center justify-center">
                           <span className="text-xl font-black">
                             {firstLetter}
                           </span>
                         </div>
-                        <h4 className="text-[18px] font-black text-white group-hover/title:text-[#FF5F1F] transition-colors duration-300 leading-tight tracking-tight">
+                        <h4 className="text-[18px] font-black text-slate-800 group-hover/title:text-[#FF5F1F] transition-colors duration-300 leading-tight tracking-tight">
                           {cat?.category?.name}
                         </h4>
                       </div>
@@ -168,7 +169,7 @@ const CatPage = async ({ company_id }: Props) => {
                     </div>
                   </div>
 
-                  <div className="absolute -bottom-10 -right-10 w-24 h-24 bg-[#FF5F1F]/[0.03] rounded-full blur-2xl group-hover:bg-[#FF5F1F]/[0.1] transition-colors duration-500"></div>
+                  <div className="absolute -bottom-10 -right-10 w-24 h-24 bg-[#FF5F1F]/[0.01] rounded-full blur-2xl group-hover:bg-[#FF5F1F]/[0.06] transition-colors duration-500"></div>
                 </div>
               </div>
             );

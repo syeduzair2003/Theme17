@@ -22,9 +22,9 @@ const MerchantCard = ({
   return (
     <Link
       href={href}
-      className="group flex flex-col p-6 bg-[#161412] rounded-[2rem] border border-zinc-800/60 transition-all duration-500 hover:border-[#ff912f]/40 hover:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.85)] hover:-translate-y-1.5 relative overflow-hidden no-underline h-[240px]"
+      className="group flex flex-col p-6 bg-white rounded-[2rem] border border-slate-200 shadow-sm transition-all duration-500 hover:border-[#ff912f]/60 hover:shadow-[0_20px_45px_rgba(0,0,0,0.06)] hover:-translate-y-1.5 relative overflow-hidden no-underline h-[240px]"
     >
-      <div className="absolute inset-0 bg-gradient-to-b from-white/[0.01] to-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/[0.01] to-transparent pointer-events-none" />
 
       <div className="absolute -top-12 -left-12 w-32 h-32 bg-[#ff912f]/5 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
 
@@ -36,26 +36,27 @@ const MerchantCard = ({
                 src={getBaseImageUrl(companyDomain, merchant.merchant_logo, "")}
                 alt={merchant.merchant_name}
                 fill
-                className="object-contain filter brightness-[0.95] group-hover:brightness-100 transition-all duration-500"
+                className="object-contain filter transition-all duration-500"
                 unoptimized
               />
             </div>
           ) : (
-            <div className="w-16 h-16 rounded-full bg-black/40 flex items-center justify-center border border-zinc-800 transition-all duration-500 group-hover:border-[#ff912f]/30 shadow-inner">
-              <span className="text-2xl font-light text-zinc-500 group-hover:text-[#ff912f] transition-colors duration-500 font-mono">
+            <div className="w-16 h-16 rounded-full bg-slate-50 flex items-center justify-center border border-slate-200 transition-all duration-500 group-hover:border-[#ff912f]/30 shadow-inner">
+              <span className="text-2xl font-light text-slate-400 group-hover:text-[#ff912f] transition-colors duration-500 font-mono">
                 {firstLetter}
               </span>
             </div>
           )}
         </div>
 
+        {/* BOTTOM TEXT / BUTTON SLIDE ACTION LAYER */}
         <div className="relative h-[48px] w-full flex items-center justify-center overflow-hidden">
-          <h3 className="text-[15px] font-bold tracking-wide text-zinc-200 text-center line-clamp-1 w-full m-0 transition-all duration-500 ease-out transform group-hover:-translate-y-10 group-hover:opacity-0 px-2">
+          <h3 className="text-[15px] font-bold tracking-wide text-slate-800 text-center line-clamp-1 w-full m-0 transition-all duration-500 ease-out transform group-hover:-translate-y-10 group-hover:opacity-0 px-2">
             {merchant.merchant_name}
           </h3>
 
           <div className="absolute inset-0 flex items-center justify-center translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 ease-out">
-            <span className="inline-flex items-center justify-center gap-1.5 bg-[#ff912f] text-white px-6 py-2.5 rounded-full text-[11px] font-extrabold tracking-widest uppercase shadow-lg shadow-[#ff912f]/10 hover:bg-[#e07d24] transition-colors duration-300 w-full max-w-[160px]">
+            <span className="inline-flex items-center justify-center gap-1.5 bg-[#ff912f] text-white px-6 py-2.5 rounded-full text-[11px] font-extrabold tracking-widest uppercase shadow-lg shadow-[#ff912f]/15 hover:bg-[#e07d24] transition-colors duration-300 w-full max-w-[160px]">
               Visit Store
               <svg
                 xmlns="http://www.w3.org/2000/svg"
