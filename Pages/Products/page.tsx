@@ -11,7 +11,7 @@ const page = async () => {
   const merchants = (await apiGetProductMerchants(companyData?.unique_id)).data;
 
   return (
-    <div className="bg-[#110e0c] min-h-screen text-white">
+    <div className="bg-[#fafafa] min-h-screen text-slate-800 font-sans">
       <BreadcrumbSection
         title="Branded Products"
         breadcrumbs={[
@@ -21,18 +21,20 @@ const page = async () => {
       />
 
       <section className="pt-16 pb-20">
-        <div className="container px-4 sm:px-6">
+        <div className="container px-4 sm:px-6 mx-auto">
+          {/* Header Section */}
           <div className="mb-14 text-center max-w-2xl mx-auto">
-            <h2 className="text-3xl md:text-5xl font-black text-white mb-5 tracking-tight">
+            <h2 className="text-3xl md:text-5xl font-black text-slate-800 mb-5 tracking-tight">
               Explore Our <span className="text-[#ff912f]">Top Brands</span>
             </h2>
             <div className="h-1 w-20 bg-[#ff912f] mx-auto mb-6 rounded-full" />
-            <p className="text-gray-400 text-sm md:text-base font-medium leading-relaxed">
+            <p className="text-slate-500 text-sm md:text-base font-medium leading-relaxed">
               Discover exclusive deals and premium products from your favorite
               merchants, all curated in one place.
             </p>
           </div>
 
+          {/* Grid Area */}
           {merchants?.length > 0 ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 md:gap-10">
               {merchants.map((item: any, i: number) => (
@@ -51,18 +53,18 @@ const page = async () => {
               ))}
             </div>
           ) : (
-            <div className="flex flex-col items-center justify-center py-24 px-6 text-center bg-[#111318] rounded-[3rem] border border-white/5 shadow-2xl">
-              <div className="w-24 h-24 bg-[#1a1c23] rounded-full flex items-center justify-center mb-8 border border-white/10 shadow-inner">
-                <span className="text-5xl opacity-80">🛍️</span>
+            <div className="flex flex-col items-center justify-center py-24 px-6 text-center bg-white rounded-[3rem] border border-slate-200 shadow-sm max-w-2xl mx-auto">
+              <div className="w-24 h-24 bg-slate-50 rounded-full flex items-center justify-center mb-8 border border-slate-200 shadow-inner">
+                <span className="text-5xl opacity-90">🛍️</span>
               </div>
-              <h3 className="text-2xl font-black text-white">
+              <h3 className="text-2xl font-black text-slate-800">
                 No Merchants Found
               </h3>
-              <p className="text-gray-500 mt-4 max-w-xs mx-auto font-medium">
-                We&apos;re currently updating our catalog. Check back soon for new
-                premium products!
+              <p className="text-slate-500 mt-4 max-w-xs mx-auto font-medium">
+                We&apos;re currently updating our catalog. Check back soon for
+                new premium products!
               </p>
-              <button className="mt-10 bg-white text-[#111318] px-10 py-3.5 rounded-2xl font-black text-xs uppercase tracking-[0.2em] hover:bg-[#ff912f] hover:text-white transition-all duration-500 shadow-xl shadow-black/20">
+              <button className="mt-10 bg-[#ff912f] text-white px-10 py-3.5 rounded-2xl font-black text-xs uppercase tracking-[0.2em] hover:bg-[#e07d24] transition-all duration-500 shadow-lg shadow-[#ff912f]/15">
                 Refresh Page
               </button>
             </div>

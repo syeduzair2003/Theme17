@@ -232,7 +232,7 @@ const OffersListView = ({
                   outUrl={product?.offer?.url}
                   merchantHref={merchantHref}
                   domain={domain}
-                  customClass="flex items-center justify-center bg-neutral-950 hover:bg-[#FF5A00] text-white hover:text-neutral-950 text-[11px] font-extrabold uppercase tracking-wider rounded-full py-2.5 px-4 transition-all duration-200 w-full text-center shadow-xs"
+                  customClass="flex items-center justify-center bg-neutral-950 hover:bg-[#FF5A00] text-white hover:text-white text-[11px] font-extrabold uppercase tracking-wider rounded-full py-2.5 px-4 transition-all duration-200 w-full text-center shadow-xs"
                 >
                   <span>
                     {product?.offer?.offer_type?.name === "product"

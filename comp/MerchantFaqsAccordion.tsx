@@ -15,11 +15,11 @@ const MerchantFaqsAccordion = ({ faq, index }: { faq: any; index: number }) => {
     >
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full flex justify-between items-center p-5 text-left select-none"
+        className="w-full flex justify-between items-center py-3 px-4 text-left select-none"
       >
         <span
-          className={`font-extrabold pr-4 transition-colors duration-200 text-sm md:text-[15px] uppercase tracking-tight ${
-            isOpen ? "text-orange-600" : "text-black"
+          className={`font-bold pr-4 transition-colors duration-200 text-[13px] md:text-[15px] tracking-tight ${
+            isOpen ? "text-orange-600" : "text-bold"
           }`}
         >
           {faq.question}
@@ -28,7 +28,7 @@ const MerchantFaqsAccordion = ({ faq, index }: { faq: any; index: number }) => {
           className={`flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-200 ${
             isOpen
               ? "bg-black text-orange-500 border border-black"
-              : "bg-white border border-slate-200 text-black"
+              : "bg-white border border-slate-200 text-bold"
           }`}
         >
           {isOpen ? (
@@ -46,7 +46,7 @@ const MerchantFaqsAccordion = ({ faq, index }: { faq: any; index: number }) => {
       >
         <div className="px-5 pb-5 text-slate-600 leading-relaxed font-medium">
           <div
-            className="pt-4 border-t border-slate-200/50 text-[13px] md:text-[14px]"
+            className="pt-4 border-t border-slate-200/50 text-[11px] md:text-[12px]"
             dangerouslySetInnerHTML={{ __html: faq.answer }}
           />
         </div>

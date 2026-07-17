@@ -12,6 +12,7 @@ import Image from "next/image";
 import CategorySidebar from "./CategorySidebar";
 import { getBaseImageUrl } from "@/constants/hooks";
 import cookieService from "@/services/CookiesService";
+import DynamicStickyLayout from "@/components/Theme-17/comp/DynamicStickyLayout";
 
 interface Props {
   page?: string;
@@ -82,73 +83,73 @@ const ProductsLayout = async ({
 
       <section className="py-12 relative w-full bg-gradient-to-b from-gray-50/80 via-[#FF5A00]/[0.02] to-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <div className="flex flex-col lg:flex-row gap-8 lg:gap-10">
-            <div className="w-full lg:w-[30%] flex flex-col gap-10 order-2 lg:order-1">
-              {/* CATEGORY SIDEBAR */}
-              {categories?.length > 0 && (
-                <div className="bg-white rounded-[2rem] p-2 shadow-[0_20px_60px_rgba(0,0,0,0.03)] border border-gray-100 overflow-hidden relative">
-                  <div className="absolute -top-10 -right-10 w-24 h-24 bg-[#FF5A00]/[0.03] rounded-full blur-2xl" />
-                  <CategorySidebar
-                    categories={categories}
-                    pageSlug="all-products"
-                    parentCategory={categoryName}
-                  />
-                </div>
-              )}
+          
+          <DynamicStickyLayout
+            sidebarPosition="left"
+            hasSidebar={categories?.length > 0}
+            hasBanners={suggestedMerchants && suggestedMerchants.length > 0}
+            
+            rightSidebar={
+              <div className="bg-white rounded-[2rem] p-2 shadow-[0_20px_60px_rgba(0,0,0,0.03)] border border-gray-100 overflow-hidden relative">
+                <div className="absolute -top-10 -right-10 w-24 h-24 bg-[#FF5A00]/[0.03] rounded-full blur-2xl" />
+                <CategorySidebar
+                  categories={categories}
+                  pageSlug="all-products"
+                  parentCategory={categoryName}
+                />
+              </div>
+            }
 
-              {/* SIMILAR STORES */}
-              {suggestedMerchants && suggestedMerchants.length > 0 && (
-                <div className="bg-white rounded-[2rem] p-7 shadow-[0_20px_60px_rgba(0,0,0,0.03)] border border-gray-100 overflow-hidden relative">
-                  <div className="absolute -top-10 -right-10 w-24 h-24 bg-[#FF5A00]/[0.03] rounded-full blur-2xl" />
+            rightBanners={
+              <div className="bg-white rounded-[2rem] p-7 shadow-[0_20px_60px_rgba(0,0,0,0.03)] border border-gray-100 overflow-hidden relative">
+                <div className="absolute -top-10 -right-10 w-24 h-24 bg-[#FF5A00]/[0.03] rounded-full blur-2xl" />
 
-                  <h4 className="text-lg font-black text-[#111318] mb-6 pb-4 border-b border-gray-50 flex items-center justify-between relative z-10">
-                    Similar Stores
+                <h4 className="text-lg font-black text-[#111318] mb-6 pb-4 border-b border-gray-50 flex items-center justify-between relative z-10">
+                  Similar Stores
+                  <Link
+                    href="/all-stores/A"
+                    className="text-[9px] font-black uppercase tracking-[0.2em] text-[#FF5A00] hover:translate-x-1 transition-transform inline-flex items-center"
+                  >
+                    See All
+                  </Link>
+                </h4>
+
+                <div className="flex flex-col gap-4 relative z-10">
+                  {suggestedMerchants?.slice(0, 5).map((merchant: any) => (
                     <Link
-                      href="/all-stores/A"
-                      className="text-[9px] font-black uppercase tracking-[0.2em] text-[#FF5A00] hover:translate-x-1 transition-transform inline-flex items-center"
+                      key={merchant.unique_id}
+                      href={`/${storeSlug}/${merchant.slug}`}
+                      className="group flex items-center gap-4 p-3 rounded-2xl hover:bg-[#111318]/[0.02] transition-all duration-300"
                     >
-                      See All
+                      <div className="w-[64px] h-[64px] bg-white border border-gray-100 rounded-xl flex items-center justify-center p-2 shadow-sm group-hover:shadow-[0_8px_20px_rgba(255,90,0,0.12)] group-hover:border-[#FF5A00]/20 transition-all duration-300 relative overflow-hidden">
+                        <Image
+                          src={getBaseImageUrl(
+                            companyDomain,
+                            merchant.merchant_logo,
+                            "",
+                          )}
+                          alt={merchant.merchant_name}
+                          width={50}
+                          height={50}
+                          className="object-contain filter grayscale group-hover:grayscale-0 opacity-80 group-hover:opacity-100 transition-all drop-shadow-sm group-hover:scale-110 duration-500"
+                        />
+                      </div>
+                      <div className="flex flex-col w-[calc(100%-80px)]">
+                        <span className="text-sm font-bold text-[#111318] group-hover:text-[#FF5A00] transition-colors line-clamp-1 truncate block tracking-tight">
+                          {merchant.merchant_name}
+                        </span>
+                        <span className="text-[9px] font-black text-gray-400 uppercase tracking-widest mt-1.5 flex items-center gap-1.5">
+                          <span className="w-1 h-1 rounded-full bg-[#FF5A00]" />
+                          {merchant?.offer_count || "New"} Active Offers
+                        </span>
+                      </div>
                     </Link>
-                  </h4>
-
-                  <div className="flex flex-col gap-4 relative z-10">
-                    {suggestedMerchants.slice(0, 5).map((merchant: any) => (
-                      <Link
-                        key={merchant.unique_id}
-                        href={`/${storeSlug}/${merchant.slug}`}
-                        className="group flex items-center gap-4 p-3 rounded-2xl hover:bg-[#111318]/[0.02] transition-all duration-300"
-                      >
-                        <div className="w-[64px] h-[64px] bg-white border border-gray-100 rounded-xl flex items-center justify-center p-2 shadow-sm group-hover:shadow-[0_8px_20px_rgba(255,90,0,0.12)] group-hover:border-[#FF5A00]/20 transition-all duration-300 relative overflow-hidden">
-                          <Image
-                            src={getBaseImageUrl(
-                              companyDomain,
-                              merchant.merchant_logo,
-                              "",
-                            )}
-                            alt={merchant.merchant_name}
-                            width={50}
-                            height={50}
-                            className="object-contain filter grayscale group-hover:grayscale-0 opacity-80 group-hover:opacity-100 transition-all drop-shadow-sm group-hover:scale-110 duration-500"
-                          />
-                        </div>
-                        <div className="flex flex-col w-[calc(100%-80px)]">
-                          <span className="text-sm font-bold text-[#111318] group-hover:text-[#FF5A00] transition-colors line-clamp-1 truncate block tracking-tight">
-                            {merchant.merchant_name}
-                          </span>
-                          <span className="text-[9px] font-black text-gray-400 uppercase tracking-widest mt-1.5 flex items-center gap-1.5">
-                            <span className="w-1 h-1 rounded-full bg-[#FF5A00]" />
-                            {merchant?.offer_count || "New"} Active Offers
-                          </span>
-                        </div>
-                      </Link>
-                    ))}
-                  </div>
+                  ))}
                 </div>
-              )}
-            </div>
+              </div>
+            }
 
-            {/* PRODUCT OFFERS */}
-            <div className="w-full lg:w-[70%] order-1 lg:order-2">
+            leftOffers={
               <ProductOffers
                 category_id={categoryId}
                 page={page}
@@ -157,8 +158,8 @@ const ProductsLayout = async ({
                 mer_slug_type={slugType}
                 slug={slug}
               />
-            </div>
-          </div>
+            }
+          />
         </div>
       </section>
     </div>

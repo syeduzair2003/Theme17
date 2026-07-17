@@ -17,7 +17,7 @@ export default function PaginatedOffers({
   companyDomain: any;
 }) {
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 15;
+  const itemsPerPage = 24;
 
   const topRef = useRef<HTMLDivElement>(null);
 

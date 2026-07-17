@@ -8,9 +8,9 @@ import {
 import BreadcrumbSection from "@/components/Theme-17/comp/BreadcrumbSection";
 import CategoryOffers from "@/components/Theme-17/comp/CategoryOffers";
 import CategorySidebar from "@/components/Theme-17/comp/CategorySidebar";
-import OfferCard from "@/components/Theme-17/comp/offerCard";
 import RoundedMerchant from "@/components/Theme-17/comp/RoundedMerchant";
 import VerticalCategoryOfferBanner from "@/components/Theme-17/comp/VerticalCategoryOfferBanner";
+import DynamicStickyLayout from "@/components/Theme-17/comp/DynamicStickyLayout"; // <-- Custom Sticky Component Imported Here
 import { filterOfferBanners } from "@/constants/hooks";
 import cookieService from "@/services/CookiesService";
 import { notFound, redirect } from "next/navigation";
@@ -112,20 +112,40 @@ const CategoryMerchantPage = async ({ params }: Props) => {
         </div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
-          <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-start">
-            {/* Left Sidebar */}
-            <aside className="w-full lg:w-[30%] flex flex-col gap-8 order-2 lg:order-1 sticky top-24">
-              {categories?.categories?.length > 0 && (
-                <div className="bg-white p-1 rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.03)] border border-gray-50 overflow-hidden transition-all duration-500">
-                  <CategorySidebar
-                    categories={categories?.categories}
-                    pageSlug="category"
-                    parentCategory={catRes?.name}
-                  />
-                </div>
-              )}
-
-              {/* Vertical Banner */}
+          <DynamicStickyLayout
+            sidebarPosition="left"
+            hasSidebar={categories?.categories?.length > 0}
+            hasBanners={initialFiltered?.length > 0}
+            leftTitle={
+              <div className="text-left border-b border-gray-100 pb-6 w-full">
+                <h2 className="text-2xl md:text-3xl font-black text-[#1a1612] tracking-tight">
+                  Exclusive Offers <span className="text-[#FF5A00]">.</span>
+                </h2>
+                <p className="text-gray-400 text-sm mt-1 uppercase tracking-widest font-medium">
+                  Verified deals in {catRes?.name}
+                </p>
+              </div>
+            }
+            leftOffers={
+              <CategoryOffers
+                category_id={categoryId}
+                url_slug={categorySlug?.split("/")}
+                page={page?.toString()}
+                company_id={c_data?.unique_id}
+                mer_slug={c_data?.store_slug}
+                mer_slug_type={c_data?.slug_type}
+              />
+            }
+            rightSidebar={
+              <div className="bg-white p-1 rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.03)] border border-gray-50 overflow-hidden transition-all duration-500">
+                <CategorySidebar
+                  categories={categories?.categories}
+                  pageSlug="category"
+                  parentCategory={catRes?.name}
+                />
+              </div>
+            }
+            rightBanners={
               <div className="rounded-[2.5rem] overflow-hidden shadow-lg border border-gray-50 bg-white">
                 <VerticalCategoryOfferBanner
                   bannerResponse={initialFiltered}
@@ -136,31 +156,8 @@ const CategoryMerchantPage = async ({ params }: Props) => {
                   companyId={c_data?.unique_id}
                 />
               </div>
-            </aside>
-
-            {/* Content Area */}
-            <div className="w-full lg:w-[70%] order-1 lg:order-2">
-              <div className="mb-8 flex items-center justify-between border-b border-gray-100 pb-6">
-                <div>
-                  <h2 className="text-2xl md:text-3xl font-black text-[#1a1612] tracking-tight">
-                    Exclusive Offers <span className="text-[#FF5A00]">.</span>
-                  </h2>
-                  <p className="text-gray-400 text-sm mt-1 uppercase tracking-widest font-medium">
-                    Verified deals in {catRes?.name}
-                  </p>
-                </div>
-              </div>
-
-              <CategoryOffers
-                category_id={categoryId}
-                url_slug={categorySlug?.split("/")}
-                page={page?.toString()}
-                company_id={c_data?.unique_id}
-                mer_slug={c_data?.store_slug}
-                mer_slug_type={c_data?.slug_type}
-              />
-            </div>
-          </div>
+            }
+          />
         </div>
       </section>
     </div>

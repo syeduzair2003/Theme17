@@ -294,43 +294,47 @@ const OffersPage = async ({
                 )}
               </div>
 
-              {/* FAQs SECTION */}
-              {merchant_details?.data?.faqs &&
-                merchant_details.data.faqs.length > 0 && (
-                  <div className="bg-white rounded-xl p-6 md:p-8 border border-neutral-200/80 shadow-[0_2px_12px_rgba(0,0,0,0.03)] space-y-6">
-                    <div className="flex flex-col items-center text-center pb-6 border-b border-neutral-100">
-                      <div className="inline-flex items-center gap-2 bg-orange-50 border border-orange-100/60 px-3 py-1 rounded-full mb-3 select-none">
-                        <span className="w-1.5 h-1.5 bg-[#FF5A00] rounded-full animate-pulse" />
-                        <span className="text-[9px] font-black uppercase tracking-[0.25em] text-orange-600">
-                          FAQ CENTRE
-                        </span>
-                      </div>
+             {/* FAQs SECTION */}
+{merchant_details?.data?.faqs &&
+  merchant_details.data.faqs.length > 0 && (
+    <div className="bg-white rounded-xl p-6 md:p-8 border border-neutral-200/80 shadow-[0_2px_12px_rgba(0,0,0,0.03)] space-y-6">
+      <div className="flex flex-col items-center text-center pb-6 border-b border-neutral-100">
+        <div className="inline-flex items-center gap-2 bg-orange-50 border border-orange-100/60 px-3 py-1 rounded-full mb-3 select-none">
+          <span className="w-1.5 h-1.5 bg-[#FF5A00] rounded-full animate-pulse" />
+          <span className="text-[9px] font-black uppercase tracking-[0.25em] text-orange-600">
+            FAQ CENTRE
+          </span>
+        </div>
 
-                      {/* Dynamic Title */}
-                      <h2 className="text-base md:text-lg font-black uppercase tracking-tight text-neutral-950">
-                        Questions &{" "}
-                        <span className="text-[#FF5A00]">Expert Insights</span>
-                      </h2>
+        {/* Dynamic Title */}
+        <h2 className="text-base md:text-lg font-black uppercase tracking-tight text-neutral-950">
+          Questions &{" "}
+          <span className="text-[#FF5A00]">Expert Insights</span>
+        </h2>
 
-                      <div className="w-10 h-[3px] bg-[#FF5A00] rounded-full mt-2.5" />
-                    </div>
+        <div className="w-10 h-[3px] bg-[#FF5A00] rounded-full mt-2.5" />
+      </div>
 
-                    {/* Accordion Component */}
-                    <div className="custom-accordion-wrapper elite-accordion dynamic-faq-orange">
-                      <Accordion defaultActiveKey="0" flush>
-                        {merchant_details.data.faqs.map(
-                          (faq: any, i: number) => (
-                            <MerchantFaqsAccordion
-                              key={i}
-                              faq={faq}
-                              index={i}
-                            />
-                          ),
-                        )}
-                      </Accordion>
-                    </div>
-                  </div>
-                )}
+      {/* Accordion Component with Standalone Card Style & Spacing */}
+      <div className="custom-accordion-wrapper elite-accordion dynamic-faq-orange">
+        <Accordion 
+          defaultActiveKey="0" 
+          flush
+          className="space-y-3 !bg-transparent !border-0 [&>.accordion-item]:!rounded-2xl [&>.accordion-item]:!border [&>.accordion-item]:!border-neutral-200/80 [&>.accordion-item]:overflow-hidden [&>.accordion-item]:shadow-[0_2px_8px_rgba(0,0,0,0.02)] transition-all duration-300"
+        >
+          {merchant_details.data.faqs.map(
+            (faq: any, i: number) => (
+              <MerchantFaqsAccordion
+                key={i}
+                faq={faq}
+                index={i}
+              />
+            ),
+          )}
+        </Accordion>
+      </div>
+    </div>
+  )}
             </div>
 
             {/* SIDEBAR RIGHT COLUMN */}
