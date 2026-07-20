@@ -1,5 +1,5 @@
 import { apiGetMerchantUniqueId } from "@/apis/merchant";
-import { apiGetCategoryProducts, apiGetMerchantProducts } from "@/apis/user";
+import { apiGetCategoryProducts, apiGetMerchantProducts, apiGetUpdatedMerchantProducts } from "@/apis/user";
 import cookieService from "@/services/CookiesService";
 import React from "react";
 import BreadcrumbSection from "./BreadcrumbSection";
@@ -9,13 +9,18 @@ import {
   getMerchantHref,
   getProductDetailHref,
   splitHeading,
+  getMerchantProductsSeo,
+  getLastUpdateDate,
 } from "@/constants/hooks";
+import MerchantProductsSchema from '@/components/shared/SchemaScripts/ProductsMerchantSchema';
+import Pagination from './Pagination'
 
 interface Props {
   slug: string;
   companyId: string;
   storeSlug: string;
   slugType: string;
+  page?: number;
 }
 
 const MerchantProductsPage = async ({
@@ -23,13 +28,21 @@ const MerchantProductsPage = async ({
   companyId,
   storeSlug,
   slugType,
+  page, // 🔥 Prop destructure kiya pagination handle karne ke liye
 }: Props) => {
   const companyDomain = await cookieService.get("domain");
-  const [products, merRes, cat] = await Promise.all([
-    apiGetMerchantProducts(companyId, slug).then((res) => res.data),
+
+  // 🔥 Reference pattern ke mutabik apiGetUpdatedMerchantProducts use ki aur page pass kiya
+  const [productsRes, merRes, cat] = await Promise.all([
+    apiGetUpdatedMerchantProducts(companyId, slug, page).then((res) => res.data),
     apiGetMerchantUniqueId(slug, companyId).then((res) => res.data),
     apiGetCategoryProducts(companyId, slug).then((res) => res.data),
   ]);
+
+  // 🔥 Response se dynamic data aur pagination details map kar li
+  const products = productsRes?.products || [];
+  const pagination = productsRes?.pagination;
+  const baseUrl = `/products/${slug}`;
 
   const heading = `Trending Deals at ${merRes?.merchant_name}`;
   const [firstWord, restWords] = splitHeading(heading);
@@ -117,7 +130,25 @@ const MerchantProductsPage = async ({
             </div>
           )}
         </div>
+
+        {/* 🔥 PAGINATION INTEGRATION */}
+        {pagination && (
+          <div className="mt-12 flex justify-center">
+            <Pagination
+              currentPage={pagination.current_page}
+              totalPages={pagination.last_page}
+              baseUrl={baseUrl}
+            />
+          </div>
+        )}
       </div>
+      
+      {/* 🔥 SCHEMA SCRIPT INCLUSION */}
+      <MerchantProductsSchema 
+        company_id={companyId} 
+        merchantSlug={slug} 
+        merchantName={merRes?.merchant_name} 
+      />
     </div>
   );
 };

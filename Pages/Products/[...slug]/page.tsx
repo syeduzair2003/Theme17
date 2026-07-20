@@ -26,6 +26,7 @@ const page = async ({ params }: { params: Props }) => {
         companyId={companyData?.unique_id}
         storeSlug={companyData?.store_slug}
         slugType={companyData?.slug_type}
+        page={1}
       />
     );
   } else if (slug.length === 2) {
@@ -57,6 +58,23 @@ const page = async ({ params }: { params: Props }) => {
       );
     }
   } else if (slug.length === 3) {
+    if (slug[1] === "page") {
+      const pageNum = parseInt(slug[2], 10);
+      if (isNaN(pageNum) || pageNum < 1) return notFound();
+
+      return (
+        <MerchantProductsPage
+          key={`page-${pageNum}`}
+          slug={slug[0]}
+          companyId={companyData?.unique_id}
+          storeSlug={companyData?.store_slug}
+          slugType={companyData?.slug_type}
+          page={pageNum}
+        />
+      );
+    }
+
+    // /products/merchant/category/offer-detail
     const merRes = await apiGetMerchantUniqueId(slug[0], companyData.unique_id);
     const merchantId = merRes?.data?.unique_id;
     if (!merchantId) return notFound();
