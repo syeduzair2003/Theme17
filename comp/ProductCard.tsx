@@ -49,9 +49,10 @@ const ProductCard = ({
     (discountPercent ? `${discountPercent}% Off` : null);
 
   return (
-    <div className="group relative flex flex-col bg-white rounded-2xl transition-all duration-300 hover:shadow-[0_12px_30px_rgba(0,0,0,0.05)] w-full h-full border border-gray-100 flex-grow overflow-hidden">
+   <div className="group relative flex flex-col bg-white rounded-2xl transition-all duration-300 hover:shadow-[0_12px_30px_rgba(0,0,0,0.05)] w-full h-full border border-gray-300 flex-grow overflow-hidden">
       {/* IMAGE SECTION */}
-      <div className="relative w-full h-[155px] bg-[#fcfcfc] overflow-hidden flex items-center justify-center border-b border-gray-50/50">
+      {/* 🔥 Idhar se border-b hata diya hai kyunki niche custom gradient div add ki hai */}
+      <div className="relative w-full h-[155px] bg-[#fcfcfc] overflow-hidden flex items-center justify-center">
         <div className="absolute top-2.5 left-2.5 z-20">
           <span className="bg-[#111318] text-white text-[9px] font-black px-2 py-1 rounded-md tracking-tighter uppercase">
             {calculateOfferDuration(product?.end_date)}
@@ -74,6 +75,9 @@ const ProductCard = ({
             sizes="200px"
           />
         </div>
+
+        {/* 🔥 GRADIENT LINE: Center se dark, corners se fade/light */}
+        <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-gray-300 to-transparent" />
       </div>
 
       {/* INFO SECTION */}
