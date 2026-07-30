@@ -117,7 +117,7 @@ const CategoryMerchantPage = async ({ params }: Props) => {
             hasSidebar={categories?.categories?.length > 0}
             hasBanners={initialFiltered?.length > 0}
             leftTitle={
-              <div className="text-left border-b border-gray-100 pb-6 w-full">
+              <div className="w-full">
                 <h2 className="text-2xl md:text-3xl font-black text-[#1a1612] tracking-tight">
                   Exclusive Offers <span className="text-[#FF5A00]">.</span>
                 </h2>

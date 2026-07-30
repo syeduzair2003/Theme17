@@ -45,7 +45,7 @@ const HomepageFAQs = async ({ store_slug, slug_type }: Props) => {
               className="group bg-white border border-orange-200 shadow-md rounded-xl overflow-hidden transition-all duration-200 hover:bg-gray-50 hover:border-orange-200 hover:shadow-none"
             >
               <summary className="list-none flex justify-between items-center p-5 cursor-pointer select-none">
-                <span className="font-extrabold text-black pr-4 group-open:text-orange-600 transition-colors text-sm md:text-[15px] uppercase tracking-tight">
+                <span className="font-bold text-black pr-4 group-open:text-orange-600 transition-colors text-[11px] md:text-[13px] uppercase">
                   {faq.question}
                 </span>
                 <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-white border border-slate-200 flex items-center justify-center text-black group-open:bg-black group-open:text-orange-500 group-open:border-black transition-all duration-200">

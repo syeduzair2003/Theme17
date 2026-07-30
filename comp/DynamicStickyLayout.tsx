@@ -206,7 +206,7 @@ export default function DynamicStickyLayout({
           ) : (
             <>
               {leftTitle && (
-                <div className="mb-8 md:mb-12 text-center lg:text-left">
+                <div className="mb-6 text-center lg:text-left">
                   {leftTitle}
                 </div>
               )}

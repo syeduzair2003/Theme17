@@ -141,9 +141,9 @@ const PromotionOffersPage = async ({ params }: { params: string }) => {
             
             // 1. LEFT OFFERS SLOT (Main Stream Content)
             leftOffers={
-              <div className="flex flex-col gap-10">
+              <div className="flex flex-col gap-2">
                 {/* Section Header */}
-                <div className="flex flex-wrap items-center justify-between gap-6 bg-white p-6 md:p-10 rounded-[2.5rem] border border-neutral-100 shadow-[0_20px_50px_rgba(0,0,0,0.015)]">
+                <div className="flex flex-wrap items-center justify-between bg-white p-6 rounded-[2.5rem] border border-neutral-100 shadow-[0_20px_50px_rgba(0,0,0,0.015)]">
                   <div className="flex items-center gap-4">
                     <div className="w-12 h-12 bg-[#ff6b00]/10 rounded-2xl flex items-center justify-center">
                       <FontAwesomeIcon

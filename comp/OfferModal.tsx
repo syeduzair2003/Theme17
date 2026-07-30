@@ -219,7 +219,8 @@ const OfferModal = ({
           </button>
         </div>
 
-        <div className="overflow-y-auto flex-grow custom-scrollbar px-6 pt-6 pb-8 space-y-6">
+        {/* MAIN BODY SECTION */}
+        <div className="overflow-y-auto flex-grow no-scrollbar px-6 pt-6 pb-8 space-y-6">
           <div className="space-y-1">
             <span className="text-[9px] font-black uppercase tracking-[0.18em] text-[#FF5A00] block">
               ⚡ Exclusive Verified Offer
@@ -230,6 +231,7 @@ const OfferModal = ({
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+            {/* LEFT CONTAINER */}
             <div className="lg:col-span-7 bg-neutral-50/70 border border-neutral-200/60 rounded-xl p-5 space-y-4">
               <div className="space-y-1">
                 <span className="text-[9px] font-bold uppercase tracking-widest text-neutral-400 block">
@@ -283,7 +285,8 @@ const OfferModal = ({
               )}
             </div>
 
-            <div className="lg:col-span-5 border border-neutral-200/80 rounded-xl p-5 bg-white shadow-3xs">
+            {/* RIGHT CONTAINER */}
+            <div className="lg:col-span-5 border border-neutral-200/80 rounded-xl p-5 bg-white shadow-3xs lg:sticky lg:top-0 self-start">
               <div className="w-full">
                 <RateUs
                   offer_id={data?.unique_id || ""}
@@ -294,6 +297,7 @@ const OfferModal = ({
           </div>
         </div>
 
+        {/* FOOTER SECTION */}
         <div className="bg-neutral-50/90 border-t border-neutral-100 px-5 py-2 flex flex-row items-center justify-between gap-4 shrink-0 min-h-[48px]">
           <div className="flex items-center gap-3">
             <span className="text-[9px] font-black uppercase tracking-widest text-neutral-400 hidden xxs:block">
@@ -336,18 +340,12 @@ const OfferModal = ({
       </div>
 
       <style jsx>{`
-        .custom-scrollbar::-webkit-scrollbar {
-          width: 4px;
+        .no-scrollbar::-webkit-scrollbar {
+          display: none;
         }
-        .custom-scrollbar::-webkit-scrollbar-track {
-          background: transparent;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-          background: #e5e7eb;
-          border-radius: 10px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-          background: #cbd5e1;
+        .no-scrollbar {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
         }
 
         :global(.lifetime-badge-override) {
